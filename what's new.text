@@ -1,0 +1,11 @@
+
+
+
+
+April 28 ,2021 (ivan)
+    - Adding Backend to UserManagement
+    - Notes Please do.
+        - composer update
+        - php artisan migrate:fresh
+        - php artisan db:seed --class=FactorySeeder
+        - create UserPhoto folder inside public/images/

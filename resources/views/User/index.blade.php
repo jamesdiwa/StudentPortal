@@ -4,6 +4,13 @@
 
 @include('layouts.vtab')
 
+<style>
+.swal2-modal{
+    margin-left:42% !important;
+    margin-top:14% !important;
+}
+</style>
+
 <div class="content content-margin pb-2" id="content">
     <div class="row header-bg" style="margin-top: 70px">
         <div class="col-sm-12">
@@ -22,7 +29,6 @@
                     <label class="p-0 m-0 sub-title">Filter by</label>
                     <select name="" id="" class="form-control" style="background: #fbebd8; color: #A90011; border: none; font-weight: 600; ">
                         <option value="">All</option>
-                        <option value="">Student</option>
                         <option value="">Teacher</option>
                         <option value="">Admin</option>
                     </select>
@@ -33,16 +39,40 @@
                 </div>
             </div>
             
-            <div class="row mx-3 py-2">               
-                <a href='{{ url('user-show') }}' class="userSelection">
-                <div class="col-md-auto zoom">
-                        <img class="mx-auto d-block userSelection-photo" src="{{ asset('images/1.jpg') }}">
-                        <p class="mt-1 DivHeaderText text-center user-name">James Patrick Diwa</p>
-                        <small class="d-flex justify-content-center user-role">A117A0909 (ADMIN)</small>    
+                <div class="row mx-3 py-2">       
+                    @foreach($users as $user)        
+                    <a href='{{ route('user.show',$user->id) }}' class="userSelection">
+                    <div class="col-md-auto zoom">
+                        @if ($user->photoPath != null)
+                            <img class="mx-auto d-block userSelection-photo" src="{{ asset('images/UserPhoto/'.$user->photoPath) }}">
+                        @else
+                            <img class="mx-auto d-block userSelection-photo" src="{{ asset('images/1.jpg') }}">
+                        @endif
+                            <p class="mt-1 DivHeaderText text-center user-name">{{$user->firstName}} {{$user->middleName}} {{$user->lastName}}</p>
+                            <small class="d-flex justify-content-center user-role">({{$user->accountType}})</small>    
+                    </div>
+                    </a>
+                    @endforeach
                 </div>
-                </a>
-            </div>
+          
+
+
         </div>
     </div>
 </div>
+
+<script>
+
+var msg = "{{Session::get('success')}}";
+var exist = "{{Session::has('success')}}";
+if(exist){
+    Swal.fire({
+        icon: 'success',
+        title: msg,
+        showConfirmButton: false,
+        timer: 2000,
+    });
+}
+
+</script>
 @endsection

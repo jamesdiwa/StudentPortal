@@ -8,11 +8,15 @@
     <div class="sidebar" id="sidebar">
         <div class="pt-5 mt-3 pb-2 px-3">
             <div class="mt-2 rounded-circle overflow-hidden" style="width: 80px; height: 80px; border: 2px solid white;">
-                <img src="{{ asset('images/1.jpg') }}" style="width: 100%; height: 100%">
+                    @if (Session::get("loginphotoPath") != null)
+                        <img src="{{ asset('images/UserPhoto/'.Session::get("loginphotoPath")) }}" style="width: 100%; height: 100%">
+                    @else
+                          <img src="{{ asset('images/1.jpg') }}" style="width: 100%; height: 100%">
+                    @endif
             </div>
             
-            <p class="mt-2 p-0 m-0" style="color: #3d3d3d; font-weight: 700; font-size: 20px">James Patrick Diwa</p>
-            <p class="p-0 m-0" style="color: #676767; font-size: 15.5px">Administrator</p>
+            <p class="mt-2 p-0 m-0" style="color: #3d3d3d; font-weight: 700; font-size: 20px">{{Session::get("loginFirstName")}}  {{Session::get("loginmiddleName")}}  {{Session::get("loginlastName")}}</p>
+            <p class="p-0 m-0" style="color: #676767; font-size: 15.5px"> {{Session::get("loginaccountType")}}</p>
         </div>
         <div class="mt-3" style="border-bottom: 2px solid #d11d27"></div>
         <div class="mt-4">
