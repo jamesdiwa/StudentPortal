@@ -26,7 +26,14 @@
      <!-- Table Sorter -->
      <link href="{{ asset('css/tableSorter.css') }}" rel="stylesheet" />
      <script defer src="{{ asset('js/tableSorter.js') }}"></script>
+
+    <!-- Sweetalert2 JS and CSS-->
+    <script src="{{ asset('js/sweetalert2@10.min.js') }}"
+    integrity="sha512-Wv8c8chIOY6Gt4Fesj+VYlEt+Qd+GIIKcoZGtPPh7l6Edc0QZlJoYQGVoQIBDDAFSzRNbJfnS9ml47BGRNdNiQ==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ asset('css/sweetalert2@10.min.css') }}" integrity="sha512-NU255TKQ55xzDS6UHQgO9HQ4jVWoAEGG/lh2Vme0E2ymREox7e8qwIfn6BFem8lbahhU9E2IQrHZlFAxtKWH2Q==" crossorigin="anonymous" />
+
 </head>
+
 
 
 <body id="mainbody">

@@ -21,15 +21,21 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::resource('studentList','StudentController');
-Route::resource('newStudent','NewStudentController');
-Route::resource('user','UserController');
-Route::resource('events', 'EventsController');
-Route::resource('announcement', 'AnnouncementController');
-Route::resource('accounting', 'AccountingController');
-Route::resource('enrollment', 'EnrollmentController');
-Route::resource('grading', 'GradingController');
-Route::resource('classSchedule', 'ClassScheduleController');
+
+Route::group(['middleware' => 'auth'], function() {
+
+    Route::resource('studentList','StudentController');
+    Route::resource('newStudent','NewStudentController');
+    Route::resource('user','UserController');
+    Route::resource('events', 'EventsController');
+    Route::resource('announcement', 'AnnouncementController');
+    Route::resource('accounting', 'AccountingController');
+    Route::resource('enrollment', 'EnrollmentController');
+    Route::resource('grading', 'GradingController');
+    Route::resource('classSchedule', 'ClassScheduleController');
+
+
+});
 
 Route::get('user-show', function(){
     return view('User.show');
