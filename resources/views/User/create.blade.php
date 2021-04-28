@@ -7,6 +7,9 @@
     #teacher_div {
     display: none;
 }
+#grade1-subjects, #grade2-subjects, #grade3-subjects, #grade4-subjects, #grade5-subjects, #grade6-subjects, #grade7-subjects, #grade8-subjects, #grade9-subjects, #grade10-subjects{
+    display: block;
+}
 </style>
 
 <link href="{{ asset('css/croppie.css') }}" rel="stylesheet" />
@@ -170,34 +173,456 @@
                             <div class="row">
                                 <div class="form-group col-sm-4">
                                     <label class="input-label">Add Subjects</label> 
-                                    <select name="" id="" class="form-control" style="background: #fbebd8; color: #A90011; border: none; font-weight: 600; font-size: 14px">
-                                        <option value="">All Subjects</option>
+                                    <select name="" id="" class="form-control" style="background: #fbebd8; color: #A90011; border: none; font-weight: 600; font-size: 14px" onchange="subjectShow(this)">
+                                        <option value="All Subjects">All Subjects</option>
                                         <!-- if student is elementary -->
-                                        <option value="">Grade 1 Subjects</option>
-                                        <option value="">Grade 2 Subjects</option>
-                                        <option value="">Grade 3 Subjects</option>
-                                        <option value="">Grade 4 Subjects</option>
-                                        <option value="">Grade 5 Subjects</option>
-                                        <option value="">Grade 6 Subjects</option>
+                                        <option value="Grade 1">Grade 1 Subjects</option>
+                                        <option value="Grade 2">Grade 2 Subjects</option>
+                                        <option value="Grade 3">Grade 3 Subjects</option>
+                                        <option value="Grade 4">Grade 4 Subjects</option>
+                                        <option value="Grade 5">Grade 5 Subjects</option>
+                                        <option value="Grade 6">Grade 6 Subjects</option>
                                         <!-- if student is high school -->
-                                        <option value="">Grade 7 Subjects</option>
-                                        <option value="">Grade 8 Subjects</option>
-                                        <option value="">Grade 9 Subjects</option>
-                                        <option value="">Grade 10 Subjects</option>
+                                        <option value="Grade 7">Grade 7 Subjects</option>
+                                        <option value="Grade 8">Grade 8 Subjects</option>
+                                        <option value="Grade 9">Grade 9 Subjects</option>
+                                        <option value="Grade 10">Grade 10 Subjects</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-sm-12">
+                                <!-- Grade 1 -->
+                                <div class="form-group col-sm-4" id="grade1-subjects">
+                                    <label class="DivHeaderText p-0 m-0">GRADE 1 SUBJECTS</label>
                                     <div class="form-check">
                                         <input type="checkbox" name="" id="selectAllSubjects" class="form-check-input">
                                         <label for="selectAllSubjects" class="form-check-label input-label">Select All</label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="checkbox" name="" id="subject1" class="form-check-input">
-                                        <label for="subject1" class="form-check-label input-label">Subject 1</label>
+                                        <input type="checkbox" name="" id="motherTongue1" class="form-check-input">
+                                        <label for="motherTongue1" class="form-check-label input-label">Mother Tongue</label>
                                     </div>
-                                </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="filipino1" class="form-check-input">
+                                        <label for="filipino1" class="form-check-label input-label">Filipino 1</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="english1" class="form-check-input">
+                                        <label for="english1" class="form-check-label input-label">English 1</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="math1" class="form-check-input">
+                                        <label for="math1" class="form-check-label input-label">Math 1</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="science1" class="form-check-input">
+                                        <label for="science1" class="form-check-label input-label">Science 1</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="ap1" class="form-check-input">
+                                        <label for="ap1" class="form-check-label input-label">Araling Panlipunan 1</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="mapeh1" class="form-check-input">
+                                        <label for="mapeh1" class="form-check-label input-label">Mapeh 1</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="esp1" class="form-check-input">
+                                        <label for="esp1" class="form-check-label input-label">Edukasyon sa Pagpapakatao 1</label>
+                                    </div>
+                                </div> <!-- col-sm-auto -->
+                                <!-- Grade 2 -->
+                                <div class="form-group col-sm-4" id="grade2-subjects">
+                                    <label class="DivHeaderText p-0 m-0">GRADE 2 SUBJECTS</label>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="selectAllSubjects" class="form-check-input">
+                                        <label for="selectAllSubjects" class="form-check-label input-label">Select All</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="motherTongue2" class="form-check-input">
+                                        <label for="motherTongue2" class="form-check-label input-label">Mother Tongue</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="filipino2" class="form-check-input">
+                                        <label for="filipino2" class="form-check-label input-label">Filipino 2</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="english2" class="form-check-input">
+                                        <label for="english2" class="form-check-label input-label">English 2</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="math2" class="form-check-input">
+                                        <label for="math2" class="form-check-label input-label">Math 2</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="science2" class="form-check-input">
+                                        <label for="science2" class="form-check-label input-label">Science 2</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="ap2" class="form-check-input">
+                                        <label for="ap2" class="form-check-label input-label">Araling Panlipunan 2</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="mapeh2" class="form-check-input">
+                                        <label for="mapeh2" class="form-check-label input-label">Mapeh 2</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="esp2" class="form-check-input">
+                                        <label for="esp2" class="form-check-label input-label">Edukasyon sa Pagpapakatao 2</label>
+                                    </div>
+                                </div> <!-- col-sm-auto -->
+                                <!-- Grade 3 -->
+                                <div class="form-group col-sm-4" id="grade3-subjects">
+                                    <label class="DivHeaderText p-0 m-0">GRADE 3 SUBJECTS</label>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="selectAllSubjects" class="form-check-input">
+                                        <label for="selectAllSubjects" class="form-check-label input-label">Select All</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="motherTongue3" class="form-check-input">
+                                        <label for="motherTongue3" class="form-check-label input-label">Mother Tongue</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="filipino3" class="form-check-input">
+                                        <label for="filipino3" class="form-check-label input-label">Filipino 3</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="english3" class="form-check-input">
+                                        <label for="english3" class="form-check-label input-label">English 3</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="math3" class="form-check-input">
+                                        <label for="math3" class="form-check-label input-label">Math 3</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="science3" class="form-check-input">
+                                        <label for="science3" class="form-check-label input-label">Science 3</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="ap3" class="form-check-input">
+                                        <label for="ap3" class="form-check-label input-label">Araling Panlipunan 3</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="mapeh3" class="form-check-input">
+                                        <label for="mapeh3" class="form-check-label input-label">Mapeh 3</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="esp3" class="form-check-input">
+                                        <label for="esp3" class="form-check-label input-label">Edukasyon sa Pagpapakatao 3</label>
+                                    </div>
+                                </div> <!-- col-sm-auto -->
+                                <!-- Grade 4 -->
+                                <div class="form-group col-sm-4" id="grade4-subjects">
+                                    <label class="DivHeaderText p-0 m-0">GRADE 4 SUBJECTS</label>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="selectAllSubjects" class="form-check-input">
+                                        <label for="selectAllSubjects" class="form-check-label input-label">Select All</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="filipino4" class="form-check-input">
+                                        <label for="filipino4" class="form-check-label input-label">Filipino 4</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="english4" class="form-check-input">
+                                        <label for="english4" class="form-check-label input-label">English 4</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="math4" class="form-check-input">
+                                        <label for="math4" class="form-check-label input-label">Math 4</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="science4" class="form-check-input">
+                                        <label for="science4" class="form-check-label input-label">Science 4</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="ap4" class="form-check-input">
+                                        <label for="ap4" class="form-check-label input-label">Araling Panlipunan 4</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="mapeh4" class="form-check-input">
+                                        <label for="mapeh4" class="form-check-label input-label">Mapeh 4</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="esp4" class="form-check-input">
+                                        <label for="esp4" class="form-check-label input-label">Edukasyon sa Pagpapakatao 4</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="epp4" class="form-check-input">
+                                        <label for="epp4" class="form-check-label input-label">Edukasyong Pantahanan at Pangkabuhayan 4</label>
+                                    </div>
+                                </div> <!-- col-sm-auto -->
+                                <!-- Grade 5 -->
+                                <div class="form-group col-sm-4" id="grade5-subjects">
+                                    <label class="DivHeaderText p-0 m-0">GRADE 5 SUBJECTS</label>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="selectAllSubjects" class="form-check-input">
+                                        <label for="selectAllSubjects" class="form-check-label input-label">Select All</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="filipino5" class="form-check-input">
+                                        <label for="filipino5" class="form-check-label input-label">Filipino 5</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="english5" class="form-check-input">
+                                        <label for="english5" class="form-check-label input-label">English 5</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="math5" class="form-check-input">
+                                        <label for="math5" class="form-check-label input-label">Math 5</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="science5" class="form-check-input">
+                                        <label for="science5" class="form-check-label input-label">Science 5</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="ap5" class="form-check-input">
+                                        <label for="ap5" class="form-check-label input-label">Araling Panlipunan 5</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="mapeh5" class="form-check-input">
+                                        <label for="mapeh5" class="form-check-label input-label">Mapeh 5</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="esp5" class="form-check-input">
+                                        <label for="esp5" class="form-check-label input-label">Edukasyon sa Pagpapakatao 5</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="epp5" class="form-check-input">
+                                        <label for="epp5" class="form-check-label input-label">Edukasyong Pantahanan at Pangkabuhayan 5</label>
+                                    </div>
+                                </div> <!-- col-sm-auto -->
+                                <!-- Grade 6 -->
+                                <div class="form-group col-sm-4" id="grade6-subjects">
+                                    <label class="DivHeaderText p-0 m-0">GRADE 6 SUBJECTS</label>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="selectAllSubjects" class="form-check-input">
+                                        <label for="selectAllSubjects" class="form-check-label input-label">Select All</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="filipino6" class="form-check-input">
+                                        <label for="filipino6" class="form-check-label input-label">Filipino 6</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="english6" class="form-check-input">
+                                        <label for="english6" class="form-check-label input-label">English 6</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="math6" class="form-check-input">
+                                        <label for="math6" class="form-check-label input-label">Math 6</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="science6" class="form-check-input">
+                                        <label for="science6" class="form-check-label input-label">Science 6</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="ap6" class="form-check-input">
+                                        <label for="ap6" class="form-check-label input-label">Araling Panlipunan 6</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="mapeh6" class="form-check-input">
+                                        <label for="mapeh6" class="form-check-label input-label">Mapeh 6</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="esp6" class="form-check-input">
+                                        <label for="esp6" class="form-check-label input-label">Edukasyon sa Pagpapakatao 6</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="epp6" class="form-check-input">
+                                        <label for="epp6" class="form-check-label input-label">Edukasyong Pantahanan at Pangkabuhayan 6</label>
+                                    </div>
+                                </div> <!-- col-sm-auto -->
+                                <!-- Grade 7 -->
+                                <div class="form-group col-sm-4" id="grade7-subjects">
+                                    <label class="DivHeaderText p-0 m-0">GRADE 7 SUBJECTS</label>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="selectAllSubjects" class="form-check-input">
+                                        <label for="selectAllSubjects" class="form-check-label input-label">Select All</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="filipino7" class="form-check-input">
+                                        <label for="filipino7" class="form-check-label input-label">Filipino 7</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="english7" class="form-check-input">
+                                        <label for="english7" class="form-check-label input-label">English 7</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="math7" class="form-check-input">
+                                        <label for="math7" class="form-check-label input-label">Math 7</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="science7" class="form-check-input">
+                                        <label for="science7" class="form-check-label input-label">Science 7</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="ap7" class="form-check-input">
+                                        <label for="ap7" class="form-check-label input-label">Araling Panlipunan 7</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="mapeh7" class="form-check-input">
+                                        <label for="mapeh7" class="form-check-label input-label">Mapeh 7</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="esp7" class="form-check-input">
+                                        <label for="esp7" class="form-check-label input-label">Edukasyon sa Pagpapakatao 7</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="tle7" class="form-check-input">
+                                        <label for="tle7" class="form-check-label input-label">TLE 7</label>
+                                    </div>
+                                </div> <!-- col-sm-auto -->
+                                <!-- Grade 8 -->
+                                <div class="form-group col-sm-4" id="grade8-subjects">
+                                    <label class="DivHeaderText p-0 m-0">GRADE 8 SUBJECTS</label>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="selectAllSubjects" class="form-check-input">
+                                        <label for="selectAllSubjects" class="form-check-label input-label">Select All</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="filipino8" class="form-check-input">
+                                        <label for="filipino8" class="form-check-label input-label">Filipino 8</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="english8" class="form-check-input">
+                                        <label for="english8" class="form-check-label input-label">English 8</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="math8" class="form-check-input">
+                                        <label for="math8" class="form-check-label input-label">Math 8</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="science8" class="form-check-input">
+                                        <label for="science8" class="form-check-label input-label">Science 8</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="ap8" class="form-check-input">
+                                        <label for="ap8" class="form-check-label input-label">Araling Panlipunan 8</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="mapeh8" class="form-check-input">
+                                        <label for="mapeh8" class="form-check-label input-label">Mapeh 8</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="esp8" class="form-check-input">
+                                        <label for="esp8" class="form-check-label input-label">Edukasyon sa Pagpapakatao 8</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="tle8" class="form-check-input">
+                                        <label for="tle8" class="form-check-label input-label">TLE 8</label>
+                                    </div>
+                                </div> <!-- col-sm-auto -->
+                                <!-- Grade 9 -->
+                                <div class="form-group col-sm-4" id="grade9-subjects">
+                                    <label class="DivHeaderText p-0 m-0">GRADE 9 SUBJECTS</label>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="selectAllSubjects" class="form-check-input">
+                                        <label for="selectAllSubjects" class="form-check-label input-label">Select All</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="filipino9" class="form-check-input">
+                                        <label for="filipino9" class="form-check-label input-label">Filipino 9</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="english9" class="form-check-input">
+                                        <label for="english9" class="form-check-label input-label">English 9</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="math9" class="form-check-input">
+                                        <label for="math9" class="form-check-label input-label">Math 9</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="science9" class="form-check-input">
+                                        <label for="science9" class="form-check-label input-label">Science 9</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="ap9" class="form-check-input">
+                                        <label for="ap9" class="form-check-label input-label">Araling Panlipunan 9</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="mapeh9" class="form-check-input">
+                                        <label for="mapeh9" class="form-check-label input-label">Mapeh 9</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="esp9" class="form-check-input">
+                                        <label for="esp9" class="form-check-label input-label">Edukasyon sa Pagpapakatao 9</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="tle9" class="form-check-input">
+                                        <label for="tle9" class="form-check-label input-label">TLE 9</label>
+                                        {{-- <div class="form-check">
+                                            <input type="checkbox" name="tle9Major" id="agri9" class="form-check-input">
+                                            <label for="agri9" class="form-check-label input-label">Agri-Fishery Arts</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="checkbox" name="tle9Major" id="homeEcon9" class="form-check-input">
+                                            <label for="homeEcon9" class="form-check-label input-label">Home Economics</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="checkbox" name="tle9Major" id="ict9" class="form-check-input">
+                                            <label for="ict9" class="form-check-label input-label">Information and Communications Technology</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="checkbox" name="tle9Major" id="industrial9" class="form-check-input">
+                                            <label for="industrial9" class="form-check-label input-label">Industrial Arts</label>
+                                        </div> --}}
+                                    </div>
+                                </div> <!-- col-sm-auto -->
+                                <!-- Grade 10 -->
+                                <div class="form-group col-sm-4" id="grade10-subjects">
+                                    <label class="DivHeaderText p-0 m-0">GRADE 10 SUBJECTS</label>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="selectAllSubjects" class="form-check-input">
+                                        <label for="selectAllSubjects" class="form-check-label input-label">Select All</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="filipino10" class="form-check-input">
+                                        <label for="filipino10" class="form-check-label input-label">Filipino 10</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="english10" class="form-check-input">
+                                        <label for="english10" class="form-check-label input-label">English 10</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="math10" class="form-check-input">
+                                        <label for="math10" class="form-check-label input-label">Math 10</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="science10" class="form-check-input">
+                                        <label for="science10" class="form-check-label input-label">Science 10</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="ap10" class="form-check-input">
+                                        <label for="ap10" class="form-check-label input-label">Araling Panlipunan 10</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="mapeh10" class="form-check-input">
+                                        <label for="mapeh10" class="form-check-label input-label">Mapeh 10</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="esp10" class="form-check-input">
+                                        <label for="esp10" class="form-check-label input-label">Edukasyon sa Pagpapakatao 10</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="tle10" class="form-check-input">
+                                        <label for="tle10" class="form-check-label input-label">TLE 10</label>
+                                        {{-- <div class="form-check">
+                                            <input type="checkbox" name="tle10Major" id="agri10" class="form-check-input">
+                                            <label for="agri10" class="form-check-label input-label">Agri-Fishery Arts</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="checkbox" name="tle10Major" id="homeEcon10" class="form-check-input">
+                                            <label for="homeEcon10" class="form-check-label input-label">Home Economics</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="checkbox" name="tle10Major" id="ict10" class="form-check-input">
+                                            <label for="ict10" class="form-check-label input-label">Information and Communications Technology</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="checkbox" name="tle10Major" id="industrial10" class="form-check-input">
+                                            <label for="industrial10" class="form-check-label input-label">Industrial Arts</label>
+                                        </div> --}}
+                                    </div>
+                                </div> <!-- col-sm-auto -->
                             </div>
                         </div>
                     </div>
@@ -295,13 +720,148 @@ $(document).ready(function(){
       }
 });
 
-  function showDiv(select){
-   if(select.value=="Teacher"){
-    $('#teacher_div').show();
-   } 
-   else {
-    $('#teacher_div').hide();
-   }
+function showDiv(select){
+    if(select.value=="Teacher"){
+        $('#teacher_div').show();
+    } 
+    else {
+        $('#teacher_div').hide();
+    }
+} 
+
+function subjectShow(select){
+   if(select.value=="All Subjects"){
+        $('#grade1-subjects').show();
+        $('#grade2-subjects').show();
+        $('#grade3-subjects').show();
+        $('#grade4-subjects').show();
+        $('#grade5-subjects').show();
+        $('#grade6-subjects').show();
+        $('#grade7-subjects').show();
+        $('#grade8-subjects').show();
+        $('#grade9-subjects').show();
+        $('#grade10-subjects').show();
+    } 
+    else if(select.value=="Grade 1"){
+        $('#grade1-subjects').show();
+        $('#grade2-subjects').hide();
+        $('#grade3-subjects').hide();
+        $('#grade4-subjects').hide();
+        $('#grade5-subjects').hide();
+        $('#grade6-subjects').hide();
+        $('#grade7-subjects').hide();
+        $('#grade8-subjects').hide();
+        $('#grade9-subjects').hide();
+        $('#grade10-subjects').hide();
+    }
+    else if(select.value=="Grade 2"){
+        $('#grade1-subjects').hide();
+        $('#grade2-subjects').show();
+        $('#grade3-subjects').hide();
+        $('#grade4-subjects').hide();
+        $('#grade5-subjects').hide();
+        $('#grade6-subjects').hide();
+        $('#grade7-subjects').hide();
+        $('#grade8-subjects').hide();
+        $('#grade9-subjects').hide();
+        $('#grade10-subjects').hide();
+    }
+    else if(select.value=="Grade 3"){
+        $('#grade1-subjects').hide();
+        $('#grade2-subjects').hide();
+        $('#grade3-subjects').show();
+        $('#grade4-subjects').hide();
+        $('#grade5-subjects').hide();
+        $('#grade6-subjects').hide();
+        $('#grade7-subjects').hide();
+        $('#grade8-subjects').hide();
+        $('#grade9-subjects').hide();
+        $('#grade10-subjects').hide();
+    }
+    else if(select.value=="Grade 4"){
+        $('#grade1-subjects').hide();
+        $('#grade2-subjects').hide();
+        $('#grade3-subjects').hide();
+        $('#grade4-subjects').show();
+        $('#grade5-subjects').hide();
+        $('#grade6-subjects').hide();
+        $('#grade7-subjects').hide();
+        $('#grade8-subjects').hide();
+        $('#grade9-subjects').hide();
+        $('#grade10-subjects').hide();
+    }
+    else if(select.value=="Grade 5"){
+        $('#grade1-subjects').hide();
+        $('#grade2-subjects').hide();
+        $('#grade3-subjects').hide();
+        $('#grade4-subjects').hide();
+        $('#grade5-subjects').show();
+        $('#grade6-subjects').hide();
+        $('#grade7-subjects').hide();
+        $('#grade8-subjects').hide();
+        $('#grade9-subjects').hide();
+        $('#grade10-subjects').hide();
+    }
+    else if(select.value=="Grade 6"){
+        $('#grade1-subjects').hide();
+        $('#grade2-subjects').hide();
+        $('#grade3-subjects').hide();
+        $('#grade4-subjects').hide();
+        $('#grade5-subjects').hide();
+        $('#grade6-subjects').show();
+        $('#grade7-subjects').hide();
+        $('#grade8-subjects').hide();
+        $('#grade9-subjects').hide();
+        $('#grade10-subjects').hide();
+    }
+    else if(select.value=="Grade 7"){
+        $('#grade1-subjects').hide();
+        $('#grade2-subjects').hide();
+        $('#grade3-subjects').hide();
+        $('#grade4-subjects').hide();
+        $('#grade5-subjects').hide();
+        $('#grade6-subjects').hide();
+        $('#grade7-subjects').show();
+        $('#grade8-subjects').hide();
+        $('#grade9-subjects').hide();
+        $('#grade10-subjects').hide();
+    }
+    else if(select.value=="Grade 8"){
+        $('#grade1-subjects').hide();
+        $('#grade2-subjects').hide();
+        $('#grade3-subjects').hide();
+        $('#grade4-subjects').hide();
+        $('#grade5-subjects').hide();
+        $('#grade6-subjects').hide();
+        $('#grade7-subjects').hide();
+        $('#grade8-subjects').show();
+        $('#grade9-subjects').hide();
+        $('#grade10-subjects').hide();
+    }
+    else if(select.value=="Grade 9"){
+        $('#grade1-subjects').hide();
+        $('#grade2-subjects').hide();
+        $('#grade3-subjects').hide();
+        $('#grade4-subjects').hide();
+        $('#grade5-subjects').hide();
+        $('#grade6-subjects').hide();
+        $('#grade7-subjects').hide();
+        $('#grade8-subjects').hide();
+        $('#grade9-subjects').show();
+        $('#grade10-subjects').hide();
+    }
+    else{
+        $('#grade1-subjects').hide();
+        $('#grade2-subjects').hide();
+        $('#grade3-subjects').hide();
+        $('#grade4-subjects').hide();
+        $('#grade5-subjects').hide();
+        $('#grade6-subjects').hide();
+        $('#grade7-subjects').hide();
+        $('#grade8-subjects').hide();
+        $('#grade9-subjects').hide();
+        $('#grade10-subjects').show();
+    }
 } 
 </script>
 

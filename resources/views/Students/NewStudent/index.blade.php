@@ -15,11 +15,9 @@
         <div class="DivTemplate mt-3">
             <div class="form-row row mt-3">
                 <div class="form-group col-sm">
-                    <label class="p-0 m-0 sub-title">Search</label>
                     <input type="text" name="search" class="form-control searchbar" name="search" placeholder="Search">   
                 </div>
                 <div class="form-group col-sm-auto">
-                    <br>
                     <button type="submit" class="search-button" style="padding-top: 8.7px; padding-bottom: 8.7px;">Search</button>      
                 </div>
             </div>
@@ -33,7 +31,7 @@
                         <td class="align-middle">James Patrick Diwa</td>
                         <td class="text-center">
                             <button style="button" class="search-button mx-1" onclick="window.location='{{ url('newStudent-show') }}'">View</button>
-                            <button style="button" class="update-button mx-1">Enlist</button>
+                            <button style="button" class="update-button mx-1" onclick="window.location='{{ url('enlist-student') }}'">Enlist</button>
                             <button style="button" class="delete-button mx-1">Delete</button>
                         </td>
                     </tr>

@@ -7,7 +7,7 @@
 <div class="content content-margin pb-2" id="content">
     <div class="row header-bg" style="margin-top: 70px">
         <div class="col-sm-12">
-            <p class="header-title">Student</p>
+            <p class="header-title">Enlist Student</p>
         </div>
     </div>
     <div class="container">
@@ -167,7 +167,7 @@
             <div class="row mt-3 mb-2">
                 <div class="col-sm-12">
                     <button type="submit" class="save-button">Save</button>
-                    <button type="button" class="back-button float-right" onclick="window.location='{{ route('studentList.index') }}'">Back</button>
+                    <button type="button" class="back-button float-right" onclick="window.location='{{ route('newStudent.index') }}'">Back</button>
                 </div>
             </div>
         </div>
