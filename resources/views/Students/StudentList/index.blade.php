@@ -62,7 +62,7 @@
                         <td class="align-middle">James Patrick Diwa</td>
                         <td class="align-middle"><span style="color: #097b9e">Registered</span></td>
                         <td class="text-center">
-                            <button style="button" class="update-button" onclick="window.location='{{ route('enrollment.create') }}'">Enroll</button>
+                            <button style="button" class="search-button" onclick="window.location='{{ url('studentList-show') }}'">Records</button>
                         </td>
                     </tr>
                     <tr>
@@ -78,7 +78,7 @@
                         <td class="align-middle">James Patrick Diwa</td>
                         <td class="align-middle"><span style="color: #097b9e">Completed Grade 6</span></td>
                         <td class="text-center">
-                            <button style="button" class="update-button">Enroll</button>
+                            <button style="button" class="search-button">Records</button>
                         </td>
                     </tr>
                     <tr>

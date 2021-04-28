@@ -66,6 +66,10 @@ Route::get('studentList-show', function(){
     return view('Students.StudentList.show');
 });
 
+Route::get('enlist-student', function(){
+    return view('Students.NewStudent.enlist');
+});
+
 Route::get('/students', function(){
     return view('Students.studentsSelection');
 });

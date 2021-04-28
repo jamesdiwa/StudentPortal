@@ -97,7 +97,7 @@
             </div>
             <div class="row mt-3 mb-2">
                 <div class="col-sm-12">
-                    <button type="button" class="edit-button">Enlist</button>
+                    <button type="button" class="edit-button" onclick="window.location='{{ url('enlist-student') }}'">Enlist</button>
                     <button type="button" class="back-button float-right" onclick="window.location='{{ route('newStudent.index') }}'">Back</button>
                 </div>
             </div>

@@ -229,7 +229,7 @@
                 </div>
             </div>
              <!-- Subjects -->
-             <p class="DivHeaderText my-2 py-2">SUBJECTS</p>
+             {{-- <p class="DivHeaderText my-2 py-2">SUBJECTS</p>
              <div class="row">
                 <div class="form-group col-sm-4">
                     <label class="p-0 m-0 sub-title">Filter by</label>
@@ -261,7 +261,7 @@
                         <label for="subject1" class="form-check-label input-label">Subject 1</label>
                     </div>
                 </div>
-             </div>
+             </div> --}}
              <!-- Requirements -->
              <p class="DivHeaderText my-2 py-2">SCHOOL REQUIREMENTS</p>
              <div class="form-row">
