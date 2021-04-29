@@ -163,7 +163,24 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class='form-row'>
+                        <div class="form-group col-sm-12">
+                            <label class="required-label">Subjects</label>
+                            <select name="subjects[]" id='subjects' class='select2-dropdown form-control' multiple='multiple' data-placeholder='Select subject(s)...'>
+                                    <option value="Mother Tongue">Mother Tongue</option>
+                                    <option value="Filipino 1">Filipino 1</option>
+                                    <option value="">English 1</option>
+                                    <option value="English 1">Math 1</option>
+                                    <option value="Science 1">Science 1</option>
+                                    <option value="Araling Panlipunan 1">Araling Panlipunan 1</option>
+                                    <option value="Mapeh 1">Mapeh 1</option>
+                                    <option value="Edukasyon sa Pagpapakatao 1">Edukasyon sa Pagpapakatao 1</option>
+                            </select>
+                        </div>
+                       
+                    </div>
+                </div>
+                    {{-- <div class="form-row">
                         <div class="form-group col-sm-12">
                             <div class="row">
                                 <div class="form-group col-sm-4">
@@ -543,7 +560,7 @@
                                     </div>
                                     <div class="form-check">
                                         <input type="checkbox" name="" id="tle9" class="form-check-input">
-                                        <label for="tle9" class="form-check-label input-label">TLE 9</label>
+                                        <label for="tle9" class="form-check-label input-label">TLE 9</label> --}}
                                         {{-- <div class="form-check">
                                             <input type="checkbox" name="tle9Major" id="agri9" class="form-check-input">
                                             <label for="agri9" class="form-check-label input-label">Agri-Fishery Arts</label>
@@ -560,10 +577,10 @@
                                             <input type="checkbox" name="tle9Major" id="industrial9" class="form-check-input">
                                             <label for="industrial9" class="form-check-label input-label">Industrial Arts</label>
                                         </div> --}}
-                                    </div>
-                                </div> <!-- col-sm-auto -->
+                                    {{-- </div>
+                                </div> <!-- col-sm-auto --> --}}
                                 <!-- Grade 10 -->
-                                <div class="form-group col-sm-4" id="grade10-subjects">
+                                {{-- <div class="form-group col-sm-4" id="grade10-subjects">
                                     <label class="DivHeaderText p-0 m-0">GRADE 10 SUBJECTS</label>
                                     <div class="form-check">
                                         <input type="checkbox" name="" id="selectAllSubjects" class="form-check-input">
@@ -599,7 +616,7 @@
                                     </div>
                                     <div class="form-check">
                                         <input type="checkbox" name="" id="tle10" class="form-check-input">
-                                        <label for="tle10" class="form-check-label input-label">TLE 10</label>
+                                        <label for="tle10" class="form-check-label input-label">TLE 10</label> --}}
                                         {{-- <div class="form-check">
                                             <input type="checkbox" name="tle10Major" id="agri10" class="form-check-input">
                                             <label for="agri10" class="form-check-label input-label">Agri-Fishery Arts</label>
@@ -616,12 +633,12 @@
                                             <input type="checkbox" name="tle10Major" id="industrial10" class="form-check-input">
                                             <label for="industrial10" class="form-check-label input-label">Industrial Arts</label>
                                         </div> --}}
-                                    </div>
+                                    {{-- </div>
                                 </div> <!-- col-sm-auto -->
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <p class="DivHeaderText py-2 my-2">UPLOAD PHOTO</p>
                 <div class="row">
                     <div class="col-sm-12">
@@ -656,6 +673,11 @@
 
 <script>
 $(document).ready(function(){
+$('#subjects').select2({
+    width: '100%',
+    allowClear: true,
+});
+
    //Crop image
   $image_crop = $('#image_demo').croppie({
                 enableExif: true,
