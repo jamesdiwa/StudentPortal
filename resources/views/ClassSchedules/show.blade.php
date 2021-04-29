@@ -26,7 +26,81 @@
 
                 </div>
             </div>
-            <table class="table table-bordered mt-3">
+            <div class="row p-3 mt-2">
+                <div class="col-sm">
+                    <div class="row p-3" style="background: #ebebeb">
+                        <div class="col-sm-12">
+                            <p class="text-center sub-title p-0 m-0">Monday</p>
+                        </div>
+                    </div>
+                    <!-- loop here -->
+                    <div class="row p-2">
+                        <div class="col-sm-12">
+                            <p class="text-center sub-title" style="color: #1e1e1e">Math 1
+                            <small class="d-flex justify-content-center user-role">Ms. Aleli Santiago</small> 
+                            <small class="d-flex justify-content-center user-role" style="color: #8cbd01">(07:00 am to 8:00 am)</small> 
+                        </div>
+                    </div>
+                    <!-- loop ends here -->
+                </div>
+                <div class="col-sm">
+                    <div class="row p-3" style="background: #ebebeb">
+                        <div class="col-sm-12">
+                            <p class="text-center sub-title p-0 m-0">Tuesday</p>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-sm-12">
+                            <p class="text-center sub-title" style="color: #1e1e1e">Math 1
+                            <small class="d-flex justify-content-center user-role">Ms. Aleli Santiago</small> 
+                            <small class="d-flex justify-content-center user-role" style="color: #8cbd01">(07:00 am to 8:00 am)</small> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="row p-3" style="background: #ebebeb">
+                        <div class="col-sm-12">
+                            <p class="text-center sub-title p-0 m-0">Wednesday</p>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-sm-12">
+                            <p class="text-center sub-title" style="color: #1e1e1e">Math 1
+                            <small class="d-flex justify-content-center user-role">Ms. Aleli Santiago</small> 
+                            <small class="d-flex justify-content-center user-role" style="color: #8cbd01">(07:00 am to 8:00 am)</small> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="row p-3" style="background: #ebebeb">
+                        <div class="col-sm-12">
+                            <p class="text-center sub-title p-0 m-0">Thursday</p>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-sm-12">
+                            <p class="text-center sub-title" style="color: #1e1e1e">Math 1
+                            <small class="d-flex justify-content-center user-role">Ms. Aleli Santiago</small> 
+                            <small class="d-flex justify-content-center user-role" style="color: #8cbd01">(07:00 am to 8:00 am)</small> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="row p-3" style="background: #ebebeb">
+                        <div class="col-sm-12">
+                            <p class="text-center sub-title p-0 m-0">Friday</p>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-sm-12">
+                            <p class="text-center sub-title" style="color: #1e1e1e">Math 1
+                            <small class="d-flex justify-content-center user-role">Ms. Aleli Santiago</small> 
+                            <small class="d-flex justify-content-center user-role" style="color: #8cbd01">(07:00 am to 8:00 am)</small> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- <table class="table table-bordered mt-3">
                 <thead class="text-center">
                     <th width="200px">Monday</th>
                     <th width="200px">Tuesday</th>
@@ -63,7 +137,7 @@
                         </td>
                     </tr>
                 </tbody>
-            </table>
+            </table> --}}
             <div class="row mt-3 mb-2">
                 <div class="col-sm-12">
                     <button type="submit" class="edit-button">Edit</button>
