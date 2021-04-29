@@ -13,17 +13,16 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('homepage');
+
+Route::post('register/newStudent', 'NewStudentController@registerNew')->name('registerNewStudent');
+
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
 
 Route::group(['middleware' => 'auth'], function() {
 
+    Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('studentList','StudentController');
     Route::resource('newStudent','NewStudentController');
     Route::resource('user','UserController');

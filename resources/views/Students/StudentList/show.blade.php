@@ -17,56 +17,56 @@
             <div class="row">
                 <div class="col-sm-12">
                     <label class="label">Student Number</label>
-                    <p class="data pl-3">A117A0909</p>
+                    <p class="data pl-3">{{$student->username}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">
                     <label class="label">First Name</label>
-                    <p class="data pl-3">James Patrick</p>
+                    <p class="data pl-3">{{$student->firstName}}</p>
                 </div>
                 <div class="col-sm-4">
                     <label class="label">Middle Name</label>
-                    <p class="data pl-3">Marabe</p>
+                    <p class="data pl-3">{{$student->middleName}}</p>
                 </div>
                 <div class="col-sm-4">
                     <label class="label">Last Name</label>
-                    <p class="data pl-3">Diwa</p>
+                    <p class="data pl-3">{{$student->lastName}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-8">
                     <label class="label">Date of Birth</label>
-                    <p class="data pl-3">July 18, 1996</p>
+                    <p class="data pl-3">{{$student->month}} {{$student->day}},{{$student->year}}</p>
                 </div>
                 <div class="col-sm-4">
                     <label class="label">Gender</label>
-                    <p class="data pl-3">Male</p>
+                    <p class="data pl-3">{{$student->gender}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
                     <label class="label">Permanent Address</label>
-                    <p class="data pl-3">Lorem Ipsum Dolor</p>
+                    <p class="data pl-3">{{$student->permanentAddress}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
                     <label class="label">Present Address</label>
-                    <p class="data pl-3">Lorem Ipsum Dolor</p>
+                    <p class="data pl-3">{{$student->presentAddress}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
                     <label class="label">Email Address</label>
-                    <p class="data pl-3">jamesdiwa05@gmail.com</p>
+                    <p class="data pl-3">{{$student->email}}</p>
                 </div>
                 <div class="col-sm-6">
                     <label class="label">Contact Number</label>
-                    <p class="data pl-3">09164389070</p>
+                    <p class="data pl-3">{{$student->contactNumber}}</p>
                 </div>
             </div>
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-sm-6">
                     <label class="label">School Year</label>
                     <p class="data pl-3">2020-2021</p>
@@ -91,11 +91,11 @@
                     <label class="label">General Grade Average</label>
                     <p class="data pl-3">89</p>
                 </div>
-            </div>
+            </div> --}}
             <div class="row">
                 <div class="col-sm-6">
                     <label class="label">Status</label>
-                    <p class="data pl-3">Active</p>
+                    <p class="data pl-3">{{$student->status}}</p>
                 </div>
             </div>
             <hr>
@@ -104,33 +104,33 @@
             <div class="row">
                 <div class="col-sm-4">
                     <label class="label">First Name</label>
-                    <p class="data pl-3">Aleli</p>
+                    <p class="data pl-3">{{$student->studentGuardian->gFirstName}}</p>
                 </div>
                 <div class="col-sm-4">
                     <label class="label">Middle Name</label>
-                    <p class="data pl-3">Evans</p>
+                    <p class="data pl-3">{{$student->studentGuardian->gMiddleName}}</p>
                 </div>
                 <div class="col-sm-4">
                     <label class="label">Last Name</label>
-                    <p class="data pl-3">Santiago</p>
+                    <p class="data pl-3">{{$student->studentGuardian->gLastname}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
                     <label class="label">Relationship</label>
-                    <p class="data pl-3">Mother</p>
+                    <p class="data pl-3">{{$student->studentGuardian->gRelationship}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
                     <label class="label">Complete Address</label>
-                    <p class="data pl-3">Lorem Ipsum Dolor</p>
+                    <p class="data pl-3">{{$student->studentGuardian->gCompleteAddress}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
                     <label class="label">Contact Number</label>
-                    <p class="data pl-3">09164389070</p>
+                    <p class="data pl-3">{{$student->studentGuardian->gContactNumber}}</p>
                 </div>
             </div>
             <hr>
