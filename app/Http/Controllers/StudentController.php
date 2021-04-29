@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\StudentGuardianInfo;
+use App\StudentRequirements;
 use Hash;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -42,7 +43,6 @@ class StudentController extends Controller
     {
         
         $request->validate([
-            'email' => 'required|email|unique:users,email',
             'username' => 'required|string|max:20|unique:users',
             'password' => 'required|same:confirm-password',
         ]);
@@ -77,6 +77,13 @@ class StudentController extends Controller
                 'gContactNumber' => $request->gContactNumber,
             ]);
 
+            StudentRequirements::create([
+                'userId' => $user->id,
+                'PBC' => $request->nso,
+                'SMR' => $request->medicalRecord,
+                'SRC' => $request->reportCard,
+                'GMC' => $request->goodMoral,
+            ]);
 
             if ($request->input('photoPath') != NULL){
                 $screen = $request->input('photoPath');
@@ -130,7 +137,51 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+     
+        $user->update([
+            'firstName' => $request->firstName,
+            'middleName' => $request->middleName,
+            'lastName' => $request->lastName,
+            'month' => $request->month,
+            'day' => $request->day,
+            'year' => $request->year,
+            'gender' => $request->gender,
+            'permanentAddress' => $request->permanentAddress,
+            'presentAddress' => $request->presentAddress,
+            'email' => $request->email,
+            'contactNumber' => $request->contactNumber,
+        ]);
+
+        StudentGuardianInfo::where('userId',$id)->update([
+            'gFirstName' => $request->gFirstName,
+            'gMiddleName' => $request->gMiddleName,
+            'gLastname' => $request->gLastname,
+            'gRelationship' => $request->gRelationship,
+            'gCompleteAddress' => $request->gCompleteAddress,
+            'gContactNumber' => $request->gContactNumber,
+        ]);
+
+        StudentRequirements::where('userId',$id)->update([
+            'PBC' => $request->nso,
+            'SMR' => $request->medicalRecord,
+            'SRC' => $request->reportCard,
+            'GMC' => $request->goodMoral,
+        ]);
+
+        if ($request->input('photoPath') != NULL){
+            $screen = $request->input('photoPath');
+            $filterd_data = substr($screen, strpos($screen, ",")+1);
+            //Decode the string
+            $unencoded_data=base64_decode($filterd_data);
+            $name = time().'.png';
+            $user_photo = Image::make($unencoded_data);
+            $user_photo-> save(public_path().'/images/UserPhoto/' .  $name);
+            $user->photoPath = $name;
+            $user->save();
+        }
+
+        return redirect()->route('studentList.show',$id)->with('success', 'User Updated Successfully');
     }
 
     /**

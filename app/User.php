@@ -31,4 +31,10 @@ class User extends Authenticatable
     public function studentGuardian(){
         return $this->hasOne(StudentGuardianInfo::class , 'userId', 'id'); 
     }
+
+    public function studentRequirements(){
+        return $this->hasOne(StudentRequirements::class , 'userId', 'id'); 
+    }
+
+    
 }

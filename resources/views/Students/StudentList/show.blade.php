@@ -7,6 +7,7 @@
 <div class="content content-margin pb-2" id="content">
     <div class="row header-bg" style="margin-top: 70px">
         <div class="col-sm-12">
+            <button type="button" class="back-button float-right" onclick="window.location='{{ route('studentList.edit',$student->id) }}'">Edit</button>
             <p class="header-title">Student Records</p>
         </div>
     </div>
@@ -14,6 +15,13 @@
         <div class="DivTemplate mt-3 py-3"> 
             <!-- Basic Info -->
             <p class="DivHeaderText mb-2 pb-2">BASIC INFORMATION</p>
+            <div class="row">
+                @if ($student->photoPath != null)
+                    <img src="{{ asset('images/UserPhoto/'.$student->photoPath) }}" style="width: 20%; height: 20%; float:right;">
+                @else
+                    <img src="{{ asset('images/1.jpg') }}" style="width: 20%; height: 20%; float:right;">
+                @endif
+            </div>
             <div class="row">
                 <div class="col-sm-12">
                     <label class="label">Student Number</label>
@@ -139,7 +147,10 @@
              <div class="row">
                  <div class="col-sm-12">
                     <label class="label">Submitted Documents</label>
-                    <p class="data pl-3">Lorem Ipsum Dolor, Lorem Ipsum Dolor</p>
+                    <p class="data pl-3">{{$student->studentRequirements->PBC ?? ''}}</p>
+                        <p class="data pl-3">{{$student->studentRequirements->SMR ?? ''}}</p>
+                            <p class="data pl-3">{{$student->studentRequirements->SRC ?? ''}}</p>
+                                <p class="data pl-3">{{$student->studentRequirements->GMC ?? ''}}</p>
                  </div>
              </div>
              <hr>
@@ -409,4 +420,16 @@
     </div>
 </div>
 
+<script>
+    var msg = "{{Session::get('success')}}";
+    var exist = "{{Session::has('success')}}";
+    if(exist){
+        Swal.fire({
+            icon: 'success',
+            title: msg,
+            showConfirmButton: false,
+            timer: 2000,
+        });
+    }
+</script>
 @endsection

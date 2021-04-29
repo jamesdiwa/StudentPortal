@@ -144,12 +144,7 @@
                 <div class="form-row">
                     <div class="form-group col-sm-12">
                         <label class="input-label">Email Address</label>
-                        <input type="email" class="form-control required {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{$user->email}}" name="email">
-                        @if ($errors->has('email'))
-                            <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
+                        <input type="email" class="form-control" value="{{$user->email}}" name="email">
                     </div>
                 </div>
                 <div class="form-row">

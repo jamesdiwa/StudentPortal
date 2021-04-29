@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('accountType');
 
             //user basic info
-            $table->string('firstName');
+            $table->string('firstName')->nullable();
             $table->string('middleName')->nullable();
             $table->string('lastName')->nullable();
 
@@ -33,7 +33,7 @@ class CreateUsersTable extends Migration
             $table->string('gender')->nullable();
             $table->text('permanentAddress')->nullable();
             $table->text('presentAddress')->nullable();
-            $table->string('email')->unique();
+            $table->string('email')->nullable();
             $table->string('contactNumber')->nullable();
             $table->string('photoPath')->nullable();
             $table->string('status')->nullable();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\StudentGuardianInfo;
+use App\StudentRequirements;
 use Hash;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -82,7 +83,6 @@ class NewStudentController extends Controller
         $user = User::find($id);
 
         $request->validate([
-            'email' => 'required|email|unique:users,email',
             'username' => 'required|string|max:20|unique:users',
             'password' => 'required|same:confirm-password',
         ]);
@@ -113,6 +113,14 @@ class NewStudentController extends Controller
             'gRelationship' => $request->gRelationship,
             'gCompleteAddress' => $request->gCompleteAddress,
             'gContactNumber' => $request->gContactNumber,
+        ]);
+
+        StudentRequirements::create([
+            'userId' => $id,
+            'PBC' => $request->nso,
+            'SMR' => $request->medicalRecord,
+            'SRC' => $request->reportCard,
+            'GMC' => $request->goodMoral,
         ]);
 
         if ($request->input('photoPath') != NULL){
