@@ -7,8 +7,15 @@
     #teacher_div {
     display: none;
 }
-#grade1-subjects, #grade2-subjects, #grade3-subjects, #grade4-subjects, #grade5-subjects, #grade6-subjects, #grade7-subjects, #grade8-subjects, #grade9-subjects, #grade10-subjects{
-    display: block;
+    #grade1-subjects, #grade2-subjects, #grade3-subjects, #grade4-subjects, #grade5-subjects, #grade6-subjects, #grade7-subjects, #grade8-subjects, #grade9-subjects, #grade10-subjects{
+        display: block;
+}
+    .select2-container--default .select2-selection--multiple{
+        border-color: #ced4da !important;
+        min-height: 40px;
+}
+    .select2-container--default .select2-selection--multiple .select2-selection__rendered{
+        padding: 0 0px !important;
 }
 </style>
 
@@ -165,8 +172,8 @@
                     </div>
                     <div class='form-row'>
                         <div class="form-group col-sm-12">
-                            <label class="required-label">Subjects</label>
-                            <select name="subjects[]" id='subjects' class='select2-dropdown form-control' multiple='multiple' data-placeholder='Select subject(s)...'>
+                            <label class="input-label">Subjects</label>
+                            <select name="subjects[]" id='subjects' class='select2-dropdown' multiple='multiple' data-placeholder='Select subject(s)...'>
                                     <option value="Mother Tongue">Mother Tongue</option>
                                     <option value="Filipino 1">Filipino 1</option>
                                     <option value="">English 1</option>
@@ -174,7 +181,79 @@
                                     <option value="Science 1">Science 1</option>
                                     <option value="Araling Panlipunan 1">Araling Panlipunan 1</option>
                                     <option value="Mapeh 1">Mapeh 1</option>
-                                    <option value="Edukasyon sa Pagpapakatao 1">Edukasyon sa Pagpapakatao 1</option>
+                                    <option value="Edukasyon sa Pagpapakatao 2">Edukasyon sa Pagpapakatao 1</option>
+                                    <option value="Mother Tongue 2">Mother Tongue 2</option>
+                                    <option value="Filipino 2">Filipino 2</option>
+                                    <option value="English 2">English 2</option>
+                                    <option value="Math 2">Math 2</option>
+                                    <option value="Science 2">Science 2</option>
+                                    <option value="Araling Panlipunan 2">Araling Panlipunan 2</option>
+                                    <option value="Mapeh 2">Mapeh 2</option>
+                                    <option value="Edukasyon sa Pagpapakatao 2">Edukasyon sa Pagpapakatao 2</option>
+                                    <option value="Mother Tongue 3">Mother Tongue 3</option>
+                                    <option value="Filipino 3">Filipino 3</option>
+                                    <option value="English 3">English 3</option>
+                                    <option value="Math 3">Math 3</option>
+                                    <option value="Science 3">Science 3</option>
+                                    <option value="Araling Panlipunan 3">Araling Panlipunan 3</option>
+                                    <option value="Mapeh 3">Mapeh 3</option>
+                                    <option value="Edukasyon sa Pagpapakatao 3">Edukasyon sa Pagpapakatao 3</option>
+                                    <option value="Filipino 4">Filipino 4</option>
+                                    <option value="English 4">English 4</option>
+                                    <option value="Math 4">Math 4</option>
+                                    <option value="Science 4">Science 4</option>
+                                    <option value="Araling Panlipunan 4">Araling Panlipunan 4</option>
+                                    <option value="Mapeh 4">Mapeh 4</option>
+                                    <option value="Edukasyon sa Pagpapakatao 4">Edukasyon sa Pagpapakatao 4</option>
+                                    <option value="Edukasyong Pantahanan at Pangkabuhayan 4">Edukasyong Pantahanan at Pangkabuhayan 4</option>
+                                    <option value="Filipino 5">Filipino 5</option>
+                                    <option value="English 5">English 5</option>
+                                    <option value="Math 5">Math 5</option>
+                                    <option value="Science 5">Science 5</option>
+                                    <option value="Araling Panlipunan 5">Araling Panlipunan 5</option>
+                                    <option value="Mapeh 5">Mapeh 5</option>
+                                    <option value="Edukasyon sa Pagpapakatao 5">Edukasyon sa Pagpapakatao 5</option>
+                                    <option value="Edukasyong Pantahanan at Pangkabuhayan 5">Edukasyong Pantahanan at Pangkabuhayan 5</option>
+                                    <option value="Filipino 6">Filipino 6</option>
+                                    <option value="English 6">English 6</option>
+                                    <option value="Math 6">Math 6</option>
+                                    <option value="Science 6">Science 6</option>
+                                    <option value="Araling Panlipunan 6">Araling Panlipunan 6</option>
+                                    <option value="Mapeh 6">Mapeh 6</option>
+                                    <option value="Edukasyon sa Pagpapakatao 6">Edukasyon sa Pagpapakatao 6</option>
+                                    <option value="Edukasyong Pantahanan at Pangkabuhayan 6">Edukasyong Pantahanan at Pangkabuhayan 6</option>
+                                    <option value="Filipino 7">Filipino 7</option>
+                                    <option value="English 7">English 7</option>
+                                    <option value="Math 7">Math 7</option>
+                                    <option value="Science 7">Science 7</option>
+                                    <option value="Araling Panlipunan 7">Araling Panlipunan 7</option>
+                                    <option value="Mapeh 7">Mapeh 7</option>
+                                    <option value="Edukasyon sa Pagpapakatao 7">Edukasyon sa Pagpapakatao 7</option>
+                                    <option value="TLE 7">TLE 7</option>
+                                    <option value="Filipino 8">Filipino 8</option>
+                                    <option value="English 8">English 8</option>
+                                    <option value="Math 8">Math 8</option>
+                                    <option value="Science 8">Science 8</option>
+                                    <option value="Araling Panlipunan 8">Araling Panlipunan 8</option>
+                                    <option value="Mapeh 8">Mapeh 8</option>
+                                    <option value="Edukasyon sa Pagpapakatao 8">Edukasyon sa Pagpapakatao 8</option>
+                                    <option value="TLE 9">TLE 9</option>
+                                    <option value="Filipino 9">Filipino 9</option>
+                                    <option value="English 9">English 9</option>
+                                    <option value="Math 9">Math 9</option>
+                                    <option value="Science 9">Science 9</option>
+                                    <option value="Araling Panlipunan 9">Araling Panlipunan 9</option>
+                                    <option value="Mapeh 9">Mapeh 9</option>
+                                    <option value="Edukasyon sa Pagpapakatao 9">Edukasyon sa Pagpapakatao 9</option>
+                                    <option value="TLE 9">TLE 9</option>
+                                    <option value="Filipino 10">Filipino 10</option>
+                                    <option value="English 10">English 10</option>
+                                    <option value="Math 10">Math 10</option>
+                                    <option value="Science 10">Science 10</option>
+                                    <option value="Araling Panlipunan 10">Araling Panlipunan 10</option>
+                                    <option value="Mapeh 10">Mapeh 10</option>
+                                    <option value="Edukasyon sa Pagpapakatao 10">Edukasyon sa Pagpapakatao 10</option>
+                                    <option value="TLE 10">TLE 10</option>
                             </select>
                         </div>
                        

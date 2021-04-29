@@ -14,11 +14,11 @@
         <div class="DivTemplate mt-3 pt-4">
             <div class="row">
                 <div class="col-sm-3 pl-4 pt-2">
-                    <div class="mt-2 mx-auto overflow-hidden" style="width: 125px; height: 125px; border: 2px solid white;">
+                    <div class="mt-2 mx-auto overflow-hidden" style="width: 125px; height: 125px">
                     @if ($user->photoPath != null)
-                        <img src="{{ asset('images/UserPhoto/'.$user->photoPath) }}" style="width: 100%; height: 100%">
+                        <img class="rounded-circle" src="{{ asset('images/UserPhoto/'.$user->photoPath) }}" style="width: 100%; height: 100%">
                     @else
-                          <img src="{{ asset('images/1.jpg') }}" style="width: 100%; height: 100%">
+                          <img class="rounded-circle" src="{{ asset('images/1.jpg') }}" style="width: 100%; height: 100%; border: 1px solid #0fceca">
                     @endif
                     </div>
                     <p class="mt-2 p-0 m-0 text-center" style="color: #3d3d3d; font-weight: 700; font-size: 20px">{{$user->firstName}} {{$user->middleName}} {{$user->lastName}}</p>

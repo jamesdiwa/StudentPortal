@@ -44,9 +44,9 @@
                     <a href='{{ route('user.show',$user->id) }}' class="userSelection">
                     <div class="col-md-auto zoom">
                         @if ($user->photoPath != null)
-                            <img class="mx-auto d-block userSelection-photo" src="{{ asset('images/UserPhoto/'.$user->photoPath) }}">
+                            <img class="mx-auto d-block userSelection-photo rounded-circle" src="{{ asset('images/UserPhoto/'.$user->photoPath) }}">
                         @else
-                            <img class="mx-auto d-block userSelection-photo" src="{{ asset('images/1.jpg') }}">
+                            <img class="mx-auto d-block userSelection-photo rounded-circle" src="{{ asset('images/1.jpg') }}" style="border: 1px solid #0fceca">
                         @endif
                             <p class="mt-1 DivHeaderText text-center user-name">{{$user->firstName}} {{$user->middleName}} {{$user->lastName}}</p>
                             <small class="d-flex justify-content-center user-role">({{$user->accountType}})</small>    

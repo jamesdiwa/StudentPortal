@@ -162,7 +162,7 @@
                        <label for="reportCard" class="form-check-label input-label">Student's Report Card (Form 138)</label>
                    </div>
                    <div class="form-check">
-                       <input type="checkbox" name="goodMoral" id="goodMoral" value="Good Moral Certificate" class="form-check-input" @if($student->studentRequirements->SMR == "Good Moral Certificate") checked @endif>
+                       <input type="checkbox" name="goodMoral" id="goodMoral" value="Good Moral Certificate" class="form-check-input" @if($student->studentRequirements->GMC == "Good Moral Certificate") checked @endif>
                        <label for="goodMoral" class="form-check-label input-label">Good Moral Certificate</label>
                    </div>
                 </div>
