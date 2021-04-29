@@ -7,11 +7,11 @@
 
     <div class="sidebar" id="sidebar">
         <div class="pt-5 mt-3 pb-2 px-3">
-            <div class="mt-2 rounded-circle overflow-hidden" style="width: 80px; height: 80px; border: 2px solid white;">
+            <div class="mt-2 rounded-circle overflow-hidden" style="width: 110px; height: 110px">
                     @if (Session::get("loginphotoPath") != null)
                         <img src="{{ asset('images/UserPhoto/'.Session::get("loginphotoPath")) }}" style="width: 100%; height: 100%">
                     @else
-                          <img src="{{ asset('images/1.jpg') }}" style="width: 100%; height: 100%">
+                          <img class="rounded-circle" src="{{ asset('images/1.jpg') }}" style="width: 100%; height: 100%; border: 1px solid #0fceca">
                     @endif
             </div>
             

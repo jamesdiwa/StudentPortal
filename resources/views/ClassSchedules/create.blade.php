@@ -55,44 +55,73 @@
                     <textarea name="" id="" rows="3" class="form-control"></textarea>
                 </div>
             </div>
-            <!-- Monday -->
-            <p class="DivHeaderText">MONDAY</p>
-            <table class="table table-borderless mt-3">
-                <thead class="text-center">
-                    <th width="150px">Time From</th>
-                    <th width="150px">Time To</th>
-                    <th width="250px">Subject</th>
-                    <th width="250px">Subject Teacher</th>
-                    <th width="150px">Action</th>
-                </thead>
-                <tbody id="monFields">
-                    <tr>
-                        <td>
-                            <input type="time" name="" id="" class="form-control">
-                        </td>
-                        <td>
-                            <input type="time" name="" id="" class="form-control">
-                        </td>
-                        <td>
-                            <select name="" id="" class="form-control">
-                                <option value=""></option>
-                            </select>
-                        </td>
-                        <td>
-                            <select name="" id="" class="form-control">
-                                <option value=""></option>
-                            </select>
-                        </td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="form-row">
-                <div class="form-group col-sm-12 d-flex justify-content-center">
-                    <button type="button" id="addMonday" class="create-button">Add</button>
+            <!-- Day -->
+            <div id="scheduleDiv">
+                <div style="border: 1px solid #d11d27; padding: 10px; border-radius: 5px">
+                    <div class="form-row">
+                        <div class="form-group col-sm-12">
+                            <label class="input-label" style="color: #1e1e1e">Day</label>
+                            <div class="form-check ml-3">
+                                <input type="checkbox" class="form-check-input" id="monday">
+                                <label for="monday" class="form-check-label input-label">Monday</label>
+                            </div>
+                            <div class="form-check ml-3">
+                                <input type="checkbox" class="form-check-input" id="tuesday">
+                                <label for="tuesday" class="form-check-label input-label">Tuesday</label>
+                            </div>
+                            <div class="form-check ml-3">
+                                <input type="checkbox" class="form-check-input" id="wednesday">
+                                <label for="wednesday" class="form-check-label input-label">Wednesday</label>
+                            </div>
+                            <div class="form-check ml-3">
+                                <input type="checkbox" class="form-check-input" id="thursday">
+                                <label for="thursday" class="form-check-label input-label">Thursday</label>
+                            </div>
+                            <div class="form-check ml-3">
+                                <input type="checkbox" class="form-check-input" id="friday">
+                                <label for="friday" class="form-check-label input-label">Friday</label>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-borderless mt-3">
+                        <thead class="text-center">
+                            <th width="150px">Time From</th>
+                            <th width="150px">Time To</th>
+                            <th width="250px">Subject</th>
+                            <th width="250px">Subject Teacher</th>
+                            <th width="150px">Action</th>
+                        </thead>
+                        <tbody id="timeFields">
+                            <tr>
+                                <td>
+                                    <input type="time" name="" id="" class="form-control">
+                                </td>
+                                <td>
+                                    <input type="time" name="" id="" class="form-control">
+                                </td>
+                                <td>
+                                    <select name="" id="" class="form-control">
+                                        <option value=""></option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name="" id="" class="form-control">
+                                        <option value=""></option>
+                                    </select>
+                                </td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="form-row">
+                        <div class="form-group col-sm-12 d-flex justify-content-center">
+                            <button type="button" id="addTime" class="create-button">Add</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- Tuesday -->
+            <button type="button" class="edit-button mt-2" style="width: 100%" id="addSchedule">Add Schedule</button>
+            {{-- <!-- Tuesday -->
             <p class="DivHeaderText">TUESDAY</p>
             <table class="table table-borderless mt-3">
                 <thead class="text-center">
@@ -239,7 +268,7 @@
                 <div class="form-group col-sm-12 d-flex justify-content-center">
                     <button type="button" id="addFriday" class="create-button">Add</button>
                 </div>
-            </div>
+            </div> --}}
             <div class="row mt-3 mb-2">
                 <div class="col-sm-12">
                     <button type="submit" class="save-button">Save</button>
@@ -252,36 +281,39 @@
 </div>
 
 <script>
-    $("#addMonday").click(function(){
-		$("#monFields").append('<tr><td><input type="time" name="" id="" class="form-control"></td><td><input type="time" name="" id="" class="form-control"></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td class="text-center align-middle"><button href="javascript:void(0);" class="delete-button remove">Remove</button></td></tr>');
+    $("#addTime").click(function(){
+		$("#timeFields").append('<tr><td><input type="time" name="" id="" class="form-control"></td><td><input type="time" name="" id="" class="form-control"></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td class="text-center align-middle"><button href="javascript:void(0);" class="delete-button remove">Remove</button></td></tr>');
 	});
-    $("#addTuesday").click(function(){
-		$("#tuesFields").append('<tr><td><input type="time" name="" id="" class="form-control"></td><td><input type="time" name="" id="" class="form-control"></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td class="text-center align-middle"><button href="javascript:void(0);" class="delete-button remove">Remove</button></td></tr>');
+    $("#addSchedule").click(function(){
+		$("#scheduleDiv").append('<div class="mt-2" style="border: 1px solid #d11d27; padding: 10px; border-radius: 5px"><div class="form-row"><div class="form-group col-sm-12"><label class="input-label" style="color: #1e1e1e">Day</label><div class="form-check ml-3"><input type="checkbox" class="form-check-input" id=""><label for="" class="form-check-label input-label">Monday</label></div><div class="form-check ml-3"><input type="checkbox" class="form-check-input" id=""><label for="" class="form-check-label input-label">Tuesday</label></div><div class="form-check ml-3"><input type="checkbox" class="form-check-input" id=""><label for="" class="form-check-label input-label">Wednesday</label></div><div class="form-check ml-3"><input type="checkbox" class="form-check-input" id=""><label for="" class="form-check-label input-label">Thursday</label></div><div class="form-check ml-3"><input type="checkbox" class="form-check-input" id=""><label for="" class="form-check-label input-label">Friday</label></div></div></div><table class="table table-borderless mt-3"><thead class="text-center"><th width="150px">Time From</th><th width="150px">Time To</th><th width="250px">Subject</th><th width="250px">Subject Teacher</th><th width="150px">Action</th></thead><tbody id="timeFields"><tr><td><input type="time" name="" id="" class="form-control"></td><td><input type="time" name="" id="" class="form-control"></td><td><select name="" id="" class="form-control"><option value=""></option> </select></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td></td></tr></tbody></table><div class="form-row"><div class="form-group col-sm-12 d-flex justify-content-center"><button type="button" id="addTime" class="create-button">Add</button></div></div></div>');
 	});
-    $("#addWednesday").click(function(){
-		$("#wedFields").append('<tr><td><input type="time" name="" id="" class="form-control"></td><td><input type="time" name="" id="" class="form-control"></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td class="text-center align-middle"><button href="javascript:void(0);" class="delete-button remove">Remove</button></td></tr>');
-	});
-    $("#addThursday").click(function(){
-		$("#thursFields").append('<tr><td><input type="time" name="" id="" class="form-control"></td><td><input type="time" name="" id="" class="form-control"></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td class="text-center align-middle"><button href="javascript:void(0);" class="delete-button remove">Remove</button></td></tr>');
-	});
-    $("#addFriday").click(function(){
-		$("#friFields").append('<tr><td><input type="time" name="" id="" class="form-control"></td><td><input type="time" name="" id="" class="form-control"></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td class="text-center align-middle"><button href="javascript:void(0);" class="delete-button remove">Remove</button></td></tr>');
-	});
-    $("#monFields").on('click','.remove',function(){
+    // $("#addTuesday").click(function(){
+	// 	$("#tuesFields").append('<tr><td><input type="time" name="" id="" class="form-control"></td><td><input type="time" name="" id="" class="form-control"></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td class="text-center align-middle"><button href="javascript:void(0);" class="delete-button remove">Remove</button></td></tr>');
+	// });
+    // $("#addWednesday").click(function(){
+	// 	$("#wedFields").append('<tr><td><input type="time" name="" id="" class="form-control"></td><td><input type="time" name="" id="" class="form-control"></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td class="text-center align-middle"><button href="javascript:void(0);" class="delete-button remove">Remove</button></td></tr>');
+	// });
+    // $("#addThursday").click(function(){
+	// 	$("#thursFields").append('<tr><td><input type="time" name="" id="" class="form-control"></td><td><input type="time" name="" id="" class="form-control"></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td class="text-center align-middle"><button href="javascript:void(0);" class="delete-button remove">Remove</button></td></tr>');
+	// });
+    // $("#addFriday").click(function(){
+	// 	$("#friFields").append('<tr><td><input type="time" name="" id="" class="form-control"></td><td><input type="time" name="" id="" class="form-control"></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td><select name="" id="" class="form-control"><option value=""></option></select></td><td class="text-center align-middle"><button href="javascript:void(0);" class="delete-button remove">Remove</button></td></tr>');
+	// });
+    $("#timeFields").on('click','.remove',function(){
         $(this).parent().parent().remove();
     });
-    $("#tuesFields").on('click','.remove',function(){
-        $(this).parent().parent().remove();
-    });
-    $("#wedFields").on('click','.remove',function(){
-        $(this).parent().parent().remove();
-    });
-    $("#thursFields").on('click','.remove',function(){
-        $(this).parent().parent().remove();
-    });
-    $("#friFields").on('click','.remove',function(){
-        $(this).parent().parent().remove();
-    });
+    // $("#tuesFields").on('click','.remove',function(){
+    //     $(this).parent().parent().remove();
+    // });
+    // $("#wedFields").on('click','.remove',function(){
+    //     $(this).parent().parent().remove();
+    // });
+    // $("#thursFields").on('click','.remove',function(){
+    //     $(this).parent().parent().remove();
+    // });
+    // $("#friFields").on('click','.remove',function(){
+    //     $(this).parent().parent().remove();
+    // });
 </script>
 
 @endsection
