@@ -16,12 +16,12 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             //account info
             $table->increments('id');
-            $table->string('username')->unique();
-            $table->string('password');
+            $table->string('username')->unique()->nullable();
+            $table->string('password')->nullable();
             $table->string('accountType');
 
             //user basic info
-            $table->string('firstName');
+            $table->string('firstName')->nullable();
             $table->string('middleName')->nullable();
             $table->string('lastName')->nullable();
 
@@ -33,9 +33,11 @@ class CreateUsersTable extends Migration
             $table->string('gender')->nullable();
             $table->text('permanentAddress')->nullable();
             $table->text('presentAddress')->nullable();
-            $table->string('email')->unique();
+            $table->string('email')->nullable();
             $table->string('contactNumber')->nullable();
             $table->string('photoPath')->nullable();
+            $table->string('status')->nullable();
+            $table->integer('isActivated')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

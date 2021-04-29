@@ -57,7 +57,18 @@
                     <th width="200px" class="text-center">Action</th>
                 </thead>
                 <tbody class="tbody-data">
+                    @foreach($students as $student)
                     <tr>
+                        <td class="align-middle">A117A0909</td>
+                        <td class="align-middle">{{$student->firstName}} {{$student->middleName}} {{$student->lastName}}</td>
+                        <td class="align-middle"><span style="color: #097b9e">{{$student->status}}</span></td>
+                        <td class="text-center">
+                            <button style="button" class="search-button" onclick="window.location='{{ route('studentList.show',$student->id)}}'">Records</button>
+                        </td>
+                    </tr>
+                    @endforeach
+
+                    {{-- <tr>
                         <td class="align-middle">A117A0909</td>
                         <td class="align-middle">James Patrick Diwa</td>
                         <td class="align-middle"><span style="color: #097b9e">Registered</span></td>
@@ -104,10 +115,23 @@
                         <td class="text-center">
                             <button style="button" class="search-button">Records</button>
                         </td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
+<script>
+    var msg = "{{Session::get('success')}}";
+    var exist = "{{Session::has('success')}}";
+    if(exist){
+        Swal.fire({
+            icon: 'success',
+            title: msg,
+            showConfirmButton: false,
+            timer: 2000,
+        });
+    }
+</script>
 @endsection

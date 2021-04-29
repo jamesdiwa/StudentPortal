@@ -18,7 +18,7 @@
                 <p class="header-title">Student</p>
             </div>
         </div> --}}
-        <div class="DivTemplate mt-3 py-3">
+        {{-- <div class="DivTemplate mt-3 py-3">
             <p class="DivHeaderText pb-2 mb-2">LOG IN DETAILS</p>
             <div class="form-row">
                 <div class="form-group col-sm-12">
@@ -36,7 +36,10 @@
                     <input type="password" class="form-control" name="password">
                 </div>
             </div>
-        </div>
+        </div> --}}
+
+<form class="form-horizontal" method="POST" action="{{route('registerNewStudent')}}">
+    @csrf
         <div class="DivTemplate mt-3 py-3">
             <p class="DivHeaderText mb-2 pb-2">BASIC INFORMATION</p>
             <div class="form-row">
@@ -92,33 +95,38 @@
                     
                 </div>
                 <div class="form-group col-sm-4">
-                    <label class="input-label mb-2">Gender</label><br>
-                    <div class="form-check form-check-inline ml-4">
-                        <input type="radio" name="gender" id="genderMale" class="form-check-input">
-                        <label for="genderMale" class="form-check-label">Male</label>
+                        <label class="input-label mb-2">Gender</label><br>
+                        <div class="form-check form-check-inline ml-4">
+                            <input type="radio" name="gender" id="genderMale" value="Male" class="form-check-input" checked>
+                            <label for="genderMale" class="form-check-label">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline ml-4">
+                            <input type="radio" name="gender" id="genderFemale" value="Female" class="form-check-input">
+                            <label for="genderFemale" class="form-check-label">Female</label>
+                        </div>
                     </div>
-                    <div class="form-check form-check-inline ml-4">
-                        <input type="radio" name="gender" id="genderFemale" class="form-check-input">
-                        <label for="genderFemale" class="form-check-label">Female</label>
-                    </div>
-                </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Permanent Address</label>
-                    <textarea name="" id="" rows="3" class="form-control"></textarea>
+                    <textarea name="permanentAddress" id="" rows="3" class="form-control"></textarea>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Present Address</label>
-                    <textarea name="" id="" rows="3" class="form-control"></textarea>
+                    <textarea name="presentAddress" id="" rows="3" class="form-control"></textarea>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Email Address</label>
-                    <input type="email" class="form-control" name="emailAddress">
+                    <input type="email" class="form-control required {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email">
+                    @if ($errors->has('email'))
+                        <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
                 </div>
             </div>
             <div class="form-row">
@@ -128,42 +136,50 @@
                 </div>
             </div>
         </div>
+
         <div class="DivTemplate mt-3 py-3">
             <p class="DivHeaderText mb-2 pb-2">GUARDIAN INFORMATION</p>
             <div class="form-row">
                 <div class="form-group col-sm-4">
                     <label class="input-label">First Name</label>
-                    <input type="text" class="form-control" name="">
+                    <input type="text" class="form-control" name="gFirstName">
                 </div>
                 <div class="form-group col-sm-4">
                     <label class="input-label">Middle Name</label>
-                    <input type="text" class="form-control" name="">
+                    <input type="text" class="form-control" name="gMiddleName">
                 </div>
                 <div class="form-group col-sm-4">
                     <label class="input-label">Last Name</label>
-                    <input type="text" class="form-control" name="">
+                    <input type="text" class="form-control" name="gLastname">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Relationship</label>
-                    <input type="text" class="form-control" name="">
+                    <input type="text" class="form-control" name="gRelationship">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Complete Address</label>
-                    <textarea name="" id="" rows="3" class="form-control"></textarea>
+                    <textarea name="gCompleteAddress" id="" rows="3" class="form-control"></textarea>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Contact Number</label>
-                    <input type="number" class="form-control" name="contactNumber">
+                    <input type="number" pattern="/^-?\d+\.?\d*$/" class="form-control" onKeyPress="if(this.value.length==11) return false;" name="gContactNumber">
+                </div>
+            </div>
+            <div class="row mt-3 mb-2 px-2">
+                <div class="col-sm-12">
+                    <button type="submit" class="save-button" style="width: 150px">Register</button>
+                    <button type="button" class="back-button float-right" style="width: 150px" onclick="window.location='{{ url('/') }}'">Back</button>
                 </div>
             </div>
         </div>
-        <div class="DivTemplate mt-3 py-3">
+</form>
+        {{-- <div class="DivTemplate mt-3 py-3">
             <p class="DivHeaderText mb-2 pb-2">UPLOAD PHOTO</p>
             <div class="row">
                 <div class="col-sm-12">
@@ -183,7 +199,7 @@
                     <button type="button" class="back-button float-right" style="width: 150px" onclick="window.location='{{ url('/') }}'">Back</button>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
     </div>
 {{-- </div> --}}

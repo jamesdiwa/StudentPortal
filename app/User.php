@@ -15,7 +15,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username','password','accountType','firstName','middleName','lastName','month','day','year','gender','permanentAddress','presentAddress' ,  'email','contactNumber',
+        'username','password','accountType','firstName','middleName','lastName','month','day','year','gender','permanentAddress','presentAddress' ,  
+        'email','contactNumber','isActivated','status'
     ];
 
     /**
@@ -26,4 +27,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function studentGuardian(){
+        return $this->hasOne(StudentGuardianInfo::class , 'userId', 'id'); 
+    }
+
+    public function studentRequirements(){
+        return $this->hasOne(StudentRequirements::class , 'userId', 'id'); 
+    }
+
+    
 }

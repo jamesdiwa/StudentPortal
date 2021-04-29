@@ -46,7 +46,6 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'email' => 'required|email|unique:users,email',
             'username' => 'required|string|max:20|unique:users',
             'password' => 'required|same:confirm-password',
         ]);
@@ -156,7 +155,7 @@ class UserController extends Controller
             $user->save();
         }
 
-        return redirect()->route('user.show',$id)->with('success', 'User Updated Successfully');;
+        return redirect()->route('user.show',$id)->with('success', 'User Updated Successfully');
     }
 
     /**
