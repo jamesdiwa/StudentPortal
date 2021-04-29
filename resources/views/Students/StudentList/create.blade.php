@@ -137,12 +137,7 @@ function generateKey(){
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Email Address</label>
-                    <input type="email" class="form-control required {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email">
-                    @if ($errors->has('email'))
-                        <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                    @endif
+                    <input type="email" class="form-control" name="email">
                 </div>
             </div>
             <div class="form-row">
@@ -182,6 +177,27 @@ function generateKey(){
                 <div class="form-group col-sm-12">
                     <label class="input-label">Contact Number</label>
                     <input type="number" pattern="/^-?\d+\.?\d*$/" class="form-control" onKeyPress="if(this.value.length==11) return false;" name="gContactNumber">
+                </div>
+            </div>
+            <p class="DivHeaderText my-2 py-2">SCHOOL REQUIREMENTS</p>
+            <div class="form-row">
+                <div class="form-group col-sm-12">
+                    <div class="form-check">
+                        <input type="checkbox" name="nso" id="nso" value="Photocopy of Birth Certificate (NSO)" class="form-check-input">
+                        <label for="nso" class="form-check-label input-label">Photocopy of Birth Certificate (NSO)</label>
+                    </div>
+                    <div class="form-check">
+                       <input type="checkbox" name="medicalRecord" id="medicalRecord" value="Student's Medical Record" class="form-check-input">
+                       <label for="medicalRecord" class="form-check-label input-label">Student's Medical Record</label>
+                   </div>
+                   <div class="form-check">
+                       <input type="checkbox" name="reportCard" id="reportCard" value="Student's Report Card (Form 138)" class="form-check-input">
+                       <label for="reportCard" class="form-check-label input-label">Student's Report Card (Form 138)</label>
+                   </div>
+                   <div class="form-check">
+                       <input type="checkbox" name="goodMoral" id="goodMoral" value="Good Moral Certificate" class="form-check-input">
+                       <label for="goodMoral" class="form-check-label input-label">Good Moral Certificate</label>
+                   </div>
                 </div>
             </div>
             <p class="DivHeaderText py-2 my-2">UPLOAD PHOTO</p>
