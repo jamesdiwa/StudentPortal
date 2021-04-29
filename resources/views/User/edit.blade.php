@@ -668,6 +668,11 @@ $(document).ready(function(){
     $("#month option[value='{{$user->month}}']").attr("selected", "selected");
     $("#year option[value='{{$user->year}}']").attr("selected", "selected");
 
+    var accountType = '{{$user->accountType}}';
+    if(accountType == 'Teacher'){
+       $('#teacher_div').show();
+    }
+
        //Crop image
       $image_crop = $('#image_demo').croppie({
                     enableExif: true,

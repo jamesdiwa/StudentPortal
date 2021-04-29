@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\StudentGuardianInfo;
+use Hash;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class NewStudentController extends Controller
 {
@@ -13,7 +17,10 @@ class NewStudentController extends Controller
      */
     public function index()
     {
-        return view('Students.NewStudent.index');
+
+        $students = User::where('accountType','Student')->where('isActivated',0)->get();
+
+        return view('Students.NewStudent.index',compact('students'));
     }
 
     /**
@@ -34,7 +41,7 @@ class NewStudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       //
     }
 
     /**
@@ -45,7 +52,9 @@ class NewStudentController extends Controller
      */
     public function show($id)
     {
-        return view('Students.NewStudent.show');
+        $student = User::find($id);
+        
+        return view('Students.NewStudent.show',compact('student'));
     }
 
     /**
@@ -56,7 +65,9 @@ class NewStudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = User::find($id);
+
+        return view('Students.NewStudent.enlist',compact('student'));
     }
 
     /**
@@ -68,7 +79,55 @@ class NewStudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        $request->validate([
+            'email' => 'required|email|unique:users,email',
+            'username' => 'required|string|max:20|unique:users',
+            'password' => 'required|same:confirm-password',
+        ]);
+       
+        $user->update([
+            'username' => $request->username,
+            'password' => Hash::make($request->password),
+            'firstName' => $request->firstName,
+            'middleName' => $request->middleName,
+            'lastName' => $request->lastName,
+            'month' => $request->month,
+            'day' => $request->day,
+            'year' => $request->year,
+            'gender' => $request->gender,
+            'permanentAddress' => $request->permanentAddress,
+            'presentAddress' => $request->presentAddress,
+            'email' => $request->email,
+            'contactNumber' => $request->contactNumber,
+            'isActivated' => '1',
+            'status' => 'Registered',
+            'remember_token' => str_random(10) . time(),
+        ]);
+
+        StudentGuardianInfo::where('userId',$id)->update([
+            'gFirstName' => $request->gFirstName,
+            'gMiddleName' => $request->gMiddleName,
+            'gLastname' => $request->gLastname,
+            'gRelationship' => $request->gRelationship,
+            'gCompleteAddress' => $request->gCompleteAddress,
+            'gContactNumber' => $request->gContactNumber,
+        ]);
+
+        if ($request->input('photoPath') != NULL){
+            $screen = $request->input('photoPath');
+            $filterd_data = substr($screen, strpos($screen, ",")+1);
+            //Decode the string
+            $unencoded_data=base64_decode($filterd_data);
+            $name = time().'.png';
+            $user_photo = Image::make($unencoded_data);
+            $user_photo-> save(public_path().'/images/UserPhoto/' .  $name);
+            $user->photoPath = $name;
+            $user->save();
+        }
+
+        return redirect()->route('studentList.index')->with('success', 'User Updated Successfully');
     }
 
     /**
@@ -79,6 +138,39 @@ class NewStudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::find($id)->delete();
+        StudentGuardianInfo::where('userId',$id)->delete();
+
+        return redirect()->route('newStudent.index')->with('success', 'Deleted Successfully.');
+    }
+
+    public function registerNew(Request $request){
+        $userId =  User::create([
+            'accountType' => 'Student',
+            'firstName' => $request->firstName,
+            'middleName' => $request->middleName,
+            'lastName' => $request->lastName,
+            'month' => $request->month,
+            'day' => $request->day,
+            'year' => $request->year,
+            'gender' => $request->gender,
+            'permanentAddress' => $request->permanentAddress,
+            'presentAddress' => $request->presentAddress,
+            'email' => $request->email,
+            'contactNumber' => $request->contactNumber,
+            'status' => 'Not yet verified',
+        ])->id;
+
+        StudentGuardianInfo::create([
+            'userId' => $userId,
+            'gFirstName' => $request->gFirstName,
+            'gMiddleName' => $request->gMiddleName,
+            'gLastname' => $request->gLastname,
+            'gRelationship' => $request->gRelationship,
+            'gCompleteAddress' => $request->gCompleteAddress,
+            'gContactNumber' => $request->gContactNumber,
+        ]);
+
+        return redirect()->route('homepage')->with('success', 'Register Successfully.');
     }
 }

@@ -19,6 +19,11 @@
         <!-- CSS -->
     <link href="css/custom.css" rel="stylesheet">
 
+    <!-- Sweetalert2 JS and CSS-->
+    <script src="{{ asset('js/sweetalert2@10.min.js') }}"
+    integrity="sha512-Wv8c8chIOY6Gt4Fesj+VYlEt+Qd+GIIKcoZGtPPh7l6Edc0QZlJoYQGVoQIBDDAFSzRNbJfnS9ml47BGRNdNiQ==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ asset('css/sweetalert2@10.min.css') }}" integrity="sha512-NU255TKQ55xzDS6UHQgO9HQ4jVWoAEGG/lh2Vme0E2ymREox7e8qwIfn6BFem8lbahhU9E2IQrHZlFAxtKWH2Q==" crossorigin="anonymous" />
+
 
         <!-- Styles -->
         <style>
@@ -727,6 +732,18 @@
         duration: 1000
     });
     </script>
+
+<script>
+    var msg = "{{Session::get('success')}}";
+    var exist = "{{Session::has('success')}}";
+    if(exist){
+        Swal.fire({
+            icon: 'success',
+            title: msg,
+            showConfirmButton: true,
+        });
+    }
+</script>
     
     </body>
     
