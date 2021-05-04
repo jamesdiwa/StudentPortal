@@ -18,23 +18,23 @@
             <div class="form-row mt-2">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Title</label>
-                    <input type="text" class="form-control" name="title" value="{{$announcement->title}}">
+                    <input type="text" class="form-control" name="title" value="{{$announcement->title}}" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Announcement</label>
-                    <textarea class="form-control" name="announcement">{{$announcement->announcement}}</textarea>
+                    <textarea class="form-control" name="announcement" required>{{$announcement->announcement}}</textarea>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-6">
                     <label class="input-label">Date From</label>
-                    <input type="date" class="form-control" name="date_from" value="{{$announcement->date_from}}">
+                    <input type="date" class="form-control" name="date_from" value="{{$announcement->date_from}}" required>
                 </div>
                 <div class="form-group col-sm-6">
                     <label class="input-label">Date To</label>
-                    <input type="date" class="form-control" name="date_to" value="{{$announcement->date_to}}">
+                    <input type="date" class="form-control" name="date_to" value="{{$announcement->date_to}}" required>
                 </div>
             </div>
             <div class="row mt-3 mb-2">

@@ -18,7 +18,7 @@
             <div class="form-row mt-2">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Title</label>
-                    <input type="text" class="form-control" name="name" value="{{$tasks->name}}">
+                    <input type="text" class="form-control" name="name" value="{{$tasks->name}}" required>
                 </div>
             </div>
             <div class="form-row">
@@ -30,7 +30,7 @@
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Date</label>
-                    <input type="date" class="form-control" name="task_date" value="{{$tasks->task_date}}">
+                    <input type="date" class="form-control" name="task_date" value="{{$tasks->task_date}}" required>
                 </div>
             </div>
             <div class="row mt-3 mb-2">
