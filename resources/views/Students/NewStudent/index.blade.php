@@ -23,7 +23,7 @@
             </div>
             <table class="table table-borderless">
                 <thead class="thead-bg">
-                    <th width="350px">Student Name</th>
+                    <th width="300px">Student Name</th>
                     <th width="150px">Status</th>
                     <th width="350px" class="text-center">Action</th>
                 </thead>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Announcements;
 use Session;
 
 class AnnouncementController extends Controller
@@ -16,7 +17,8 @@ class AnnouncementController extends Controller
     {
         Session::put('vtab','announcement');
 
-        return view('Announcements.index');
+        $announcement = Announcements::all();
+        return view('announcements.index', compact('announcement'));
     }
 
     /**
@@ -37,7 +39,8 @@ class AnnouncementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Announcements::create($request->all());
+        return redirect()->route('announcement.index');
     }
 
     /**
@@ -59,7 +62,8 @@ class AnnouncementController extends Controller
      */
     public function edit($id)
     {
-        return view('Announcements.edit');
+        $announcement = Announcements::find($id);
+        return view('announcements.edit', compact('announcement'));
     }
 
     /**
@@ -71,7 +75,13 @@ class AnnouncementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $announcement = Announcements::find($id)->update([
+            'title'=>$request->title,
+            'announcement'=>$request->announcement,
+            'date_from'=>$request->date_from,
+            'date_to'=>$request->date_to,
+        ]);
+        return redirect()->route('announcement.index');
     }
 
     /**
@@ -82,6 +92,8 @@ class AnnouncementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Announcements::find($id)->delete();
+
+        return redirect()->route('announcement.index')->with('success', 'Deleted Successfully.');
     }
 }
