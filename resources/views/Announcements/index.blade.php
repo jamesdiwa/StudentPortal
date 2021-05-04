@@ -12,18 +12,47 @@
             <button class="float-right create-button" onclick="window.location='{{ route('announcement.create')  }}'">Create</button>
         </div>
     </div>
-    <div class="container">       
+    <div class="container">     
+        @if($announcement != '[]')
         <div class="DivTemplate mt-3 py-4">
-            <button type="button" class="delete-button float-right mx-1">Delete</button>
-            <button type="button" class="update-button float-right mx-1">Update</button>
-            <div class="row mt-2">
-                <div class="col-sm-12">
-                    <p class="p-0 m-0 data">Lorem Ipsum (From 04/20/2021 to 04/21/2021)</p>
-                    <p class="label">Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. </p>
+            @foreach($announcement as $announcement)
+            <button style="submit" class="delete-button mx-1 float-right" onclick="submitDelete(this)">Delete</button>
+            <form class="deleteForm" method='POST' action='{{ route('announcement.destroy', $announcement->id) }}'>
+                @csrf
+                @method('DELETE')
+            </form>
+            <button type="button" class="update-button float-right mx-1" onclick="window.location='{{ route('announcement.edit',$announcement->id) }}'">Update</button>
+                <div class="row mt-2">
+                    <div class="col-sm-12">
+                        <p class="p-0 m-0 data">{{$announcement->title}} (From {{$announcement->date_from}} to {{$announcement->date_to}})</p>
+                        <p class="label p-0 m-0">{{$announcement->announcement}}</p>
+                    </div>
                 </div>
-            </div>
+            @endforeach
         </div>
+        @else
+        <div class="DivTemplate mt-3 py-3">
+            <p class="sub-title p-0 m-0">No announcements yet</p>
+        </div>
+        @endif
     </div>
 </div>
+
+<script>
+    var msg = "{{Session::get('success')}}";
+    var exist = "{{Session::has('success')}}";
+    if(exist){
+        Swal.fire({
+            icon: 'success',
+            title: msg,
+            showConfirmButton: false,
+            timer: 2000,
+        });
+    }
+
+    function submitDelete(thisBtn){
+        $(thisBtn).closest("div").find('.deleteForm').submit();
+    }
+</script>
 
 @endsection

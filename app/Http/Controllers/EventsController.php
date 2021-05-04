@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Events;
 use Session;
 
 class EventsController extends Controller
@@ -16,7 +17,8 @@ class EventsController extends Controller
     {
         Session::put('vtab','events');
 
-        return view('Events.index');
+        $tasks = Events::all();
+        return view('events.index', compact('tasks'));
     }
 
     /**
@@ -37,7 +39,8 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Events::create($request->all());
+        return redirect()->route('events.index');
     }
 
     /**
@@ -59,7 +62,8 @@ class EventsController extends Controller
      */
     public function edit($id)
     {
-        return view('Events.edit');
+        $tasks = Events::find($id);
+        return view('events.edit', compact('tasks'));
     }
 
     /**
@@ -71,7 +75,12 @@ class EventsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tasks = Events::find($id)->update([
+            'name'=>$request->name,
+            'description'=>$request->description,
+            'task_date'=>$request->task_date,
+        ]);
+        return redirect()->route('events.index');
     }
 
     /**

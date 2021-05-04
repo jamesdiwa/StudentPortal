@@ -211,7 +211,7 @@
             </div>
             <div class="row mt-3 mb-2">
                 <div class="col-sm-12">
-                    <button type="submit" class="save-button">Save</button>
+                    <button type="submit" class="save-button">Verify</button>
                     <button type="button" class="back-button float-right" onclick="window.location='{{ route('newStudent.index') }}'">Back</button>
                 </div>
             </div>

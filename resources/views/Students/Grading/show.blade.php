@@ -12,10 +12,18 @@
     </div>
     <div class="container">
         <div class="DivTemplate mt-3 py-3"> 
-            <div class="p-3">
-                <p class="sub-title p-0 m-0" style="font-size: 20px">James Patrick Diwa</p>
-                <p class="sub-title p-0 m-0 font-weight-normal">A117A0909 (Grade 7 - Sampaguita)</p>
+            <div class="row py-3">
+                <div class="col-sm-auto d-flex justify-content-center align-self-center">
+                    <img class="rounded-circle" src="{{ asset('images/1.jpg') }}" style="width: 60px; height: 60px; border: 1px solid #0fceca">
+                </div>
+                <div class="col-sm d-block align-self-center px-0">
+                    <p class="sub-title p-0 m-0" style="font-size: 20px">James Patrick Diwa</p>
+                    <p class="sub-title p-0 m-0 font-weight-normal">A117A0909 (Grade 7 - Sampaguita)</p>
+                </div>
             </div>
+            {{-- <div class="p-3">
+                
+            </div> --}}
             <table class="table table-borderless">
                 <thead class="thead-bg text-center">
                     <th width="100px">Subject</th>

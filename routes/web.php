@@ -73,4 +73,8 @@ Route::get('/students', function(){
     return view('Students.studentsSelection');
 });
 
+Route::get('/events-edit', function(){
+    return view('Events.edit');
+});
+
 Route::get('samplepdf', 'PdfController@samplePdf')->name('samplepdf');

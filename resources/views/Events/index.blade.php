@@ -41,17 +41,16 @@
         $('#calendar').fullCalendar({
             // put your options and callbacks here
             events : [
-                //reference at the bottom part of the code
+                @foreach($tasks as $task)
+                    {
+                        title : '{{ $task->name }}',
+                        start : '{{ $task->task_date }}',
+                        url: '{{ route('events.edit',$task->id) }}',
+                        
+                    },
+                @endforeach
             ]
         })
     });
 </script>
 @endsection
-{{-- 
-@foreach($tasks as $task)
-    {
-        title : '{{ $task->name }}',
-        start : '{{ $task->task_date }}',
-        
-    },
-@endforeach --}}

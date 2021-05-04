@@ -1,8 +1,12 @@
+May 04, 2021 (James)
+    - School Calendar (CRU)
+    - Announcements (CRUD) 
+
 April 29, 2021 (James) 
     - Layout Adjustments
-        - Student List
-        - User Management
-        - Class Scheduling
+            - Student List
+            - User Management
+            - Class Scheduling
 
 April 29, 2021 (ivan)
     - Adding backend to Student creation

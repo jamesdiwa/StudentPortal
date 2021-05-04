@@ -32,28 +32,28 @@
                     <table class="table table-borderless">
                         <tbody class="tbody-data">
                             <tr>
-                                <td class="font-weight-normal">Date of Birth</td>
-                                <td>{{$student->month}} {{$student->day}},{{$student->year}}</td>
+                                <td class="font-weight-normal" width="38%">Date of Birth</td>
+                                <td  width="62%" style="color: #1e1e1e">{{$student->month}} {{$student->day}},{{$student->year}}</td>
                             </tr>
                             <tr>
                                 <td class="font-weight-normal">Gender</td>
-                                <td>{{$student->gender}}</td>
+                                <td style="color: #1e1e1e">{{$student->gender}}</td>
                             </tr>
                             <tr>
                                 <td class="font-weight-normal">Permanent Address</td>
-                                <td>{{$student->permanentAddress}}</td>
+                                <td style="color: #1e1e1e">{{$student->permanentAddress}}</td>
                             </tr>
                             <tr>
                                 <td class="font-weight-normal">Present Address</td>
-                                <td>{{$student->presentAddress}}</td>
+                                <td style="color: #1e1e1e">{{$student->presentAddress}}</td>
                             </tr>
                             <tr>
                                 <td class="font-weight-normal">Email Address</td>
-                                <td>{{$student->email}}</td>
+                                <td style="color: #1e1e1e">{{$student->email}}</td>
                             </tr>
                             <tr>
                                 <td class="font-weight-normal">Contact Number</td>
-                                <td>{{$student->contactNumber}}</td>
+                                <td style="color: #1e1e1e">{{$student->contactNumber}}</td>
                             </tr>
                         </tbody>
                     </table>
