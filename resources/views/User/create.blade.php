@@ -164,7 +164,8 @@
                     <div class="form-row">
                         <div class="form-group col-sm-12">
                             <label class="input-label">Department</label>
-                            <select name="" id="" class="form-control">
+                            <select name="department" id="" class="form-control">
+                                <option value="">Select</option>
                                 <option value="Elementary">Elementary</option>
                                 <option value="High School">High School</option>
                             </select>
@@ -176,12 +177,12 @@
                             <select name="subjects[]" id='subjects' class='select2-dropdown' multiple='multiple' data-placeholder='Select subject(s)...'>
                                     <option value="Mother Tongue">Mother Tongue</option>
                                     <option value="Filipino 1">Filipino 1</option>
-                                    <option value="">English 1</option>
-                                    <option value="English 1">Math 1</option>
+                                    <option value="English 1">English 1</option>
+                                    <option value="Math 1">Math 1</option>
                                     <option value="Science 1">Science 1</option>
                                     <option value="Araling Panlipunan 1">Araling Panlipunan 1</option>
                                     <option value="Mapeh 1">Mapeh 1</option>
-                                    <option value="Edukasyon sa Pagpapakatao 2">Edukasyon sa Pagpapakatao 1</option>
+                                    <option value="Edukasyon sa Pagpapakatao 1">Edukasyon sa Pagpapakatao 1</option>
                                     <option value="Mother Tongue 2">Mother Tongue 2</option>
                                     <option value="Filipino 2">Filipino 2</option>
                                     <option value="English 2">English 2</option>

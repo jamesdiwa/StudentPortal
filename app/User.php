@@ -16,7 +16,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'username','password','accountType','firstName','middleName','lastName','month','day','year','gender','permanentAddress','presentAddress' ,  
-        'email','contactNumber','isActivated','status'
+        'email','contactNumber','isActivated','status','department','remember_token'
     ];
 
     /**
@@ -36,5 +36,8 @@ class User extends Authenticatable
         return $this->hasOne(StudentRequirements::class , 'userId', 'id'); 
     }
 
+    public function userSchoolRelatedInfo(){
+        return $this->hasOne(UserSchoolRelatedInfo::class , 'userId', 'id'); 
+    }
     
 }
