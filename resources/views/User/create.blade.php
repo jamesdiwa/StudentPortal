@@ -164,10 +164,28 @@
                     <div class="form-row">
                         <div class="form-group col-sm-12">
                             <label class="input-label">Department</label>
-                            <select name="department" id="" class="form-control">
+                            <select name="department" id="department" class="form-control">
                                 <option value="">Select</option>
                                 <option value="Elementary">Elementary</option>
                                 <option value="High School">High School</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-12">
+                            <label class="input-label">Grade Level</label>
+                            <select name="gradeLevel" id="gradeLevel" class="form-control">
+                                <option value="">Select</option>
+                                <option value="Grade 1" class="elementary glevelhide">Grade 1</option>
+                                <option value="Grade 2" class="elementary glevelhide">Grade 2</option>
+                                <option value="Grade 3" class="elementary glevelhide">Grade 3</option>
+                                <option value="Grade 4" class="elementary glevelhide">Grade 4</option>
+                                <option value="Grade 5" class="elementary glevelhide">Grade 5</option>
+                                <option value="Grade 6" class="elementary glevelhide">Grade 6</option>
+                                <option value="Grade 7" class="highSchool glevelhide">Grade 7</option>
+                                <option value="Grade 8" class="highSchool glevelhide">Grade 8</option>
+                                <option value="Grade 9" class="highSchool glevelhide">Grade 9</option>
+                                <option value="Grade 10" class="highSchool glevelhide">Grade 10</option>
                             </select>
                         </div>
                     </div>
@@ -238,7 +256,7 @@
                                     <option value="Araling Panlipunan 8">Araling Panlipunan 8</option>
                                     <option value="Mapeh 8">Mapeh 8</option>
                                     <option value="Edukasyon sa Pagpapakatao 8">Edukasyon sa Pagpapakatao 8</option>
-                                    <option value="TLE 9">TLE 9</option>
+                                    <option value="TLE 8">TLE 8</option>
                                     <option value="Filipino 9">Filipino 9</option>
                                     <option value="English 9">English 9</option>
                                     <option value="Math 9">Math 9</option>
@@ -757,6 +775,19 @@ $('#subjects').select2({
     width: '100%',
     allowClear: true,
 });
+
+    $('.glevelhide').hide();
+    $('#department').change(function(){
+        if($('#department').val() == 'Elementary'){
+            $('.glevelhide').hide();
+            $('.elementary').show();
+            $("#gradeLevel").prop("selectedIndex", 0).change();
+        }else{
+            $('.glevelhide').hide();
+            $('.highSchool').show();
+            $("#gradeLevel").prop("selectedIndex", 0).change();
+        }
+    });
 
    //Crop image
   $image_crop = $('#image_demo').croppie({

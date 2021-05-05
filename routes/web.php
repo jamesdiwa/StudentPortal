@@ -31,8 +31,16 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('accounting', 'AccountingController');
     Route::resource('enrollment', 'EnrollmentController');
     Route::resource('grading', 'GradingController');
-    Route::resource('classSchedule', 'ClassScheduleController');
 
+    Route::resource('classSchedule', 'ClassScheduleController');
+    Route::post('create/createSchedSubject', 'ClassScheduleController@createSchedSubject')->name('createSchedSubject');
+    Route::post('create/createSchedSubjectStore', 'ClassScheduleController@createSchedSubjectStore')->name('createSchedSubjectStore');
+
+    Route::post('create/editSchedSubject', 'ClassScheduleController@editSchedSubject')->name('editSchedSubject');
+
+    
+
+    
 
 });
 

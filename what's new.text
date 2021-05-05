@@ -1,5 +1,8 @@
 May 05, 2021 (Ivan)
-    - php artisan migrate
+    - php artisan migrate:fresh
+    - php artisan db:seed --class=FactorySeeder
+    - php artisan db:seed --class=SubjectSeeder
+
 
 May 04, 2021 (James)
     - School Calendar (CRU)
