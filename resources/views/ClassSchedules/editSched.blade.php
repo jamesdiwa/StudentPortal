@@ -4,10 +4,8 @@
 
 @include('layouts.vtab')
 
-<form class="form-horizontal" method="POST" action="{{route('createSchedSubjectStore')}}">
+<form class="form-horizontal" method="POST" action="{{route('editSchedSubjectUpdate')}}">
     @csrf
-
-
 
 <div class="content content-margin pb-2" id="content">
     <div class="row header-bg" style="margin-top: 70px">
@@ -46,12 +44,13 @@
                                             <td><input type="time" name="inputArr[{{$count}}][timeTo]" id="" value="{{$schedSubjects->timeTo}}" class="form-control" ></td>
                                             <td><input type="text" class="form-control subjectValue" name="inputArr[{{$count}}][subject]" value="{{$schedSubjects->subject}}" readOnly/></td>
                                             <td>
-                                                <select name="inputArr[{{$count}}][subjectTeacher]" value="{{$schedSubjects->subjectTeacher}}" class="form-control teachers" onclick="HideAndShowTeacher(this)">
+                                                <select name="inputArr[{{$count}}][subjectTeacher]" class="form-control teachers">
                                                     <option value="">Select</option>
                                                     @foreach($teachers as $teacher)
                                                     <option value="{{$teacher->teacherInfo->firstName}} {{$teacher->teacherInfo->lastName}}" class="{{str_replace(' ', '', $teacher->subjects)}} adviseHide" >{{$teacher->teacherInfo->firstName}} {{$teacher->teacherInfo->lastName}}</option>
                                                     @endforeach
                                                 </select>
+                                                <input type="hidden" value="{{$schedSubjects->subjectTeacher}}" class="hiddenTeacherVal">
                                             </td><td class="text-center align-middle"><button href="javascript:void(0);" class="delete-button remove">Remove</button></td>
                                         </tr>
                                     @endforeach
@@ -78,13 +77,15 @@
 $(document).ready(function(){
    $('.adviseHide').hide();
 
-});
+   $('.teachers').each(function(){
+    var subjectVal = $(this).closest("tr").find('.subjectValue').val().split(" ").join("");
+    $(this).closest("tr").find('.'+subjectVal).show();
 
-function HideAndShowTeacher(ThisRow){
-    var subjectVal = $(ThisRow).closest("tr").find('.subjectValue').val().split(" ").join("");
-    // alert(subjectVal);
-    $(ThisRow).closest("tr").find('.'+subjectVal).show();
-}
+    var teacherVal = $(this).closest("tr").find('.hiddenTeacherVal').val();
+    $(this).val(teacherVal);
+   });
+
+});
 
 </script>
 

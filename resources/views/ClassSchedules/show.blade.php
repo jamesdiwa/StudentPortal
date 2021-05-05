@@ -95,7 +95,13 @@
                             @endforeach
 
                             @if($teusdayCount != 0)
-                                    <button type="button" class="edit-button">Edit Schedule</button>
+                                <form class="form-horizontal" method="POST" action="{{route('editSchedSubject')}}">
+                                    @csrf 
+                                    <input type="hidden" value="{{$classSched->id}}" name="id">
+                                    <input type="hidden" value="Teusday" name="day">
+    
+                                    <button type="submit" class="edit-button">Edit Schedule</button>
+                                </form>
                             @else
                                 <form class="form-horizontal" method="POST" action="{{route('createSchedSubject')}}">
                                     @csrf 
@@ -131,7 +137,13 @@
                             @endforeach
 
                             @if($wednesdayCount != 0)
-                                    <button type="button" class="edit-button">Edit Schedule</button>
+                                <form class="form-horizontal" method="POST" action="{{route('editSchedSubject')}}">
+                                    @csrf 
+                                    <input type="hidden" value="{{$classSched->id}}" name="id">
+                                    <input type="hidden" value="Wednesday" name="day">
+
+                                    <button type="submit" class="edit-button">Edit Schedule</button>
+                                </form>
                             @else
                                 <form class="form-horizontal" method="POST" action="{{route('createSchedSubject')}}">
                                     @csrf 
@@ -166,7 +178,13 @@
                         @endforeach
 
                         @if($thursdayCount != 0)
-                                <button type="button" class="edit-button">Edit Schedule</button>
+                            <form class="form-horizontal" method="POST" action="{{route('editSchedSubject')}}">
+                                @csrf 
+                                <input type="hidden" value="{{$classSched->id}}" name="id">
+                                <input type="hidden" value="Thursday" name="day">
+
+                                <button type="submit" class="edit-button">Edit Schedule</button>
+                            </form>
                         @else
                             <form class="form-horizontal" method="POST" action="{{route('createSchedSubject')}}">
                                 @csrf 
@@ -201,7 +219,13 @@
                         @endforeach
 
                         @if($fridayCount != 0)
-                                <button type="button" class="edit-button">Edit Schedule</button>
+                            <form class="form-horizontal" method="POST" action="{{route('editSchedSubject')}}">
+                                @csrf 
+                                <input type="hidden" value="{{$classSched->id}}" name="id">
+                                <input type="hidden" value="Friday" name="day">
+
+                                <button type="submit" class="edit-button">Edit Schedule</button>
+                            </form>
                         @else
                             <form class="form-horizontal" method="POST" action="{{route('createSchedSubject')}}">
                                 @csrf 

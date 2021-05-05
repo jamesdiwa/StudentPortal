@@ -37,8 +37,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('create/createSchedSubjectStore', 'ClassScheduleController@createSchedSubjectStore')->name('createSchedSubjectStore');
 
     Route::post('create/editSchedSubject', 'ClassScheduleController@editSchedSubject')->name('editSchedSubject');
-
-    
+    Route::post('create/editSchedSubjectUpdate', 'ClassScheduleController@editSchedSubjectUpdate')->name('editSchedSubjectUpdate');
 
     
 
