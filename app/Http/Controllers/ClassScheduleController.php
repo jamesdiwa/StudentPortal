@@ -267,7 +267,7 @@ class ClassScheduleController extends Controller
         }
 
 
-         return redirect()->route('classSchedule.show',$request->id)->with('success', 'Class Schedule Updated Successfully');
+         return redirect()->route('classSchedule.show',$request->id)->with('success', 'Class Schedule Created Successfully');
     }
 
     //Update
@@ -281,6 +281,30 @@ class ClassScheduleController extends Controller
         $teachers = UserSchoolRelatedInfo::all();
     
         return view('ClassSchedules.editSched',compact('teachers','day','id','schedSubjects'));
+    }
+
+    public function editSchedSubjectUpdate(Request $request){
+
+        ClassSchedulesSubjects::where('classScheduleId',$request->id)->where('day',$request->day)->delete();
+
+        $input = $request->all();
+
+         foreach($input['inputArr'] as $row) {
+             $inputArr[] = [
+                 'classScheduleId' => $request->id,
+                 'timeFrom' => $row['timeFrom'],
+                 'timeTo' => $row['timeTo'],
+                 'subject' => $row['subject'],
+                 'subjectTeacher' => $row['subjectTeacher'],
+                 'day' => $request->day,
+                 'created_at' => Carbon::now()->toDateTimeString(),
+                 'updated_at' => Carbon::now()->toDateTimeString(),
+             ];
+         }
+ 
+         ClassSchedulesSubjects::insert($inputArr);
+
+         return redirect()->route('classSchedule.show',$request->id)->with('success', 'Class Schedule Updated Successfully');
     }
 
 }
