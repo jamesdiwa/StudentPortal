@@ -40,16 +40,34 @@
                 </div>
             </div>
             
-            <div class="row mx-3 py-2">               
+            
+            <div class="row mx-3 py-2">       
+                @foreach($classSchedules as $classSchedules)        
                 <a href='{{ url('classSchedule-show') }}' class="userSelection">
                 <div class="col-md-auto zoom">
-                        <p class="text-center p-0 m-0" style="font-size: 60px; font-weight: 800; color: #d11d27">G-1</p>
-                        <p class="mt-1 DivHeaderText text-center user-name">Grade 1</p>
-                        <small class="d-flex justify-content-center user-role">Sampaguita</small>    
+                        <p class="text-center p-0 m-0" style="font-size: 60px; font-weight: 800; color: #d11d27">{{$classSchedules->gradeLevelIcon}}</p>
+                        <p class="mt-1 DivHeaderText text-center user-name">{{$classSchedules->gradeLevel}}</p>
+                        <small class="d-flex justify-content-center user-role">{{$classSchedules->section}}</small>    
                 </div>
                 </a>
+                @endforeach
             </div>
         </div>
     </div>
 </div>
+
+<script>
+
+    var msg = "{{Session::get('success')}}";
+    var exist = "{{Session::has('success')}}";
+    if(exist){
+        Swal.fire({
+            icon: 'success',
+            title: msg,
+            showConfirmButton: false,
+            timer: 2000,
+        });
+    }
+    
+    </script>
 @endsection

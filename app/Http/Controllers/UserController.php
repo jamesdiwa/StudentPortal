@@ -7,6 +7,7 @@ use Session;
 
 use Hash;
 use App\User;
+use App\UserSchoolRelatedInfo;
 use Auth;
 
 use Intervention\Image\ImageManagerStatic as Image;
@@ -65,8 +66,18 @@ class UserController extends Controller
                 'presentAddress' => $request->presentAddress,
                 'email' => $request->email,
                 'contactNumber' => $request->contactNumber,
+                'department' => $request->department,
                 'remember_token' => str_random(10) . time(),
             ]);
+
+            $inputs = $request->subjects;
+
+            foreach($inputs as $input){
+                UserSchoolRelatedInfo::create([
+                    'userId' => $user->id,
+                    'subjects' => $input,
+                ]);
+            }
 
             if ($request->input('photoPath') != NULL){
                 $screen = $request->input('photoPath');
@@ -112,8 +123,9 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
+        $userSubjects = UserSchoolRelatedInfo::where('userId',$id)->get();
 
-        return view('User.edit',compact('user'));
+        return view('User.edit',compact('user','userSubjects'));
     }
 
     /**
@@ -141,7 +153,19 @@ class UserController extends Controller
             'presentAddress' => $request->presentAddress,
             'email' => $request->email,
             'contactNumber' => $request->contactNumber,
+            'department' => $request->department,
         ]);
+
+        UserSchoolRelatedInfo::where('userId',$id)->delete();
+
+        $inputs = $request->subjects;
+
+        foreach($inputs as $input){
+            UserSchoolRelatedInfo::create([
+                'userId' => $user->id,
+                'subjects' => $input,
+            ]);
+        }
 
         if ($request->input('photoPath') != NULL){
             $screen = $request->input('photoPath');

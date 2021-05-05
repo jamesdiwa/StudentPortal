@@ -38,6 +38,7 @@ class CreateUsersTable extends Migration
             $table->string('photoPath')->nullable();
             $table->string('status')->nullable();
             $table->integer('isActivated')->default(0);
+            $table->string('department')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
