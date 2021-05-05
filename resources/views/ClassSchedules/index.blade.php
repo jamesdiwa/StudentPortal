@@ -8,7 +8,7 @@
     <div class="row header-bg" style="margin-top: 70px">
         <div class="col-sm-12">
             <p class="header-title d-inline">Class Schedules</p>
-            <button class="float-right create-button" onclick="window.location='{{ route('classSchedule.create')  }} '">Create</button>
+            <button class="float-right create-button" onclick="window.location='{{ route('classSchedule.create')}} '">Create</button>
         </div>
     </div>
     <div class="container">
@@ -43,7 +43,7 @@
             
             <div class="row mx-3 py-2">       
                 @foreach($classSchedules as $classSchedules)        
-                <a href='{{ url('classSchedule-show') }}' class="userSelection">
+                <a href='{{ route('classSchedule.show',$classSchedules->id)  }}' class="userSelection">
                 <div class="col-md-auto zoom">
                         <p class="text-center p-0 m-0" style="font-size: 60px; font-weight: 800; color: #d11d27">{{$classSchedules->gradeLevelIcon}}</p>
                         <p class="mt-1 DivHeaderText text-center user-name">{{$classSchedules->gradeLevel}}</p>

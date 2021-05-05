@@ -22,6 +22,7 @@ class CreateClassSchedulesTable extends Migration
             $table->integer('schoolYearFrom')->nullable();
             $table->integer('schoolYearTo')->nullable();
             $table->string('classAdviser')->nullable();
+            $table->string('adviserGender')->nullable();
             $table->text('notes')->nullable();
 
         });

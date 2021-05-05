@@ -67,16 +67,19 @@ class UserController extends Controller
                 'email' => $request->email,
                 'contactNumber' => $request->contactNumber,
                 'department' => $request->department,
+                'gradeLevel' => $request->gradeLevel,
                 'remember_token' => str_random(10) . time(),
             ]);
 
             $inputs = $request->subjects;
-
-            foreach($inputs as $input){
-                UserSchoolRelatedInfo::create([
-                    'userId' => $user->id,
-                    'subjects' => $input,
-                ]);
+            
+            if($inputs != null){
+                foreach($inputs as $input){
+                    UserSchoolRelatedInfo::create([
+                        'userId' => $user->id,
+                        'subjects' => $input,
+                    ]);
+                }
             }
 
             if ($request->input('photoPath') != NULL){
@@ -154,17 +157,19 @@ class UserController extends Controller
             'email' => $request->email,
             'contactNumber' => $request->contactNumber,
             'department' => $request->department,
+            'gradeLevel' => $request->gradeLevel,
         ]);
 
         UserSchoolRelatedInfo::where('userId',$id)->delete();
 
         $inputs = $request->subjects;
-
-        foreach($inputs as $input){
-            UserSchoolRelatedInfo::create([
-                'userId' => $user->id,
-                'subjects' => $input,
-            ]);
+        if($inputs != null){
+            foreach($inputs as $input){
+                UserSchoolRelatedInfo::create([
+                    'userId' => $user->id,
+                    'subjects' => $input,
+                ]);
+            }
         }
 
         if ($request->input('photoPath') != NULL){
