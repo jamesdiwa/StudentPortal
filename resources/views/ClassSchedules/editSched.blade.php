@@ -15,7 +15,7 @@
     </div>
     <div class="container">       
         <div class="DivTemplate mt-3 pt-3">
-           <h1>{{$day}} Schedule</h1>
+           <p class="DivHeaderText pb-1 mb-1" style="font-size: 19px">{{$day}} Schedule</p>
             <div id="mainDiv">
             <input type="hidden" value="{{$id}}" name="id">
             <input type="hidden" value="{{$day}}" name="day">

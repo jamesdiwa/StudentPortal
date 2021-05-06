@@ -7,8 +7,8 @@
 <div class="content content-margin pb-2" id="content">
     <div class="row header-bg" style="margin-top: 70px">
         <div class="col-sm-12">
-            <p class="header-title">Class Schedule</p>
-            <button class="float-right create-button"  onclick="window.location='{{ route('classSchedule.edit',$classSched->id)  }} '">Edit</button>
+            <p class="header-title d-inline"><a href="{{ route('classSchedule.index') }}" style="color: white"><i class="fas fa-arrow-left"></i></a> Class Schedule</p>
+            <button class="float-right create-button" onclick="window.location='{{ route('classSchedule.edit',$classSched->id)  }} '">Edit</button>
         </div>
     </div>
     <div class="container">
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <!-- loop here -->
-                    <div class="row p-2">
+                    <div class="row pb-2 mt-n2">
                         @php
                             $mondayCount = 0;
                         @endphp
@@ -43,15 +43,15 @@
                         @php
                              $mondayCount++;
                         @endphp
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 pt-4" style="border-top: 1px solid #ebebeb">
                                 <p class="text-center sub-title" style="color: #1e1e1e">{{$mondaySched->subject}}
                                 <small class="d-flex justify-content-center user-role">{{$mondaySched->subjectTeacher}}</small> 
-                                <small class="d-flex justify-content-center user-role" style="color: #8cbd01">({{$mondaySched->timeFrom}} to {{$mondaySched->timeTo}})</small> 
+                                <small class="d-flex justify-content-center user-role" style="color: #8cbd01">({{ \Carbon\Carbon::parse($mondaySched->timeFrom)->format('h:i A') }} to {{\Carbon\Carbon::parse($mondaySched->timeTo)->format('h:i A') }})</small> 
                             </div>
                         @endforeach
 
                         @if($mondayCount != 0)
-                             <form class="form-horizontal" method="POST" action="{{route('editSchedSubject')}}">
+                             <form class="form-horizontal mx-auto mt-3" method="POST" action="{{route('editSchedSubject')}}">
                                 @csrf 
                                 <input type="hidden" value="{{$classSched->id}}" name="id">
                                 <input type="hidden" value="Monday" name="day">
@@ -59,7 +59,7 @@
                                 <button type="submit" class="edit-button">Edit Schedule</button>
                             </form>
                         @else
-                            <form class="form-horizontal" method="POST" action="{{route('createSchedSubject')}}">
+                            <form class="form-horizontal mx-auto mt-4" method="POST" action="{{route('createSchedSubject')}}">
                                 @csrf 
                                 <input type="hidden" value="{{$classSched->gradeLevel}}" name="gradeLevel">
                                 <input type="hidden" value="{{$classSched->id}}" name="id">
@@ -79,7 +79,7 @@
                             <p class="text-center sub-title p-0 m-0">Tuesday</p>
                         </div>
                     </div>
-                    <div class="row p-2">
+                    <div class="row pb-2 mt-n2">
                             @php
                                 $teusdayCount = 0;
                             @endphp
@@ -87,15 +87,15 @@
                             @php
                                 $teusdayCount++;
                             @endphp
-                                <div class="col-sm-12">
+                                <div class="col-sm-12 pt-4" style="border-top: 1px solid #ebebeb">
                                     <p class="text-center sub-title" style="color: #1e1e1e">{{$teusdaySched->subject}}
                                     <small class="d-flex justify-content-center user-role">{{$teusdaySched->subjectTeacher}}</small> 
-                                    <small class="d-flex justify-content-center user-role" style="color: #8cbd01">({{$teusdaySched->timeFrom}} to {{$teusdaySched->timeTo}})</small> 
+                                    <small class="d-flex justify-content-center user-role" style="color: #8cbd01">({{ \Carbon\Carbon::parse($teusdaySched->timeFrom)->format('h:i A') }} to {{\Carbon\Carbon::parse($teusdaySched->timeTo)->format('h:i A') }})</small> 
                                 </div>
                             @endforeach
 
                             @if($teusdayCount != 0)
-                                <form class="form-horizontal" method="POST" action="{{route('editSchedSubject')}}">
+                                <form class="form-horizontal mx-auto mt-3" method="POST" action="{{route('editSchedSubject')}}">
                                     @csrf 
                                     <input type="hidden" value="{{$classSched->id}}" name="id">
                                     <input type="hidden" value="Teusday" name="day">
@@ -103,7 +103,7 @@
                                     <button type="submit" class="edit-button">Edit Schedule</button>
                                 </form>
                             @else
-                                <form class="form-horizontal" method="POST" action="{{route('createSchedSubject')}}">
+                                <form class="form-horizontal mx-auto mt-4" method="POST" action="{{route('createSchedSubject')}}">
                                     @csrf 
                                     <input type="hidden" value="{{$classSched->gradeLevel}}" name="gradeLevel">
                                     <input type="hidden" value="{{$classSched->id}}" name="id">
@@ -121,7 +121,7 @@
                             <p class="text-center sub-title p-0 m-0">Wednesday</p>
                         </div>
                     </div>
-                    <div class="row p-2">
+                    <div class="row pb-2 mt-n2">
                             @php
                                 $wednesdayCount = 0;
                             @endphp
@@ -129,15 +129,15 @@
                             @php
                                 $wednesdayCount++;
                             @endphp
-                                <div class="col-sm-12">
+                                <div class="col-sm-12 pt-4" style="border-top: 1px solid #ebebeb">
                                     <p class="text-center sub-title" style="color: #1e1e1e">{{$wednesdaySched->subject}}
                                     <small class="d-flex justify-content-center user-role">{{$wednesdaySched->subjectTeacher}}</small> 
-                                    <small class="d-flex justify-content-center user-role" style="color: #8cbd01">({{$wednesdaySched->timeFrom}} to {{$wednesdaySched->timeTo}})</small> 
+                                    <small class="d-flex justify-content-center user-role" style="color: #8cbd01">({{ \Carbon\Carbon::parse($wednesdaySched->timeFrom)->format('h:i A') }} to {{\Carbon\Carbon::parse($wednesdaySched->timeTo)->format('h:i A') }})</small> 
                                 </div>
                             @endforeach
 
                             @if($wednesdayCount != 0)
-                                <form class="form-horizontal" method="POST" action="{{route('editSchedSubject')}}">
+                                <form class="form-horizontal mx-auto mt-3" method="POST" action="{{route('editSchedSubject')}}">
                                     @csrf 
                                     <input type="hidden" value="{{$classSched->id}}" name="id">
                                     <input type="hidden" value="Wednesday" name="day">
@@ -145,7 +145,7 @@
                                     <button type="submit" class="edit-button">Edit Schedule</button>
                                 </form>
                             @else
-                                <form class="form-horizontal" method="POST" action="{{route('createSchedSubject')}}">
+                                <form class="form-horizontal mx-auto mt-4" method="POST" action="{{route('createSchedSubject')}}">
                                     @csrf 
                                     <input type="hidden" value="{{$classSched->gradeLevel}}" name="gradeLevel">
                                     <input type="hidden" value="{{$classSched->id}}" name="id">
@@ -162,7 +162,7 @@
                             <p class="text-center sub-title p-0 m-0">Thursday</p>
                         </div>
                     </div>
-                    <div class="row p-2">
+                    <div class="row pb-2 mt-n2">
                         @php
                             $thursdayCount = 0;
                         @endphp
@@ -170,15 +170,15 @@
                         @php
                             $thursdayCount++;
                         @endphp
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 pt-4" style="border-top: 1px solid #ebebeb">
                                 <p class="text-center sub-title" style="color: #1e1e1e">{{$thursdaySched->subject}}
                                 <small class="d-flex justify-content-center user-role">{{$thursdaySched->subjectTeacher}}</small> 
-                                <small class="d-flex justify-content-center user-role" style="color: #8cbd01">({{$thursdaySched->timeFrom}} to {{$thursdaySched->timeTo}})</small> 
+                                <small class="d-flex justify-content-center user-role" style="color: #8cbd01">({{ \Carbon\Carbon::parse($thursdaySched->timeFrom)->format('h:i A') }} to {{\Carbon\Carbon::parse($thursdaySched->timeTo)->format('h:i A') }})</small> 
                             </div>
                         @endforeach
 
                         @if($thursdayCount != 0)
-                            <form class="form-horizontal" method="POST" action="{{route('editSchedSubject')}}">
+                            <form class="form-horizontal mx-auto mt-3" method="POST" action="{{route('editSchedSubject')}}">
                                 @csrf 
                                 <input type="hidden" value="{{$classSched->id}}" name="id">
                                 <input type="hidden" value="Thursday" name="day">
@@ -186,7 +186,7 @@
                                 <button type="submit" class="edit-button">Edit Schedule</button>
                             </form>
                         @else
-                            <form class="form-horizontal" method="POST" action="{{route('createSchedSubject')}}">
+                            <form class="form-horizontal mx-auto mt-4" method="POST" action="{{route('createSchedSubject')}}">
                                 @csrf 
                                 <input type="hidden" value="{{$classSched->gradeLevel}}" name="gradeLevel">
                                 <input type="hidden" value="{{$classSched->id}}" name="id">
@@ -203,7 +203,7 @@
                             <p class="text-center sub-title p-0 m-0">Friday</p>
                         </div>
                     </div>
-                    <div class="row p-2">
+                    <div class="row pb-2 mt-n2">
                         @php
                             $fridayCount = 0;
                         @endphp
@@ -211,15 +211,15 @@
                         @php
                             $fridayCount++;
                         @endphp
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 pt-4" style="border-top: 1px solid #ebebeb">
                                 <p class="text-center sub-title" style="color: #1e1e1e">{{$fridaySched->subject}}
                                 <small class="d-flex justify-content-center user-role">{{$fridaySched->subjectTeacher}}</small> 
-                                <small class="d-flex justify-content-center user-role" style="color: #8cbd01">({{$fridaySched->timeFrom}} to {{$fridaySched->timeTo}})</small> 
+                                <small class="d-flex justify-content-center user-role" style="color: #8cbd01">({{ \Carbon\Carbon::parse($fridaySched->timeFrom)->format('h:i A') }} to {{\Carbon\Carbon::parse($fridaySched->timeTo)->format('h:i A') }})</small> 
                             </div>
                         @endforeach
 
                         @if($fridayCount != 0)
-                            <form class="form-horizontal" method="POST" action="{{route('editSchedSubject')}}">
+                            <form class="form-horizontal mx-auto mt-3" method="POST" action="{{route('editSchedSubject')}}">
                                 @csrf 
                                 <input type="hidden" value="{{$classSched->id}}" name="id">
                                 <input type="hidden" value="Friday" name="day">
@@ -227,7 +227,7 @@
                                 <button type="submit" class="edit-button">Edit Schedule</button>
                             </form>
                         @else
-                            <form class="form-horizontal" method="POST" action="{{route('createSchedSubject')}}">
+                            <form class="form-horizontal mx-auto mt-4" method="POST" action="{{route('createSchedSubject')}}">
                                 @csrf 
                                 <input type="hidden" value="{{$classSched->gradeLevel}}" name="gradeLevel">
                                 <input type="hidden" value="{{$classSched->id}}" name="id">
