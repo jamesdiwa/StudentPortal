@@ -1,3 +1,6 @@
+May 06 (ivan)
+    -Add Change Password
+
 May 05, 2021 (Ivan)
     - php artisan migrate:fresh
     - php artisan db:seed --class=FactorySeeder
