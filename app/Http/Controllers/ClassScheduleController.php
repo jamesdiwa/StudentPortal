@@ -72,11 +72,11 @@ class ClassScheduleController extends Controller
     {
         $classSched = ClassSchedules::find($id);
 
-        $mondaySched = ClassSchedulesSubjects::where('classScheduleId',$id)->where('day','Monday')->get();
-        $teusdaySched = ClassSchedulesSubjects::where('classScheduleId',$id)->where('day','Teusday')->get();
-        $wednesdaySched = ClassSchedulesSubjects::where('classScheduleId',$id)->where('day','Wednesday')->get();
-        $thursdaySched = ClassSchedulesSubjects::where('classScheduleId',$id)->where('day','Thursday')->get();
-        $fridaySched = ClassSchedulesSubjects::where('classScheduleId',$id)->where('day','Friday')->get();
+        $mondaySched = ClassSchedulesSubjects::where('classScheduleId',$id)->where('day','Monday')->orderBy('timeFrom')->get();
+        $teusdaySched = ClassSchedulesSubjects::where('classScheduleId',$id)->where('day','Teusday')->orderBy('timeFrom')->get();
+        $wednesdaySched = ClassSchedulesSubjects::where('classScheduleId',$id)->where('day','Wednesday')->orderBy('timeFrom')->get();
+        $thursdaySched = ClassSchedulesSubjects::where('classScheduleId',$id)->where('day','Thursday')->orderBy('timeFrom')->get();
+        $fridaySched = ClassSchedulesSubjects::where('classScheduleId',$id)->where('day','Friday')->orderBy('timeFrom')->get();
 
         return view('ClassSchedules.show',compact('classSched','mondaySched','teusdaySched','wednesdaySched','thursdaySched','fridaySched'));
     }
