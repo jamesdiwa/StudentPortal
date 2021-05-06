@@ -24,7 +24,7 @@
             <button type="button" class="update-button float-right mx-1" onclick="window.location='{{ route('announcement.edit',$announcement->id) }}'">Update</button>
                 <div class="row mt-2">
                     <div class="col-sm-12">
-                        <p class="p-0 m-0 data">{{$announcement->title}} (From {{$announcement->date_from}} to {{$announcement->date_to}})</p>
+                        <p class="p-0 m-0 data">{{$announcement->title}} (From {{ \Carbon\Carbon::parse($announcement->date_from)->format('M d, Y') }} to {{ \Carbon\Carbon::parse($announcement->date_to)->format('M d, Y') }})</p>
                         <p class="label p-0 m-0">{{$announcement->announcement}}</p>
                     </div>
                 </div>

@@ -12,8 +12,7 @@ class PdfController extends Controller
         // $patient = Session::get('patient');
     
         $pdf = PDF::loadView('Pdf.pdfview')
-        ->setPaper('Letter', 'portrait')
-        ->setPaper('Letter', 'portrait')
+        ->setPaper('Letter', 'landscape')
         ->setOption('margin-top','22mm')
         ->setOption('margin-bottom','30mm')
         ->setOption('margin-left','5mm')
