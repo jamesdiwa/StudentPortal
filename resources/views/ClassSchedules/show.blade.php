@@ -46,7 +46,7 @@
                             <div class="col-sm-12 pt-4" style="border-top: 1px solid #ebebeb">
                                 <p class="text-center sub-title" style="color: #1e1e1e">{{$mondaySched->subject}}
                                 <small class="d-flex justify-content-center user-role">{{$mondaySched->subjectTeacher}}</small> 
-                                <small class="d-flex justify-content-center user-role" style="color: #8cbd01">({{ \Carbon\Carbon::parse($mondaySched->timeFrom)->format('h:i A') }} to {{\Carbon\Carbon::parse($mondaySched->timeTo)->format('h:i A') }})</small> 
+                                <small class="d-flex justify-content-center user-role" style="color: #8cbd01">@if($mondaySched->timeFrom != null)({{\Carbon\Carbon::parse($mondaySched->timeFrom)->format('h:i A') }} to {{\Carbon\Carbon::parse($mondaySched->timeTo)->format('h:i A') }})@else @endif</small> 
                             </div>
                         @endforeach
 
@@ -90,7 +90,7 @@
                                 <div class="col-sm-12 pt-4" style="border-top: 1px solid #ebebeb">
                                     <p class="text-center sub-title" style="color: #1e1e1e">{{$teusdaySched->subject}}
                                     <small class="d-flex justify-content-center user-role">{{$teusdaySched->subjectTeacher}}</small> 
-                                    <small class="d-flex justify-content-center user-role" style="color: #8cbd01">({{ \Carbon\Carbon::parse($teusdaySched->timeFrom)->format('h:i A') }} to {{\Carbon\Carbon::parse($teusdaySched->timeTo)->format('h:i A') }})</small> 
+                                    <small class="d-flex justify-content-center user-role" style="color: #8cbd01">@if($teusdaySched->timeFrom != null)({{ \Carbon\Carbon::parse($teusdaySched->timeFrom)->format('h:i A') }} to {{\Carbon\Carbon::parse($teusdaySched->timeTo)->format('h:i A') }})@else @endif</small> 
                                 </div>
                             @endforeach
 
@@ -132,7 +132,7 @@
                                 <div class="col-sm-12 pt-4" style="border-top: 1px solid #ebebeb">
                                     <p class="text-center sub-title" style="color: #1e1e1e">{{$wednesdaySched->subject}}
                                     <small class="d-flex justify-content-center user-role">{{$wednesdaySched->subjectTeacher}}</small> 
-                                    <small class="d-flex justify-content-center user-role" style="color: #8cbd01">({{ \Carbon\Carbon::parse($wednesdaySched->timeFrom)->format('h:i A') }} to {{\Carbon\Carbon::parse($wednesdaySched->timeTo)->format('h:i A') }})</small> 
+                                    <small class="d-flex justify-content-center user-role" style="color: #8cbd01">@if($wednesdaySched->timeFrom != null)({{ \Carbon\Carbon::parse($wednesdaySched->timeFrom)->format('h:i A') }} to {{\Carbon\Carbon::parse($wednesdaySched->timeTo)->format('h:i A') }})@else @endif</small> 
                                 </div>
                             @endforeach
 
@@ -173,7 +173,7 @@
                             <div class="col-sm-12 pt-4" style="border-top: 1px solid #ebebeb">
                                 <p class="text-center sub-title" style="color: #1e1e1e">{{$thursdaySched->subject}}
                                 <small class="d-flex justify-content-center user-role">{{$thursdaySched->subjectTeacher}}</small> 
-                                <small class="d-flex justify-content-center user-role" style="color: #8cbd01">({{ \Carbon\Carbon::parse($thursdaySched->timeFrom)->format('h:i A') }} to {{\Carbon\Carbon::parse($thursdaySched->timeTo)->format('h:i A') }})</small> 
+                                <small class="d-flex justify-content-center user-role" style="color: #8cbd01">@if($thursdaySched->timeFrom != null)({{ \Carbon\Carbon::parse($thursdaySched->timeFrom)->format('h:i A') }} to {{\Carbon\Carbon::parse($thursdaySched->timeTo)->format('h:i A') }})@else @endif</small> 
                             </div>
                         @endforeach
 
@@ -214,7 +214,7 @@
                             <div class="col-sm-12 pt-4" style="border-top: 1px solid #ebebeb">
                                 <p class="text-center sub-title" style="color: #1e1e1e">{{$fridaySched->subject}}
                                 <small class="d-flex justify-content-center user-role">{{$fridaySched->subjectTeacher}}</small> 
-                                <small class="d-flex justify-content-center user-role" style="color: #8cbd01">({{ \Carbon\Carbon::parse($fridaySched->timeFrom)->format('h:i A') }} to {{\Carbon\Carbon::parse($fridaySched->timeTo)->format('h:i A') }})</small> 
+                                <small class="d-flex justify-content-center user-role" style="color: #8cbd01">@if($fridaySched->timeFrom != null)({{ \Carbon\Carbon::parse($fridaySched->timeFrom)->format('h:i A') }} to {{\Carbon\Carbon::parse($fridaySched->timeTo)->format('h:i A') }})@else @endif</small> 
                             </div>
                         @endforeach
 
