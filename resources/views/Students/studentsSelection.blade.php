@@ -53,6 +53,14 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-sm-6 d-flex justify-content-center">
+                        <button type="button" class="student-select" onclick="window.location='{{ url('/gradeSelection') }}'">
+                            <div class="d-flex justify-content-center pb-3">
+                                <i class="fas fa-file-import" style="font-size: 60px; color: #d11d27"></i>
+                            </div>
+                            <p class="text-center header-title" style="color: #d11d27">Enrollment</p>
+                        </button>
+                    </div>
+                    <div class="col-sm-6 d-flex justify-content-center">
                         <button type="button" class="student-select" onclick="window.location='{{ route('accounting.index') }}'">
                             <div class="d-flex justify-content-center pb-3">
                                 <i class="fas fa-file-invoice-dollar" style="font-size: 60px; color: #d11d27"></i>
@@ -60,6 +68,8 @@
                             <p class="text-center header-title" style="color: #d11d27">Accounting</p>
                         </button>
                     </div>
+                </div>
+                <div class="row mt-4">
                     <div class="col-sm-6 d-flex justify-content-center">
                         <button type="button" class="student-select" onclick="window.location='{{ route('grading.index') }}'">
                             <div class="d-flex justify-content-center pb-3">

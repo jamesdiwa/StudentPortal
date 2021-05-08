@@ -41,11 +41,11 @@
             <div class="form-row mt-2">
                 <div class="form-group col-sm-6">
                     <label class="input-label">School Year</label>
-                    <input type="text" class="form-control" name="schoolYearFrom" >
+                    <input type="number" class="form-control" name="schoolYearFrom" >
                 </div>
                 <div class="form-group col-sm-6">
-                    <label class="input-label">To</label>
-                    <input type="text" class="form-control" name="schoolYearTo" >
+                    <br>
+                    <input type="number" class="form-control" name="schoolYearTo" >
                 </div>
             </div>
                 

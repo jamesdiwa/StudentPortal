@@ -111,11 +111,15 @@
             <div class="form-row">
                 <div class="form-group col-sm-6">
                     <label class="input-label">School Year</label>
-                    <select name="" id="" class="form-control">
-                        <option value=""></option>
-                    </select>
+                    <input type="number" name="" id="" class="form-control">
                 </div>
                 <div class="form-group col-sm-6">
+                    <br>
+                    <input type="number" name="" id="" class="form-control">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm-12">
                     <label class="input-label">LRN</label>
                     <input type="number" class="form-control" name="schoolAttended">
                 </div>
@@ -127,11 +131,16 @@
                 </div>
             </div>
             <div class="form-row">
+                <div class="form-group col-sm-12">
+                    <label class="input-label">General Average</label>
+                    <input type="number" class="form-control" name="schoolAttended">
+                </div>
+            </div>
+            <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <label class="input-label">Grade Level Completed</label>
+                    <label class="input-label">Grade Level</label>
                     <select name="" id="" class="form-control">
                         <option value="" disabled selected>Select Grade Level</option>
-                        <option value="">Kindergarten</option>
                         <option value="">Grade 1</option>
                         <option value="">Grade 2</option>
                         <option value="">Grade 3</option>
@@ -145,8 +154,10 @@
                     </select>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label class="input-label">General Grade Average</label>
-                    <input type="number" name="" id="" class="form-control">
+                    <label class="input-label">Section</label>
+                    <select name="" id="" class="form-control">
+                        <option value=""></option>
+                    </select>
                 </div>
             </div>
             <!-- Guardian Details -->
@@ -228,66 +239,10 @@
                     </div>
                 </div>
             </div>
-             <!-- Subjects -->
-             {{-- <p class="DivHeaderText my-2 py-2">SUBJECTS</p>
-             <div class="row">
-                <div class="form-group col-sm-4">
-                    <label class="p-0 m-0 sub-title">Filter by</label>
-                    <select name="" id="" class="form-control" style="background: #fbebd8; color: #A90011; border: none; font-weight: 600; font-size: 14px">
-                        <option value="">All Subjects</option>
-                         <!-- if student is elementary -->
-                        <option value="">Grade 1 Subjects</option>
-                        <option value="">Grade 2 Subjects</option>
-                        <option value="">Grade 3 Subjects</option>
-                        <option value="">Grade 4 Subjects</option>
-                        <option value="">Grade 5 Subjects</option>
-                        <option value="">Grade 6 Subjects</option>
-                        <!-- if student is high school -->
-                        <option value="">Grade 7 Subjects</option>
-                        <option value="">Grade 8 Subjects</option>
-                        <option value="">Grade 9 Subjects</option>
-                        <option value="">Grade 10 Subjects</option>
-                    </select>
-                </div>
-             </div>
-             <div class="form-row">
-                <div class="form-group col-sm-12">
-                    <div class="form-check">
-                        <input type="checkbox" name="" id="selectAllSubjects" class="form-check-input">
-                        <label for="selectAllSubjects" class="form-check-label input-label">Select All</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" name="" id="subject1" class="form-check-input">
-                        <label for="subject1" class="form-check-label input-label">Subject 1</label>
-                    </div>
-                </div>
-             </div> --}}
-             <!-- Requirements -->
-             <p class="DivHeaderText my-2 py-2">SCHOOL REQUIREMENTS</p>
-             <div class="form-row">
-                 <div class="form-group col-sm-12">
-                     <div class="form-check">
-                         <input type="checkbox" name="" id="nso" class="form-check-input">
-                         <label for="nso" class="form-check-label input-label">Photocopy of Birth Certificate (NSO)</label>
-                     </div>
-                     <div class="form-check">
-                        <input type="checkbox" name="" id="medicalRecord" class="form-check-input">
-                        <label for="medicalRecord" class="form-check-label input-label">Student's Medical Record</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" name="" id="reportCard" class="form-check-input">
-                        <label for="reportCard" class="form-check-label input-label">Student's Report Card (Form 138)</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" name="" id="goodMoral" class="form-check-input">
-                        <label for="goodMoral" class="form-check-label input-label">Good Moral Certificate</label>
-                    </div>
-                 </div>
-             </div>
             <div class="row mt-3 mb-2">
                 <div class="col-sm-12">
                     <button type="submit" class="save-button">Enroll</button>
-                    <button type="button" class="back-button float-right" onclick="window.location='{{ route('studentList.index') }}'">Back</button>
+                    <button type="button" class="back-button float-right" onclick="window.location='{{ url('/grade1') }}'">Back</button>
                 </div>
             </div>
         </div>
