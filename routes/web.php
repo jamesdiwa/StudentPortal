@@ -84,6 +84,43 @@ Route::get('/students', function(){
     return view('Students.studentsSelection');
 });
 
+Route::get('/gradeSelection', function(){
+    return view('Students.Enrollment.gradeSelection');
+});
+Route::get('/showStudent', function(){
+    return view('Students.Enrollment.show');
+});
+Route::get('/grade1', function(){
+    return view('Students.Enrollment.grade1Index');
+});
+Route::get('/grade2', function(){
+    return view('Students.Enrollment.grade2Index');
+});
+Route::get('/grade3', function(){
+    return view('Students.Enrollment.grade3Index');
+});
+Route::get('/grade4', function(){
+    return view('Students.Enrollment.grade4Index');
+});
+Route::get('/grade5', function(){
+    return view('Students.Enrollment.grade5Index');
+});
+Route::get('/grade6', function(){
+    return view('Students.Enrollment.grade6Index');
+});
+Route::get('/grade7', function(){
+    return view('Students.Enrollment.grade7Index');
+});
+Route::get('/grade8', function(){
+    return view('Students.Enrollment.grade8Index');
+});
+Route::get('/grade9', function(){
+    return view('Students.Enrollment.grade9Index');
+});
+Route::get('/grade10', function(){
+    return view('Students.Enrollment.grade10Index');
+});
+
 Route::get('/events-edit', function(){
     return view('Events.edit');
 });
