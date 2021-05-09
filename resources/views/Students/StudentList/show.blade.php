@@ -98,99 +98,7 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="row">
-                <div class="col-sm-12">
-                    @if ($student->photoPath != null)
-                        <img src="{{ asset('images/UserPhoto/'.$student->photoPath) }}" style="width: 200px; height: 200px">
-                    @else
-                        <img src="{{ asset('images/1.jpg') }}" style="width: 200px; height: 200px">
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <label class="label">Student Number</label>
-                    <p class="data pl-3">{{$student->username}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <label class="label">First Name</label>
-                    <p class="data pl-3">{{$student->firstName}}</p>
-                </div>
-                <div class="col-sm-4">
-                    <label class="label">Middle Name</label>
-                    <p class="data pl-3">{{$student->middleName}}</p>
-                </div>
-                <div class="col-sm-4">
-                    <label class="label">Last Name</label>
-                    <p class="data pl-3">{{$student->lastName}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-8">
-                    <label class="label">Date of Birth</label>
-                    <p class="data pl-3">{{$student->month}} {{$student->day}},{{$student->year}}</p>
-                </div>
-                <div class="col-sm-4">
-                    <label class="label">Gender</label>
-                    <p class="data pl-3">{{$student->gender}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <label class="label">Permanent Address</label>
-                    <p class="data pl-3">{{$student->permanentAddress}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <label class="label">Present Address</label>
-                    <p class="data pl-3">{{$student->presentAddress}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <label class="label">Email Address</label>
-                    <p class="data pl-3">{{$student->email}}</p>
-                </div>
-                <div class="col-sm-6">
-                    <label class="label">Contact Number</label>
-                    <p class="data pl-3">{{$student->contactNumber}}</p>
-                </div>
-            </div> --}}
-            {{-- <div class="row">
-                <div class="col-sm-6">
-                    <label class="label">School Year</label>
-                    <p class="data pl-3">2020-2021</p>
-                </div>
-                <div class="col-sm-6">
-                    <label class="label">LRN</label>
-                    <p class="data pl-3">8545154854</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <label class="label">School Last Attended</label>
-                    <p class="data pl-3">Lorem Ipsum Dolor</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <label class="label">Grade Level Completed</label>
-                    <p class="data pl-3">Grade 8</p>
-                </div>
-                <div class="col-sm-6">
-                    <label class="label">General Grade Average</label>
-                    <p class="data pl-3">89</p>
-                </div>
-            </div> --}}
-            {{-- <div class="row">
-                <div class="col-sm-6">
-                    <label class="label">Status</label>
-                    <p class="data pl-3">{{$student->status}}</p>
-                </div>
-            </div> --}}
+           
              <!-- Completion Status -->
              <p class="DivHeaderText my-2 py-2">GRADE LEVEL STATUS</p>
              <table class="table table-borderless">
@@ -201,7 +109,19 @@
                     <th width="100px">Status</th>
                 </thead>
                 <tbody class="tbody-data">
-                    <tr class="text-center">
+
+
+                    @foreach ($enrolled as $enrolled)
+                        <tr class="text-center">
+                            <td class="text-left">{{$enrolled->enrolled->gradeLevel}}</td>
+                            <td>Sacred Heart of Jesus Catholic School</td>
+                            <td>SY {{$enrolled->enrolled->schoolYearFrom}}-{{$enrolled->enrolled->schoolYearTo}}</td>
+                            <td><span style="color: #8cbd01">Completed</span></td>
+                        </tr>
+                    @endforeach
+
+
+                    {{-- <tr class="text-center">
                         <td class="text-left">Grade 1</td>
                         <td>Sacred Heart of Jesus Catholic School</td>
                         <td>AY 2019-2020</td>
@@ -260,11 +180,11 @@
                         <td></td>
                         <td></td>
                         <td colspan="3"><span style="color: #1e1e1e">No records yet</span></td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
              </table>
              <hr>
-             <!-- Student Grade -->
+             {{-- <!-- Student Grade -->
              <p class="DivHeaderText my-2 py-2">STUDENT GRADE</p>
              <div class="row">
                 <div class="form-group col-sm-4">
@@ -444,7 +364,7 @@
                     <th class="text-right">Refund</th>
                     <th>0</th>
                 </thead>
-             </table>
+             </table> --}}
             <div class="row mt-4 mb-2">
                 <div class="col-sm-12">
                     <!-- if not enroll -->

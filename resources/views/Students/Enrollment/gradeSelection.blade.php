@@ -35,7 +35,7 @@
             <div class="px-2 py-4">
                 <div class="row">
                     <div class="col-sm-4 d-flex justify-content-center mt-3">
-                        <button type="button" class="student-select" onclick="window.location='{{ url('/grade1') }}'">
+                        <button type="button" class="student-select" onclick="window.location='{{ route('Grade1Index') }}'">
                             <div class="d-flex justify-content-center pb-3">
                             <p class="text-center p-0 m-0" style="font-size: 60px; font-weight: 800; color: #d11d27">G-1</p>
                             </div>
@@ -43,7 +43,7 @@
                         </button>
                     </div>
                     <div class="col-sm-4 d-flex justify-content-center mt-3">
-                        <button type="button" class="student-select" onclick="window.location='{{ url('/grade2') }}'">
+                        <button type="button" class="student-select" onclick="window.location='{{ route('Grade2Index') }}'">
                             <div class="d-flex justify-content-center pb-3">
                             <p class="text-center p-0 m-0" style="font-size: 60px; font-weight: 800; color: #d11d27">G-2</p>
                             </div>
@@ -51,7 +51,7 @@
                         </button>
                     </div>
                     <div class="col-sm-4 d-flex justify-content-center mt-3">
-                        <button type="button" class="student-select" onclick="window.location='{{ url('/grade3') }}'">
+                        <button type="button" class="student-select" onclick="window.location='{{ route('Grade3Index') }}'">
                             <div class="d-flex justify-content-center pb-3">
                             <p class="text-center p-0 m-0" style="font-size: 60px; font-weight: 800; color: #d11d27">G-3</p>
                             </div>
@@ -59,7 +59,7 @@
                         </button>
                     </div>
                     <div class="col-sm-4 d-flex justify-content-center mt-3">
-                        <button type="button" class="student-select" onclick="window.location='{{ url('/grade4') }}'">
+                        <button type="button" class="student-select" onclick="window.location='{{ route('Grade4Index') }}'">
                             <div class="d-flex justify-content-center pb-3">
                             <p class="text-center p-0 m-0" style="font-size: 60px; font-weight: 800; color: #d11d27">G-4</p>
                             </div>
@@ -67,7 +67,7 @@
                         </button>
                     </div>
                     <div class="col-sm-4 d-flex justify-content-center mt-3">
-                        <button type="button" class="student-select" onclick="window.location='{{ url('/grade5') }}'">
+                        <button type="button" class="student-select" onclick="window.location='{{ route('Grade5Index') }}'">
                             <div class="d-flex justify-content-center pb-3">
                             <p class="text-center p-0 m-0" style="font-size: 60px; font-weight: 800; color: #d11d27">G-5</p>
                             </div>
@@ -75,7 +75,7 @@
                         </button>
                     </div>
                     <div class="col-sm-4 d-flex justify-content-center mt-3">
-                        <button type="button" class="student-select" onclick="window.location='{{ url('/grade6') }}'">
+                        <button type="button" class="student-select" onclick="window.location='{{ route('Grade6Index') }}'">
                             <div class="d-flex justify-content-center pb-3">
                             <p class="text-center p-0 m-0" style="font-size: 60px; font-weight: 800; color: #d11d27">G-6</p>
                             </div>
@@ -83,7 +83,7 @@
                         </button>
                     </div>
                     <div class="col-sm-4 d-flex justify-content-center mt-3">
-                        <button type="button" class="student-select" onclick="window.location='{{ url('/grade7') }}'">
+                        <button type="button" class="student-select" onclick="window.location='{{ route('Grade7Index') }}'">
                             <div class="d-flex justify-content-center pb-3">
                             <p class="text-center p-0 m-0" style="font-size: 60px; font-weight: 800; color: #d11d27">G-7</p>
                             </div>
@@ -91,7 +91,7 @@
                         </button>
                     </div>
                     <div class="col-sm-4 d-flex justify-content-center mt-3">
-                        <button type="button" class="student-select" onclick="window.location='{{ url('/grade8') }}'">
+                        <button type="button" class="student-select" onclick="window.location='{{ route('Grade8Index') }}'">
                             <div class="d-flex justify-content-center pb-3">
                             <p class="text-center p-0 m-0" style="font-size: 60px; font-weight: 800; color: #d11d27">G-8</p>
                             </div>
@@ -99,7 +99,7 @@
                         </button>
                     </div>
                     <div class="col-sm-4 d-flex justify-content-center mt-3">
-                        <button type="button" class="student-select" onclick="window.location='{{ url('/grade9') }}'">
+                        <button type="button" class="student-select" onclick="window.location='{{ route('Grade9Index') }}'">
                             <div class="d-flex justify-content-center pb-3">
                             <p class="text-center p-0 m-0" style="font-size: 60px; font-weight: 800; color: #d11d27">G-9</p>
                             </div>
@@ -107,7 +107,7 @@
                         </button>
                     </div>
                     <div class="col-sm-4 d-flex justify-content-center mt-3">
-                        <button type="button" class="student-select" onclick="window.location='{{ url('/grade10') }}'">
+                        <button type="button" class="student-select" onclick="window.location='{{ route('Grade10Index') }}'">
                             <div class="d-flex justify-content-center pb-3">
                             <p class="text-center p-0 m-0" style="font-size: 60px; font-weight: 800; color: #d11d27">G-10</p>
                             </div>

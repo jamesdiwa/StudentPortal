@@ -52,26 +52,54 @@
                     <th width="200px" class="text-center">Action</th>
                 </thead>
                 <tbody class="tbody-data">
-                    <tr>
-                        <td class="align-middle">A117A0909</td>
-                        <td class="align-middle">James Patrick Diwa</td>
-                        <td class="align-middle"><span style="color: #8cbd01">Enrolled</span></td>
-                        <td class="text-center">
-                            <button style="button" class="search-button">Records</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="align-middle">A117A0909</td>
-                        <td class="align-middle">Aleli Santiago</td>
-                        <td class="align-middle"><span style="color: red">Not yet enrolled</span></td>
-                        <td class="text-center">
-                            <button style="button" class="update-button">Enroll</button>
-                        </td>
-                    </tr>
+                @foreach ($students as $student)
+                    @if($student->grade9 == 'Enrolled')
+                         <tr>
+                             <td class="align-middle">{{$student->username}}</td>
+                             <td class="align-middle">{{$student->firstName}} {{$student->middleName}} {{$student->lastName}}</td>
+                     
+                             <td class="align-middle"><span style="color: #8cbd01">Enrolled</span></td>
+                             <td class="text-center">
+                                    <form class="form-horizontal" method="POST" action="{{route('enrollShow')}}">
+                                        @csrf
+                                        <input type="hidden" value="{{$student->id}}" name="studentId">
+                                        <input type="hidden" value="Grade 9" name="gradeLevel">
+                                        <button type="submit" class="search-button" >Records</button>
+                                    </form>
+                             </td>
+                         </tr>
+                     @elseif($student->grade9 == 'Not yet enrolled')
+                         <tr>
+                             <td class="align-middle">{{$student->username}}</td>
+                             <td class="align-middle">{{$student->firstName}} {{$student->middleName}} {{$student->lastName}}</td>
+                             <td class="align-middle"><span style="color: red">Not yet enrolled</span></td>
+                             <td class="text-center">
+                                 <form class="form-horizontal" method="POST" action="{{route('enrollCreate')}}">
+                                     @csrf
+                                     <input type="hidden" value="{{$student->id}}" name="studentId">
+                                     <input type="hidden" value="Grade 9" name="gradeLevel">
+                                     <button type="submit" class="update-button" >Enroll</button>
+                                 </form>
+                             </td>
+                         </tr>
+                     @endif
+                 @endforeach
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 
+<script>
+    var msg = "{{Session::get('success')}}";
+    var exist = "{{Session::has('success')}}";
+    if(exist){
+        Swal.fire({
+            icon: 'success',
+            title: msg,
+            showConfirmButton: false,
+            timer: 2000,
+        });
+    }
+</script>
 @endsection

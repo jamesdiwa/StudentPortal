@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\User;
 use App\StudentGuardianInfo;
 use App\StudentRequirements;
+use App\Enrolled;
 use Hash;
+
 use Intervention\Image\ImageManagerStatic as Image;
 
 class StudentController extends Controller
@@ -112,7 +114,10 @@ class StudentController extends Controller
 
         $student = User::find($id);
 
-        return view('Students.StudentList.show',compact('student'));
+        $enrolled = Enrolled::where('userId',$id)->get();
+
+
+        return view('Students.StudentList.show',compact('student','enrolled'));
     }
 
     /**

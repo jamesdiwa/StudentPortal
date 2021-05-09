@@ -1,3 +1,10 @@
+
+May 09 (ivan)
+    Please do.
+        - php artisan migrate:fresh
+        - php artisan db:seed --class=DatabaseSeeder
+
+
 May 06 (ivan)
     -Add Change Password
 

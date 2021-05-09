@@ -33,7 +33,7 @@
                 <div class="form-row">
                     <div class="form-group col-sm-12">
                         <label class="input-label">Username</label>
-                        <input type="text" class="form-control required {{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{$user->username}}">
+                        <input type="text" class="form-control required {{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{$user->username}}" readonly>
                         @if ($errors->has('username'))
                             <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('username') }}</strong>
@@ -56,6 +56,7 @@
                         <input type="password" class="form-control required" id='confirm-password' name="confirm-password">
                     </div>
                 </div> --}}
+                @if($user->accountType != 'Student')
                 <div class="form-row">
                     <div class="form-group col-sm-12">
                         <label class="input-label">Account Type</label>
@@ -65,6 +66,8 @@
                         </select>
                     </div>
                 </div>
+                @endif
+
                 <p class="DivHeaderText my-2 py-2">BASIC INFORMATION</p>
                 <div class="form-row">
                     <div class="form-group col-sm-4">

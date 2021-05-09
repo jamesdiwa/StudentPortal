@@ -16,7 +16,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'username','password','accountType','firstName','middleName','lastName','month','day','year','gender','permanentAddress','presentAddress' ,  
-        'email','contactNumber','isActivated','status','department','remember_token','gradeLevel'
+        'email','contactNumber','isActivated','status','department','remember_token','gradeLevel','grade1','grade2','grade3','grade4','grade5','grade6',
+        'grade7','grade8','grade9','grade10'
     ];
 
     /**

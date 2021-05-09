@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Enrolled;
+use App\Payments;
 
 class AccountingController extends Controller
 {
@@ -13,7 +15,10 @@ class AccountingController extends Controller
      */
     public function index()
     {
-        return view('Students.Accounting.index');
+
+        $enrolled = Enrolled::where('paymentStatus','!=','Fully Paid')->get();
+        
+        return view('Students.Accounting.index',compact('enrolled'));
     }
 
     /**
@@ -34,7 +39,26 @@ class AccountingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Payments::create([
+            'userId' => $request->studentId,
+            'classSchedId' => $request->classSchedId,
+            'enrolledId' => $request->enrolledId,
+            'paymentForTheMonth' => $request->paymentForTheMonth,
+            'paymentAmount' => $request->paymentAmount,
+            'dateOfPayment' => $request->paymentDate,
+            'notes' => $request->notes,
+            'remarks' => 'installment',
+        ]);
+
+        if($request->paymentAmount >= $request->balanceAmount){
+
+            Enrolled::find($request->enrolledId)->update([
+                'paymentStatus' => 'Fully Paid',
+            ]);
+            return redirect()->route('accounting.index')->with('success', 'Payment Successfully');
+        }
+
+        return redirect()->route('accounting.show',$request->enrolledId)->with('success', 'Payment Successfully');
     }
 
     /**
@@ -45,7 +69,13 @@ class AccountingController extends Controller
      */
     public function show($id)
     {
-        return view('Students.Accounting.sgow');
+
+        $enrolled = Enrolled::find($id);
+
+        $payments = Payments::where('enrolledId',$id)->get();
+
+
+        return view('Students.Accounting.show',compact('enrolled','payments'));
     }
 
     /**
@@ -56,7 +86,10 @@ class AccountingController extends Controller
      */
     public function edit($id)
     {
-        return view('Students.Accounting.edit');
+
+        // $enrolled = Enrolled::find($id);
+
+        // return view('Students.Accounting.edit',compact('enrolled'));
     }
 
     /**
@@ -81,4 +114,17 @@ class AccountingController extends Controller
     {
         //
     }
+
+    public function paymentCreate(Request $request)
+    {
+    
+        $enrolled = Enrolled::find($request->enrolledId);
+        $balanceAmount = $request->balanceAmount;
+
+        return view('Students.Accounting.edit',compact('enrolled','balanceAmount'));
+
+    }
+
+
+    
 }
