@@ -10,46 +10,54 @@
             <p class="header-title d-inline">Accounting</p>
         </div>
     </div>
+<form class="form-horizontal" method="POST" action="{{route('accounting.store')}}">
+    @csrf
+
+    <input type="hidden" value="{{$enrolled->userId}}" name="studentId">
+    <input type="hidden" value="{{$enrolled->classSchedId}}" name="classSchedId">
+    <input type="hidden" value="{{$enrolled->id}}" name="enrolledId">
+    <input type="hidden" value="{{$balanceAmount}}" name="balanceAmount">
+
     <div class="container">
         <div class="DivTemplate mt-3 py-3">
             <div class="form-row">
                 <div class="form-group col-sm-4">
                     <label class="input-label">First Name</label>
-                    <input type="text" class="form-control" value="James Patrick" disabled>
+                    <input type="text" class="form-control" value="{{$enrolled->studentInfo->firstName}} " disabled>
                 </div>
                 <div class="form-group col-sm-4">
                     <label class="input-label">Middle Name</label>
-                    <input type="text" class="form-control" value="Marabe" disabled>
+                    <input type="text" class="form-control" value="{{$enrolled->studentInfo->middleName}}" disabled>
                 </div>
                 <div class="form-group col-sm-4">
                     <label class="input-label">Last Name</label>
-                    <input type="text" class="form-control" value="Diwa" disabled>
+                    <input type="text" class="form-control" value="{{$enrolled->studentInfo->lastName}}" disabled>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-6">
                     <label class="input-label">Grade Level</label>
-                    <input type="text" class="form-control" value="Grade 7" disabled>
+                    <input type="text" class="form-control" value="{{$enrolled->enrolled->gradeLevel}}" disabled>
                 </div>
                 <div class="form-group col-sm-6">
                     <label class="input-label">Section</label>
-                    <input type="text" class="form-control" value="Sampaguita   " disabled>
+                    <input type="text" class="form-control" value="{{$enrolled->enrolled->section}}" disabled>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-6">
                     <label class="input-label">School Year</label>
-                    <input type="text" class="form-control" value="AY 2020-2021" disabled>
+                    <input type="text" class="form-control" value="SY {{$enrolled->enrolled->schoolYearFrom}}-{{$enrolled->enrolled->schoolYearTo}}" disabled>
                 </div>
                 <div class="form-group col-sm-6">
                     <label class="input-label">ID Number</label>
-                    <input type="text" class="form-control" value="A117A0909" disabled>
+                    <input type="text" class="form-control" value="{{$enrolled->studentInfo->username}}" disabled>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Payment for the month of</label>
-                        <select name="" id="" class="form-control">
+                        <select name="paymentForTheMonth" id="" class="form-control">
                             <option value="" disabled selected>Month</option>
                             <option value="January">January</option>
                             <option value="February">February</option>
@@ -70,26 +78,27 @@
             <div class="form-row">
                 <div class="form-group col-sm-6">
                     <label class="input-label">Amount</label>
-                    <input type="number" class="form-control">
+                    <input type="number" name="paymentAmount" class="form-control">
                 </div>
                 <div class="form-group col-sm-6">
                     <label class="input-label">Date of Payment</label>
-                    <input type="date" class="form-control">
+                    <input type="date" name="paymentDate" class="form-control">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Notes</label>
-                    <textarea name="" id="" rows="3" class="form-control"></textarea>
+                    <textarea name="notes" id="" rows="3" class="form-control"></textarea>
                 </div>
             </div>
             <div class="row mt-3 mb-2">
                 <div class="col-sm-12">
                     <button type="submit" class="save-button">Save</button>
-                    <button type="button" class="back-button float-right" onclick="window.location='{{ url('accounting-show') }}'">Back</button>
+                    <button type="button" class="back-button float-right" onclick="window.location='{{ route('accounting.show',$enrolled->id) }}'">Back</button>
                 </div>
             </div>
         </div>
     </div>
+</form>
 </div>
 @endsection

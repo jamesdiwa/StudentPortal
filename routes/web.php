@@ -27,6 +27,27 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/changePassword','HomeController@changePassword')->name('changePassword');
 
 
+    //Enrollment
+    
+    Route::get('enroll/grade1', 'EnrollmentController@Grade1Index')->name('Grade1Index');
+    Route::get('enroll/grade2', 'EnrollmentController@Grade2Index')->name('Grade2Index');
+    Route::get('enroll/grade3', 'EnrollmentController@Grade3Index')->name('Grade3Index');
+    Route::get('enroll/grade4', 'EnrollmentController@Grade4Index')->name('Grade4Index');
+    Route::get('enroll/grade5', 'EnrollmentController@Grade5Index')->name('Grade5Index');
+    Route::get('enroll/grade6', 'EnrollmentController@Grade6Index')->name('Grade6Index');
+    Route::get('enroll/grade7', 'EnrollmentController@Grade7Index')->name('Grade7Index');
+    Route::get('enroll/grade8', 'EnrollmentController@Grade8Index')->name('Grade8Index');
+    Route::get('enroll/grade9', 'EnrollmentController@Grade9Index')->name('Grade9Index');
+    Route::get('enroll/grade10', 'EnrollmentController@Grade10Index')->name('Grade10Index');
+    
+
+    Route::post('enroll/create/','EnrollmentController@enrollCreate')->name('enrollCreate');
+
+    Route::post('enroll/show/','EnrollmentController@enrollShow')->name('enrollShow');
+    
+    Route::post('accounting/create/','AccountingController@paymentCreate')->name('paymentCreate');
+
+
     Route::resource('studentList','StudentController');
     Route::resource('newStudent','NewStudentController');
     Route::resource('user','UserController');

@@ -40,6 +40,21 @@ class CreateUsersTable extends Migration
             $table->integer('isActivated')->default(0);
             $table->string('department')->nullable();
             $table->string('gradeLevel')->nullable();
+
+
+            //gradeLevelStatus
+            $table->string('grade1')->default('Not yet enrolled');
+            $table->string('grade2')->default('Not yet enrolled');
+            $table->string('grade3')->default('Not yet enrolled');
+            $table->string('grade4')->default('Not yet enrolled');
+            $table->string('grade5')->default('Not yet enrolled');
+            $table->string('grade6')->default('Not yet enrolled');
+            $table->string('grade7')->default('Not yet enrolled');
+            $table->string('grade8')->default('Not yet enrolled');
+            $table->string('grade9')->default('Not yet enrolled');
+            $table->string('grade10')->default('Not yet enrolled');
+
+          
             $table->rememberToken();
             $table->timestamps();
         });

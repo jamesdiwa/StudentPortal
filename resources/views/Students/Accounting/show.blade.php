@@ -14,11 +14,15 @@
         <div class="DivTemplate mt-3 py-3"> 
             <div class="row py-3">
                 <div class="col-sm-auto d-flex justify-content-center align-self-center">
-                    <img class="rounded-circle" src="{{ asset('images/1.jpg') }}" style="width: 60px; height: 60px; border: 1px solid #0fceca">
+                    @if ($enrolled->studentInfo->photoPath != null)
+                        <img class="rounded-circle" src="{{ asset('images/UserPhoto/'.$enrolled->studentInfo->photoPath) }}"  style="width: 60px; height: 60px; border: 1px solid #0fceca">
+                    @else
+                        <img class="rounded-circle" src="{{ asset('images/1.jpg') }}"  style="width: 60px; height: 60px; border: 1px solid #0fceca">
+                    @endif
                 </div>
                 <div class="col-sm d-block align-self-center px-0">
-                    <p class="sub-title p-0 m-0" style="font-size: 20px">James Patrick Diwa</p>
-                    <p class="sub-title p-0 m-0 font-weight-normal">A117A0909 (Grade 7 - Sampaguita)</p>
+                    <p class="sub-title p-0 m-0" style="font-size: 20px">{{$enrolled->studentInfo->firstName}} {{$enrolled->studentInfo->middleName}} {{$enrolled->studentInfo->lastName}}</p>
+                    <p class="sub-title p-0 m-0 font-weight-normal">{{$enrolled->studentInfo->username}} ({{$enrolled->enrolled->gradeLevel}} - {{$enrolled->enrolled->section}})</p>
                 </div>
             </div>
              <table class="table table-borderless">
@@ -30,30 +34,34 @@
                     <th>Remarks</th>
                 </thead>
                 <tbody class="tbody-data">
-                    <tr class="text-center">
-                        <td>AY 2020-2021</td>
-                        <td>June</td>
-                        <td>1500</td>
-                        <td>June 01, 2020</td>
-                        <td>Downpayment</td>
-                    </tr>
-                    <tr class="text-center">
-                        <td></td>
-                        <td>July</td>
-                        <td>1000</td>
-                        <td>July 15, 2020</td>
-                        <td>Installment</td>
-                    </tr>
+
+                    @foreach ($payments as $payments)
+                        <tr class="text-center">
+                            <td>@if($payments->sy != null)SY {{$payments->sy}} @else @endif</td>
+                            <td>{{$payments->paymentForTheMonth}}</td>
+                            <td class="paymentAmount">{{$payments->paymentAmount}}</td>
+                            <td>{{$payments->dateOfPayment}}</td>
+                            <td>{{$payments->remarks}}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
              </table>
              <table class="table table-borderless">
                 <thead class="thead-bg text-center">
+                    <th width="700px" class="text-right">Montly Payment</th>
+                    <th>{{$enrolled->monthlyPayment}}</th>
+                </thead>
+                <thead class="thead-bg text-center">
+                    <th width="700px" class="text-right">Tuition Fee</th>
+                    <th id="tuitionFeeAmount">{{$enrolled->tuitionFee}}</th>
+                </thead>
+                <thead class="thead-bg text-center">
                     <th width="700px" class="text-right">Total Payment</th>
-                    <th>2500</th>
+                    <th id="totalPayment">0</th>
                 </thead>
                 <thead class="thead-bg text-center">
                     <th class="text-right">Balance</th>
-                    <th>11000</th>
+                    <th id="balance">0</th>
                 </thead>
                 <thead class="thead-bg text-center">
                     <th class="text-right">Refund</th>
@@ -62,13 +70,54 @@
              </table>
             <div class="row mt-3 mb-2">
                 <div class="col-sm-12">
-                    <button type="submit" class="edit-button" onclick="window.location='{{ url('accounting-edit') }}'">Update</button>
-                    <button type="button" class="back-button float-right" onclick="window.location='{{ route('accounting.index') }}'">Back</button>
+
+                    <form class="form-horizontal" method="POST" action="{{route('paymentCreate')}}">
+                        @csrf
+                        <input type="hidden" value="{{$enrolled->id}}" name="enrolledId">
+                        <input type="hidden" id="balanceAmount" name="balanceAmount">
+
+                            <button type="submit" class="edit-button" >Update</button>
+                            <button type="button" class="back-button float-right" onclick="window.location='{{ route('accounting.index') }}'">Back</button>
+                    </form>
                 </div>
             </div>
         </div>
 
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+    $('#totalPayment').html(cashReceived());
+
+    var Balance =  parseFloat($('#tuitionFeeAmount').text().replace(/[^\d.-]/g, '')) - cashReceived();
+
+    $('#balance').html(Balance);
+    $('#balanceAmount').val(Balance);
+});
+
+function cashReceived(){
+    var totalCash = 0;
+    $('.paymentAmount').each(function(){
+        var cashReceived = parseFloat($(this).text().replace(/[^\d.-]/g, ''));
+        totalCash += cashReceived;
+    });
+    return totalCash;
+}
+
+
+
+
+var msg = "{{Session::get('success')}}";
+    var exist = "{{Session::has('success')}}";
+    if(exist){
+        Swal.fire({
+            icon: 'success',
+            title: msg,
+            showConfirmButton: false,
+            timer: 2000,
+        });
+    }
+</script>
 
 @endsection
