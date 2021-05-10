@@ -12,9 +12,18 @@
     </div>
     <div class="container">
         <div class="DivTemplate mt-3 py-3"> 
-            <div class="p-3">
-                <p class="sub-title p-0 m-0" style="font-size: 20px">{{$enrolled->studentInfo->firstName}} {{$enrolled->studentInfo->middleName}} {{$enrolled->studentInfo->lastName}}</p>
-                <p class="sub-title p-0 m-0 font-weight-normal">{{$enrolled->studentInfo->username}} ({{$enrolled->enrolled->gradeLevel}} - {{$enrolled->enrolled->section}})</p>
+            <div class="row py-3">
+                <div class="col-sm-auto d-flex justify-content-center align-self-center">
+                    @if ($enrolled->studentInfo->photoPath != null)
+                        <img class="rounded-circle" src="{{ asset('images/UserPhoto/'.$enrolled->studentInfo->photoPath) }}"  style="width: 60px; height: 60px; border: 1px solid #0fceca">
+                    @else
+                        <img class="rounded-circle" src="{{ asset('images/1.jpg') }}"  style="width: 60px; height: 60px; border: 1px solid #0fceca">
+                    @endif
+                </div>
+                <div class="col-sm d-block align-self-center px-0">
+                <p class="sub-title p-0 m-0" style="font-size: 20px">{{$enrolled->studentInfo->firstName}} {{$enrolled->studentInfo->middleName}} {{$enrolled->studentInfo->lastName}} ({{$enrolled->studentInfo->username}})</p>
+                <p class="sub-title p-0 m-0 font-weight-normal">{{$enrolled->enrolled->gradeLevel}} - {{$enrolled->enrolled->section}}</p>
+            </div>
             </div>
     <form class="form-horizontal" method="POST" action="{{route('studentGradeStore')}}">
         @csrf
@@ -91,9 +100,9 @@
 
       
             if(total >= 74.5){
-                $(this).closest('tr').find('.remarks').html('Passed');
+                $(this).closest('tr').find('.remarks').html('<span style="color: #8cbd01">Passed</span>');
             }else if(total <= 74.4){
-                $(this).closest('tr').find('.remarks').html('Failed');
+                $(this).closest('tr').find('.remarks').html('<span style="color: red">Failed</span>');
             }else{
             }
 
