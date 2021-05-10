@@ -82,15 +82,17 @@
                     <th width="200px" class="text-center">Action</th>
                 </thead>
                 <tbody class="tbody-data">
-                    <tr>
-                        <td class="align-middle">A117A0909</td>
-                        <td class="align-middle">James Patrick Diwa</td>
-                        <td class="align-middle">Grade 7</td>
-                        <td class="align-middle">Sampaguita</td>
-                        <td class="text-center">
-                            <button style="button" class="search-button" onclick="window.location='{{ url('grading-show') }}'">Records</button>
-                        </td>
-                    </tr>
+                    @foreach ($enrolled as $enrolled)
+                        <tr>
+                            <td class="align-middle">{{$enrolled->studentInfo->username}}</td>
+                            <td class="align-middle">{{$enrolled->studentInfo->firstName}} {{$enrolled->studentInfo->middleName}} {{$enrolled->studentInfo->lastName}}</td>
+                            <td class="align-middle">{{$enrolled->enrolled->gradeLevel}}</td>
+                            <td class="align-middle">{{$enrolled->enrolled->section}}</td>
+                            <td class="text-center">
+                                <button style="button" class="search-button" onclick="window.location='{{ route('grading.show',$enrolled->id) }}'">Records</button>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -14,11 +14,15 @@
         <div class="DivTemplate mt-3 py-3"> 
             <div class="row py-3">
                 <div class="col-sm-auto d-flex justify-content-center align-self-center">
-                    <img class="rounded-circle" src="{{ asset('images/1.jpg') }}" style="width: 60px; height: 60px; border: 1px solid #0fceca">
+                    @if ($enrolled->studentInfo->photoPath != null)
+                        <img class="rounded-circle" src="{{ asset('images/UserPhoto/'.$enrolled->studentInfo->photoPath) }}"  style="width: 60px; height: 60px; border: 1px solid #0fceca">
+                    @else
+                        <img class="rounded-circle" src="{{ asset('images/1.jpg') }}"  style="width: 60px; height: 60px; border: 1px solid #0fceca">
+                    @endif
                 </div>
                 <div class="col-sm d-block align-self-center px-0">
-                    <p class="sub-title p-0 m-0" style="font-size: 20px">James Patrick Diwa</p>
-                    <p class="sub-title p-0 m-0 font-weight-normal">A117A0909 (Grade 7 - Sampaguita)</p>
+                    <p class="sub-title p-0 m-0" style="font-size: 20px">{{$enrolled->studentInfo->firstName}} {{$enrolled->studentInfo->middleName}} {{$enrolled->studentInfo->lastName}}</p>
+                    <p class="sub-title p-0 m-0 font-weight-normal">{{$enrolled->studentInfo->username}} ({{$enrolled->enrolled->gradeLevel}} - {{$enrolled->enrolled->section}})</p>
                 </div>
             </div>
             {{-- <div class="p-3">
@@ -35,119 +39,23 @@
                     <th width="100px">Remarks</th>
                 </thead>
                 <tbody class="tbody-data">
-                    <tr class="text-center">
-                        <td class="text-left">Mother Tongue</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td><span style="color: #8cbd01">Passed</span></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left">Filipino 1</td>
-                        <td>70</td>
-                        <td>70</td>
-                        <td>70</td>
-                        <td>70</td>
-                        <td>70</td>
-                        <td><span style="color: red">Failed</span></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left">English 1</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td><span style="color: #8cbd01">Passed</span></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left">Math 1</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td><span style="color: #8cbd01">Passed</span></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left">Science 1</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td><span style="color: #8cbd01">Passed</span></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left">AP 1</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td><span style="color: #8cbd01">Passed</span></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left">ESP 1</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td><span style="color: #8cbd01">Passed</span></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left">Mapeh 1</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td><span style="color: #8cbd01">Passed</span></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left pl-4">Music</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left pl-4">Arts</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left pl-4">Physical Education</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left pl-4">Health</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td>89</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @foreach ($studentGrades as $studentGrades)
+                        <tr class="text-center">
+                            <td class="text-left">{{$studentGrades->subject}}</td>
+                            <td>{{$studentGrades->firstQuarter ?? '0'}}</td>
+                            <td>{{$studentGrades->secondQuarter ?? '0'}}</td>
+                            <td>{{$studentGrades->thirdQuarter ?? '0'}}</td>
+                            <td>{{$studentGrades->fourthQuarter ?? '0'}}</td>
+                            <td>0</td>
+                            <td></td>
+                            {{-- <td><span style="color: #8cbd01">Passed</span></td> --}}
+                        </tr>
+                    @endforeach
                 </tbody>
              </table>
             <div class="row mt-3 mb-2">
                 <div class="col-sm-12">
-                    <button type="button" class="edit-button" onclick="window.location='{{ url('grading-edit') }}'">Update</button>
+                    <button type="button" class="edit-button" onclick="window.location='{{ route('grading.edit',$enrolled->id) }}'">Update</button>
                     <button type="button" class="back-button float-right" onclick="window.location='{{ route('grading.index') }}'">Back</button>
                 </div>
             </div>
@@ -156,4 +64,18 @@
     </div>
 </div>
 
+<script>
+
+    var msg = "{{Session::get('success')}}";
+    var exist = "{{Session::has('success')}}";
+    if(exist){
+        Swal.fire({
+            icon: 'success',
+            title: msg,
+            showConfirmButton: false,
+            timer: 2000,
+        });
+    }
+    
+    </script>
 @endsection

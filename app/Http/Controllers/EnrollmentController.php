@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\ClassSchedules;
+use App\ClassSchedulesSubjects;
 use App\Enrolled;
 use App\Payments;
+use App\StudentGrades;
 
 
 class EnrollmentController extends Controller
@@ -40,6 +42,8 @@ class EnrollmentController extends Controller
     public function store(Request $request)
     {
         //
+
+       
 
         if($request->typeOfPayment == "Full Payment"){
           $enrolledId =  Enrolled::create([
@@ -85,6 +89,18 @@ class EnrollmentController extends Controller
             ]);
         }
 
+
+        $subjects = ClassSchedulesSubjects::where('classScheduleId',$request->section)->groupBy('subject')->pluck('subject');
+
+        foreach($subjects as $subject){
+            StudentGrades::create([
+                'userId' => $request->userId,
+                'enrolledId' => $enrolledId,
+                'classSchedId' =>$request->section,
+                'gradeLevel' => $request->gradeLevel,
+                'Subject' => $subject,
+            ]);
+        }
 
         if($request->gradeLevel == 'Grade 1'){
             User::find($request->userId)->update([
@@ -137,6 +153,7 @@ class EnrollmentController extends Controller
             ]);
             return redirect()->route('Grade10Index')->with('success', 'Student Enrolled Successfully');
         }
+
 
 
 

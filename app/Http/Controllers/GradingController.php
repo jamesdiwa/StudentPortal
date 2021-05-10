@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Enrolled;
+use App\StudentGrades;
+
+use Carbon\Carbon;
+
 
 class GradingController extends Controller
 {
@@ -13,7 +18,9 @@ class GradingController extends Controller
      */
     public function index()
     {
-        return view('Students.Grading.index');
+        $enrolled = Enrolled::where('status','Ongoing')->get();
+        
+        return view('Students.Grading.index',compact('enrolled'));
     }
 
     /**
@@ -45,7 +52,12 @@ class GradingController extends Controller
      */
     public function show($id)
     {
-        return view('Students.Grading.show');
+        $enrolled = Enrolled::find($id);
+
+        $studentGrades = StudentGrades::where('enrolledId',$id)->get();
+
+
+        return view('Students.Grading.show',compact('enrolled','studentGrades'));
     }
 
     /**
@@ -56,7 +68,11 @@ class GradingController extends Controller
      */
     public function edit($id)
     {
-        return view('Students.Grading.edit');
+        $enrolled = Enrolled::find($id);
+
+        $studentGrades = StudentGrades::where('enrolledId',$id)->get();
+
+        return view('Students.Grading.edit',compact('enrolled','studentGrades'));
     }
 
     /**
@@ -81,4 +97,36 @@ class GradingController extends Controller
     {
         //
     }
+
+    public function studentGradeStore(Request $request)
+    {
+        StudentGrades::where('userId',$request->userId)->where('enrolledId',$request->enrolledId)->delete();
+
+        $input = $request->all();
+
+         foreach($input['grades'] as $row) {
+             $inputArr[] = [
+                 'userId' =>  $row['userId'],
+                 'enrolledId' => $row['enrolledId'],
+                 'classSchedId' => $row['classSchedId'],
+                 'gradeLevel' => $row['gradeLevel'],
+                 'subject' => $row['subject'],
+                 'firstQuarter' => $row['firstQuarter'],
+                 'secondQuarter' => $row['secondQuarter'],
+                 'thirdQuarter' => $row['thirdQuarter'],
+                 'fourthQuarter' => $row['fourthQuarter'],
+                 'created_at' => Carbon::now()->toDateTimeString(),
+                 'updated_at' => Carbon::now()->toDateTimeString(),
+             ];
+         }
+ 
+         StudentGrades::insert($inputArr);
+
+
+         return redirect()->route('grading.show',$request->enrolledId)->with('success', 'Grades Updated Successfully');
+
+    }
+
+
+    
 }
