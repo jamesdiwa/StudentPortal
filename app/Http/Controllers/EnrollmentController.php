@@ -9,6 +9,7 @@ use App\ClassSchedulesSubjects;
 use App\Enrolled;
 use App\Payments;
 use App\StudentGrades;
+use App\GradeAndSubjects;
 
 
 class EnrollmentController extends Controller
@@ -90,7 +91,7 @@ class EnrollmentController extends Controller
         }
 
 
-        $subjects = ClassSchedulesSubjects::where('classScheduleId',$request->section)->groupBy('subject')->pluck('subject');
+        $subjects = GradeAndSubjects::where('GradeLevel',$request->gradeLevel)->get();
 
         foreach($subjects as $subject){
             StudentGrades::create([
@@ -98,7 +99,7 @@ class EnrollmentController extends Controller
                 'enrolledId' => $enrolledId,
                 'classSchedId' =>$request->section,
                 'gradeLevel' => $request->gradeLevel,
-                'Subject' => $subject,
+                'subject' => $subject->Subject,
             ]);
         }
 
