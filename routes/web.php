@@ -72,6 +72,23 @@ Route::group(['middleware' => 'auth'], function() {
 
 });
 
+//Student View
+Route::get('studentCalendar', 'StudentViewController@studentCalendar');
+Route::get('studentAnnouncement', 'StudentViewController@studentAnnouncement');
+Route::get('studentGrade', 'StudentViewController@studentGrade');
+Route::get('studentAccount', 'StudentViewController@studentAccount');
+Route::get('studentClassSchedule', 'StudentViewController@studentClassSchedule');
+
+//Teacher View
+Route::get('teacherCalendar', 'TeacherViewController@teacherCalendar');
+Route::get('teacherAnnouncement', 'TeacherViewController@teacherAnnouncement');
+Route::get('gradingIndex', 'TeacherViewController@index');
+Route::get('gradingShow', 'TeacherViewController@show');
+Route::get('gradingEdit', 'TeacherViewController@edit');
+Route::get('gradingBySection', function(){
+    return view('TeacherView.teacherGrade.gradingBySection');
+});
+
 Route::get('user-show', function(){
     return view('User.show');
 });

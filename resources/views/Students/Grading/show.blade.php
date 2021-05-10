@@ -21,8 +21,8 @@
                     @endif
                 </div>
                 <div class="col-sm d-block align-self-center px-0">
-                    <p class="sub-title p-0 m-0" style="font-size: 20px">{{$enrolled->studentInfo->firstName}} {{$enrolled->studentInfo->middleName}} {{$enrolled->studentInfo->lastName}}</p>
-                    <p class="sub-title p-0 m-0 font-weight-normal">{{$enrolled->studentInfo->username}} ({{$enrolled->enrolled->gradeLevel}} - {{$enrolled->enrolled->section}})</p>
+                    <p class="sub-title p-0 m-0" style="font-size: 20px">{{$enrolled->studentInfo->firstName}} {{$enrolled->studentInfo->middleName}} {{$enrolled->studentInfo->lastName}} ({{$enrolled->studentInfo->username}})</p>
+                    <p class="sub-title p-0 m-0 font-weight-normal">{{$enrolled->enrolled->gradeLevel}} - {{$enrolled->enrolled->section}}</p>
                 </div>
             </div>
             {{-- <div class="p-3">
@@ -41,13 +41,13 @@
                 <tbody class="tbody-data">
                     @foreach ($studentGrades as $studentGrades)
                         <tr class="text-center">
-                            <td class="text-left">{{$studentGrades->subject}}</td>
-                            <td class="firstQuarter">{{$studentGrades->firstQuarter}}</td>
-                            <td class="secondQuarter">{{$studentGrades->secondQuarter}}</td>
-                            <td class="thirdQuarter">{{$studentGrades->thirdQuarter}}</td>
-                            <td class="fourthQuarter"> {{$studentGrades->fourthQuarter}}</td>
-                            <td class="average"></td>
-                            <td ><span class="remarks" style="color: #8cbd01"></span></td>
+                            <td class="text-left align-middle">{{$studentGrades->subject}}</td>
+                            <td class="firstQuarter align-middle">{{$studentGrades->firstQuarter}}</td>
+                            <td class="secondQuarter align-middle">{{$studentGrades->secondQuarter}}</td>
+                            <td class="thirdQuarter align-middle">{{$studentGrades->thirdQuarter}}</td>
+                            <td class="fourthQuarter align-middle"> {{$studentGrades->fourthQuarter}}</td>
+                            <td class="average align-middle"></td>
+                            <td class=" align-middle"><span class="remarks"></span></td>
                             {{-- <td><span style="color: #8cbd01">Passed</span></td> --}}
                         </tr>
                     @endforeach
@@ -82,9 +82,9 @@
 
         
                 if(total >= 74.5){
-                    $(this).closest('tr').find('.remarks').html('Passed');
+                    $(this).closest('tr').find('.remarks').html('<span style="color: #8cbd01">Passed</span>');
                 }else if(total <= 74.4){
-                    $(this).closest('tr').find('.remarks').html('Failed');
+                    $(this).closest('tr').find('.remarks').html('<span style="color: red">Failed</span>');
                 }else{
                 }
         });

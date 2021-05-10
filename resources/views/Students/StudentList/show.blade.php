@@ -183,7 +183,7 @@
                     </tr> --}}
                 </tbody>
              </table>
-             <hr>
+             {{-- <hr> --}}
              {{-- <!-- Student Grade -->
              <p class="DivHeaderText my-2 py-2">STUDENT GRADE</p>
              <div class="row">
