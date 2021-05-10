@@ -48,6 +48,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('accounting/create/','AccountingController@paymentCreate')->name('paymentCreate');
 
 
+    Route::post('grade/','GradingController@studentGradeStore')->name('studentGradeStore');
+
+    
+
     Route::resource('studentList','StudentController');
     Route::resource('newStudent','NewStudentController');
     Route::resource('user','UserController');

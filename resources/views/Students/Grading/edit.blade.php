@@ -13,9 +13,13 @@
     <div class="container">
         <div class="DivTemplate mt-3 py-3"> 
             <div class="p-3">
-                <p class="sub-title p-0 m-0" style="font-size: 20px">James Patrick Diwa</p>
-                <p class="sub-title p-0 m-0 font-weight-normal">A117A0909 (Grade 7 - Sampaguita)</p>
+                <p class="sub-title p-0 m-0" style="font-size: 20px">{{$enrolled->studentInfo->firstName}} {{$enrolled->studentInfo->middleName}} {{$enrolled->studentInfo->lastName}}</p>
+                <p class="sub-title p-0 m-0 font-weight-normal">{{$enrolled->studentInfo->username}} ({{$enrolled->enrolled->gradeLevel}} - {{$enrolled->enrolled->section}})</p>
             </div>
+    <form class="form-horizontal" method="POST" action="{{route('studentGradeStore')}}">
+        @csrf
+        <input type="hidden" name="enrolledId" value="{{$enrolled->id}}">
+        <input type="hidden" name="userId" value="{{$enrolled->studentInfo->id}}">
             <table class="table table-borderless">
                 <thead class="thead-bg text-center">
                     <th width="150px">Subject</th>
@@ -27,114 +31,29 @@
                     <th width="100px">Remarks</th>
                 </thead>
                 <tbody class="tbody-data">
-                    <tr class="text-center">
-                        <td class="text-left align-middle">Mother Tongue</td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td class="align-middle">89</td>
-                        <td class="align-middle"><span style="color: #8cbd01">Passed</span></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left align-middle">Filipino 1</td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td class="align-middle">74</td>
-                        <td class="align-middle"><span style="color: red">Failed</span></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left">English 1</td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td>89</td>
-                        <td><span style="color: #8cbd01">Passed</span></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left">Math 1</td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td>89</td>
-                        <td><span style="color: #8cbd01">Passed</span></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left">Science 1</td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td>89</td>
-                        <td><span style="color: #8cbd01">Passed</span></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left">AP 1</td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td>89</td>
-                        <td><span style="color: #8cbd01">Passed</span></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left">ESP 1</td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td>89</td>
-                        <td><span style="color: #8cbd01">Passed</span></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left">Mapeh 1</td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td>89</td>
-                        <td><span style="color: #8cbd01">Passed</span></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left pl-4">Music</td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left pl-4">Arts</td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left pl-4">Physical Education</td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="text-left pl-4">Health</td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @php
+                        $count = 0;   
+                    @endphp
+                    @foreach ($studentGrades as $studentGrades)
+                    @php
+                        $count++;
+                    @endphp
+                        <tr class="text-center">
+                            <input type="hidden" name="grades[{{$count}}][userId]" value="{{$enrolled->studentInfo->id}}">
+                            <input type="hidden" name="grades[{{$count}}][enrolledId]" value="{{$enrolled->id}}">
+                            <input type="hidden" name="grades[{{$count}}][classSchedId]" value="{{$enrolled->classSchedId}}">
+                            <input type="hidden" name="grades[{{$count}}][gradeLevel]" value="{{$enrolled->enrolled->gradeLevel}}">
+                            <input type="hidden" name="grades[{{$count}}][subject]" value="{{$studentGrades->subject}}">
+                            <td class="text-left align-middle">{{$studentGrades->subject}}</td>
+                            <td><input type="number" class="form-control" name="grades[{{$count}}][firstQuarter]" value="{{$studentGrades->firstQuarter ?? '0'}}"></td>
+                            <td><input type="number" class="form-control" name="grades[{{$count}}][secondQuarter]" value="{{$studentGrades->secondQuarter ?? '0'}}"></td>
+                            <td><input type="number" class="form-control" name="grades[{{$count}}][thirdQuarter]" value="{{$studentGrades->thirdQuarter ?? '0'}}"></td>
+                            <td><input type="number" class="form-control" name="grades[{{$count}}][fourthQuarter]" value="{{$studentGrades->fourthQuarter ?? '0'}}"></td>
+                            <td class="align-middle">0</td>
+                            <td class="align-middle"></td>
+                            {{-- <td class="align-middle"><span style="color: #8cbd01">Passed</span></td> --}}
+                        </tr>
+                    @endforeach
                 </tbody>
              </table>
             <div class="row mt-3 mb-2">
@@ -144,7 +63,7 @@
                 </div>
             </div>
         </div>
-
+    </form>
     </div>
 </div>
 
