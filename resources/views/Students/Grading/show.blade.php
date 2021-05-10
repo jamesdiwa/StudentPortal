@@ -42,12 +42,12 @@
                     @foreach ($studentGrades as $studentGrades)
                         <tr class="text-center">
                             <td class="text-left">{{$studentGrades->subject}}</td>
-                            <td>{{$studentGrades->firstQuarter ?? '0'}}</td>
-                            <td>{{$studentGrades->secondQuarter ?? '0'}}</td>
-                            <td>{{$studentGrades->thirdQuarter ?? '0'}}</td>
-                            <td>{{$studentGrades->fourthQuarter ?? '0'}}</td>
-                            <td>0</td>
-                            <td></td>
+                            <td class="firstQuarter">{{$studentGrades->firstQuarter}}</td>
+                            <td class="secondQuarter">{{$studentGrades->secondQuarter}}</td>
+                            <td class="thirdQuarter">{{$studentGrades->thirdQuarter}}</td>
+                            <td class="fourthQuarter"> {{$studentGrades->fourthQuarter}}</td>
+                            <td class="average"></td>
+                            <td ><span class="remarks" style="color: #8cbd01"></span></td>
                             {{-- <td><span style="color: #8cbd01">Passed</span></td> --}}
                         </tr>
                     @endforeach
@@ -65,6 +65,31 @@
 </div>
 
 <script>
+
+
+    $(document).ready(function(){
+
+
+        $('.firstQuarter').each(function(){
+            var second = parseFloat($(this).closest('tr').find('.secondQuarter').text());  
+            var third =  parseFloat($(this).closest('tr').find('.thirdQuarter').text());  
+            var fourth =  parseFloat($(this).closest('tr').find('.fourthQuarter').text());  
+                var first =  parseFloat($(this).closest('tr').find('.firstQuarter').text()); 
+
+                var total = (first + second + third + fourth) / 4;
+
+                $(this).closest('tr').find('.average').html(total);
+
+        
+                if(total >= 74.5){
+                    $(this).closest('tr').find('.remarks').html('Passed');
+                }else if(total <= 74.4){
+                    $(this).closest('tr').find('.remarks').html('Failed');
+                }else{
+                }
+        });
+
+    });
 
     var msg = "{{Session::get('success')}}";
     var exist = "{{Session::has('success')}}";
