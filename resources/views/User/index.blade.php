@@ -23,25 +23,25 @@
             <div class="form-row row mt-3">
                 <div class="form-group col-sm">
                     <label class="p-0 m-0 sub-title">Search</label>
-                    <input type="text" name="search" class="form-control searchbar" name="search">   
+                    <input type="text" name="search" id="search" class="form-control searchbar" name="search">   
                 </div>
                 <div class="form-group col-sm-4">
                     <label class="p-0 m-0 sub-title">Filter by</label>
-                    <select name="" id="" class="form-control" style="background: #fbebd8; color: #A90011; border: none; font-weight: 600; ">
-                        <option value="">All</option>
-                        <option value="">Teacher</option>
-                        <option value="">Admin</option>
+                    <select name="" id="filterBy" class="form-control" style="background: #fbebd8; color: #A90011; border: none; font-weight: 600; ">
+                        <option value="All">All</option>
+                        <option value="Teacher">Teacher</option>
+                        <option value="Admin">Admin</option>
                     </select>
                 </div>
-                <div class="form-group col-sm-auto">
+                {{-- <div class="form-group col-sm-auto">
                     <br>
                     <button type="submit" class="search-button" style="padding-top: 8.7px; padding-bottom: 8.7px;">Search</button>      
-                </div>
+                </div> --}}
             </div>
             
                 <div class="row mx-3 py-2">       
                     @foreach($users as $user)        
-                    <a href='{{ route('user.show',$user->id) }}' class="userSelection">
+                    <a href='{{ route('user.show',$user->id) }}' class="userSelection users {{$user->accountType}} {{strtolower($user->firstName)}} {{strtolower($user->middleName)}} {{strtolower($user->lastName)}}  {{strtolower($user->firstName)}}{{strtolower($user->middleName)}}{{strtolower($user->lastName)}}">
                     <div class="col-md-auto zoom">
                         @if ($user->photoPath != null)
                             <img class="mx-auto d-block userSelection-photo rounded-circle" src="{{ asset('images/UserPhoto/'.$user->photoPath) }}">
@@ -62,6 +62,60 @@
 </div>
 
 <script>
+
+    $(document).ready(function(){
+
+        $('#filterBy').change(function(){
+            if($('#search').val() != ""){
+                Search();
+            }else{
+                FilterBy();
+            }
+        });
+
+        $('#search').change(function(){
+            if($('#search').val() != ""){
+                Search();
+            }else{
+                FilterBy();
+            }
+        });
+
+    });
+
+
+    function Search(){
+       
+            if($('#filterBy').val() == "Teacher"){
+                var name = $('#search').val().split(" ").join("").toLowerCase();
+                $('.users').hide();
+                $('.'+name).show();
+                $('.Admin').hide();
+            }else if($('#filterBy').val() == "Admin"){
+                var name = $('#search').val().split(" ").join("").toLowerCase();
+                $('.users').hide();
+                $('.'+name).show();
+                $('.Teacher').hide();
+            }else{
+                var name = $('#search').val().split(" ").join("").toLowerCase();
+                $('.users').hide();
+                $('.'+name).show();
+            }
+           
+    }
+
+    function FilterBy(){
+        if($('#filterBy').val() == "Teacher"){
+            $('.users').hide();
+            $('.Teacher').show();
+        }else if($('#filterBy').val() == "Admin"){
+            $('.users').hide();
+            $('.Admin').show();
+        }else{
+            $('.users').show();
+        }
+    }
+
 
 var msg = "{{Session::get('success')}}";
 var exist = "{{Session::has('success')}}";

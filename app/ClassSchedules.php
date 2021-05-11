@@ -9,5 +9,7 @@ class ClassSchedules extends Model
     protected $table = 'class_schedules';
 
     protected $guarded = ['id'];
+
+    
     
 }

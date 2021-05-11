@@ -145,6 +145,7 @@
             $(thisInput).closest('tr').find('.secondQuarter').attr('readonly', true);
             $(thisInput).closest('tr').find('.thirdQuarter').attr('readonly', true);
             $(thisInput).closest('tr').find('.fourthQuarter').attr('readonly', true);
+            $(thisInput).closest('tr').find('.remarks').html('');
         }
         getAverage(thisInput);
     }
@@ -157,6 +158,7 @@
             $(thisInput).closest('tr').find('.fourthQuarter').val('');  
             $(thisInput).closest('tr').find('.thirdQuarter').attr('readonly', true);
             $(thisInput).closest('tr').find('.fourthQuarter').attr('readonly', true);
+            $(thisInput).closest('tr').find('.remarks').html('');
         }
         getAverage(thisInput);
     }
@@ -167,6 +169,7 @@
         }else{
             $(thisInput).closest('tr').find('.fourthQuarter').val('');  
             $(thisInput).closest('tr').find('.fourthQuarter').attr('readonly', true);
+            $(thisInput).closest('tr').find('.remarks').html('');
         }
 
         getAverage(thisInput);
@@ -185,9 +188,9 @@
 
       
             if(total >= 74.5){
-                $(thisInput).closest('tr').find('.remarks').html('Passed');
+                $(thisInput).closest('tr').find('.remarks').html('<span style="color: #8cbd01">Passed</span>');
             }else if(total <= 74.4){
-                $(thisInput).closest('tr').find('.remarks').html('Failed');
+                $(thisInput).closest('tr').find('.remarks').html('<span style="color: red">Failed</span>');
             }else{
             }
             

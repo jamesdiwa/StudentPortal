@@ -68,9 +68,22 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('create/editSchedSubject', 'ClassScheduleController@editSchedSubject')->name('editSchedSubject');
     Route::post('create/editSchedSubjectUpdate', 'ClassScheduleController@editSchedSubjectUpdate')->name('editSchedSubjectUpdate');
 
-    
 
+    //Teacher View
+Route::get('teacherCalendar', 'TeacherViewController@teacherCalendar');
+Route::get('teacherAnnouncement', 'TeacherViewController@teacherAnnouncement');
+Route::get('gradingIndex', 'TeacherViewController@index')->name('gradingIndex');
+Route::get('gradingShow', 'TeacherViewController@show');
+Route::get('gradingEdit', 'TeacherViewController@edit');
+Route::get('gradingBySection', function(){
+    return view('TeacherView.teacherGrade.gradingBySection');
 });
+
+
+Route::post('classStudents', 'TeacherViewController@classStudents')->name('classStudents');
+Route::post('classStudentsStore', 'TeacherViewController@classStudentsStore')->name('classStudentsStore');
+Route::post('classIndex', 'TeacherViewController@classIndex')->name('classIndex');
+    
 
 //Student View
 Route::get('studentCalendar', 'StudentViewController@studentCalendar');
@@ -79,15 +92,14 @@ Route::get('studentGrade', 'StudentViewController@studentGrade');
 Route::get('studentAccount', 'StudentViewController@studentAccount');
 Route::get('studentClassSchedule', 'StudentViewController@studentClassSchedule');
 
-//Teacher View
-Route::get('teacherCalendar', 'TeacherViewController@teacherCalendar');
-Route::get('teacherAnnouncement', 'TeacherViewController@teacherAnnouncement');
-Route::get('gradingIndex', 'TeacherViewController@index');
-Route::get('gradingShow', 'TeacherViewController@show');
-Route::get('gradingEdit', 'TeacherViewController@edit');
-Route::get('gradingBySection', function(){
-    return view('TeacherView.teacherGrade.gradingBySection');
+
+
+
 });
+
+
+
+
 
 Route::get('user-show', function(){
     return view('User.show');

@@ -18,6 +18,6 @@ class Enrolled extends Model
         return $this->hasOne(User::class , 'id', 'userId'); 
     }
 
-
+    
 
 }

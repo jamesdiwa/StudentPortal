@@ -8,11 +8,15 @@
     <div class="sidebar" id="sidebar">
         <div class="pt-5 pb-2 px-3" style="margin-top: 70px">
             <div class="mt-2 rounded-circle overflow-hidden" style="width: 110px; height: 110px">
-                <img class="rounded-circle" src="{{ asset('images/1.jpg') }}" style="width: 100%; height: 100%; border: 1px solid #0fceca">
+                @if (Session::get("loginphotoPath") != null)
+                        <img src="{{ asset('images/UserPhoto/'.Session::get("loginphotoPath")) }}" style="width: 100%; height: 100%">
+                    @else
+                          <img class="rounded-circle" src="{{ asset('images/1.jpg') }}" style="width: 100%; height: 100%; border: 1px solid #0fceca">
+                    @endif
             </div>
             
-            <p class="mt-2 p-0 m-0" style="color: #3d3d3d; font-weight: 700; font-size: 20px">James Patrick Diwa</p>
-            <p class="p-0 m-0" style="color: #676767; font-size: 15.5px">A117A0909</p>
+            <p class="mt-2 p-0 m-0" style="color: #3d3d3d; font-weight: 700; font-size: 20px">{{Session::get("loginFirstName")}}  {{Session::get("loginmiddleName")}}  {{Session::get("loginlastName")}}</p>
+            <p class="p-0 m-0" style="color: #676767; font-size: 15.5px">{{Session::get("loginaccountType")}}</p>
         </div>
         <div class="mt-4" style="border-bottom: 2px solid #d11d27"></div>
         <div class="mt-4">

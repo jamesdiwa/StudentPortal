@@ -79,19 +79,19 @@
                     <div class="col-sm-4">
                         <div class="mx-auto d-block px-3 dashboard-census p-2">
                             <p class="census-label">Enlisted Students</p>
-                            <p class="census-data mt-n1">10</p>
+                            <p class="census-data mt-n1">{{$elistedStudentCount}}</p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="mx-auto d-block px-3 dashboard-census p-2">
                             <p class="census-label">Enrolled Students</p>
-                            <p class="census-data mt-n1">10</p>
+                            <p class="census-data mt-n1">{{$enrolledCount}}</p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="mx-auto d-block px-3 dashboard-census p-2">
                             <p class="census-label">Teachers</p>
-                            <p class="census-data mt-n1">10</p>
+                            <p class="census-data mt-n1">{{$teacherCount}}</p>
                         </div>
                     </div>
                 </div>

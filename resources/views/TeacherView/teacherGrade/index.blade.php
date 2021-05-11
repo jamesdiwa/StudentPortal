@@ -27,7 +27,7 @@
     <div class="container">
         <div class="DivTemplate mt-3">
             <div class="form-row row mt-3">
-                <div class="form-group col-sm">
+                {{-- <div class="form-group col-sm">
                     <label class="p-0 m-0 sub-title">Search</label>
                     <input type="text" name="search" class="form-control searchbar" name="search">   
                 </div>
@@ -47,27 +47,26 @@
                 <div class="form-group col-sm-12">
                     <button class="update-button float-right" style="width: 200px; padding-top: 8.7px; padding-bottom: 8.7px;" id="uploadBySection">Upload Grades by Section</button>
                 </div>
-            </div>
+            </div> --}}
             <table class="table table-borderless">
                 <thead class="thead-bg">
-                    <th width="100px">Student ID</th>
-                    <th width="300px">Student Name</th>
-                    <th width="150px">Grade Level</th>
-                    <th width="150px">Section</th>
-                    <th width="150px">Subject</th>
+                    <th width="100px">Subject</th>
                     <th width="200px" class="text-center">Action</th>
                 </thead>
                 <tbody class="tbody-data">
-                    <tr>
-                        <td class="align-middle">A117A0909</td>
-                        <td class="align-middle">James Patrick Diwa</td>
-                        <td class="align-middle">Grade 1</td>
-                        <td class="align-middle">Mabait</td>
-                        <td class="align-middle">Math 1</td>
-                        <td class="text-center">
-                            <button style="button" class="search-button" onclick="window.location='{{ url('gradingShow') }}'">Records</button>
-                        </td>
-                    </tr>
+
+                    @foreach ($teacherSubject as $teacherSubject)
+                        <tr>
+                            <td class="align-middle">{{$teacherSubject->subjects}}</td>
+                            <td class="text-center">
+                                <form class="form-horizontal" method="POST" action="{{route('classIndex')}}">
+                                    @csrf
+                                    <input type="hidden" name="subject" value="{{$teacherSubject->subjects}}">
+                                   <button style="button" class="search-button" type="submit">Records</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

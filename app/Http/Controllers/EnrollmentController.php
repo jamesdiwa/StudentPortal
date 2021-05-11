@@ -224,12 +224,12 @@ class EnrollmentController extends Controller
 
         $gradeLevel = $request->gradeLevel;
         $enrolled = Enrolled::where('userId',$request->studentId)->where('gradeLevel',$gradeLevel)->first();
-
+        $studentGrades = StudentGrades::where('enrolledId',$enrolled->id)->get();
 
         $payments = Payments::where('enrolledId',$enrolled->id)->get();
 
 
-        return view('Students.Enrollment.show',compact('enrolled','payments','gradeLevel'));
+        return view('Students.Enrollment.show',compact('enrolled','payments','gradeLevel','studentGrades'));
     }
 
 

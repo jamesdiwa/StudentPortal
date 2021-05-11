@@ -105,6 +105,36 @@
                     </div>
                 </div>
             </div>
+
+
+            <p class="DivHeaderText my-2 py-2">GRADES</p>
+            <table class="table table-borderless">
+                <thead class="thead-bg text-center">
+                    <th width="100px">Subject</th>
+                    <th width="100px">First Quarter</th>
+                    <th width="100px">Second Quarter</th>
+                    <th width="100px">Third Quarter</th>
+                    <th width="100px">Fourth Quarter</th>
+                    <th width="100px">Average</th>
+                    <th width="100px">Remarks</th>
+                </thead>
+                <tbody class="tbody-data">
+                    @foreach ($studentGrades as $studentGrades)
+                        <tr class="text-center">
+                            <td class="text-left align-middle">{{$studentGrades->subject}}</td>
+                            <td class="firstQuarter align-middle">{{$studentGrades->firstQuarter}}</td>
+                            <td class="secondQuarter align-middle">{{$studentGrades->secondQuarter}}</td>
+                            <td class="thirdQuarter align-middle">{{$studentGrades->thirdQuarter}}</td>
+                            <td class="fourthQuarter align-middle"> {{$studentGrades->fourthQuarter}}</td>
+                            <td class="average align-middle"></td>
+                            <td class=" align-middle"><span class="remarks"></span></td>
+                            {{-- <td><span style="color: #8cbd01">Passed</span></td> --}}
+                        </tr>
+                    @endforeach
+                </tbody>
+             </table>
+
+
              <!-- Completion Status -->
              <p class="DivHeaderText my-2 py-2">PAYMENT STATUS ({{$enrolled->typeOfPayment}})</p>
              <table class="table table-borderless">
@@ -150,6 +180,7 @@
                     <th>0</th>
                 </thead>
              </table>
+
             <div class="row mt-4 mb-2">
                 <div class="col-sm-12">
                     <!-- if not enroll -->
@@ -189,6 +220,25 @@ $(document).ready(function(){
     var Balance =  parseFloat($('#tuitionFeeAmount').text().replace(/[^\d.-]/g, '')) - cashReceived();
 
     $('#balance').html(Balance);
+
+    $('.firstQuarter').each(function(){
+            var second = parseFloat($(this).closest('tr').find('.secondQuarter').text());  
+            var third =  parseFloat($(this).closest('tr').find('.thirdQuarter').text());  
+            var fourth =  parseFloat($(this).closest('tr').find('.fourthQuarter').text());  
+                var first =  parseFloat($(this).closest('tr').find('.firstQuarter').text()); 
+
+                var total = (first + second + third + fourth) / 4;
+
+                $(this).closest('tr').find('.average').html(total);
+
+        
+                if(total >= 74.5){
+                    $(this).closest('tr').find('.remarks').html('<span style="color: #8cbd01">Passed</span>');
+                }else if(total <= 74.4){
+                    $(this).closest('tr').find('.remarks').html('<span style="color: red">Failed</span>');
+                }else{
+                }
+        });
     
 });
 

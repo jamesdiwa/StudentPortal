@@ -46,10 +46,11 @@
                                             <td><input type="time" name="inputArr[{{$count}}][timeTo]" id="" class="form-control" ></td>
                                             <td><input type="text" class="form-control subjectValue" name="inputArr[{{$count}}][subject]" value="{{$subject->Subject}}" readOnly/></td>
                                             <td>
-                                                <select name="inputArr[{{$count}}][subjectTeacher]" class="form-control teachers">
+                                                <input type="hidden" value="" name="inputArr[{{$count}}][teacherId]" class="teacherId">
+                                                <select name="inputArr[{{$count}}][subjectTeacher]"  class="form-control teachers teacherSelect">
                                                     <option value="">Select</option>
                                                     @foreach($teachers as $teacher)
-                                                    <option value="{{$teacher->teacherInfo->firstName}} {{$teacher->teacherInfo->lastName}}" class="{{str_replace(' ', '', $teacher->subjects)}} adviseHide" >{{$teacher->teacherInfo->firstName}} {{$teacher->teacherInfo->lastName}}</option>
+                                                    <option value="{{$teacher->teacherInfo->firstName}} {{$teacher->teacherInfo->lastName}}" data-teacherId="{{$teacher->teacherInfo->id}}" class="{{str_replace(' ', '', $teacher->subjects)}} adviseHide" >{{$teacher->teacherInfo->firstName}} {{$teacher->teacherInfo->lastName}}</option>
                                                     @endforeach
                                                 </select>
                                             </td><td class="text-center align-middle"><button href="javascript:void(0);" class="delete-button remove">Remove</button></td>
@@ -169,6 +170,14 @@ $(document).ready(function(){
         var subjectVal = $(this).closest("tr").find('.subjectValue').val().split(" ").join("");
         $(this).closest("tr").find('.'+subjectVal).show();
    });
+
+
+   $('.teacherSelect').each(function(){
+        $(this).change(function(){
+                $(this).closest("tr").find('.teacherId').val($(this).find("option:selected").attr('data-teacherId'));
+            
+        });
+    });
 
 });
 

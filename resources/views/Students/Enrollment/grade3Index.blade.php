@@ -29,20 +29,20 @@
             <div class="form-row row mt-3">
                 <div class="form-group col-sm">
                     <label class="p-0 m-0 sub-title">Search</label>
-                    <input type="text" name="search" class="form-control searchbar" name="search" placeholder="Search">   
+                    <input type="text" id="search" class="form-control searchbar" name="search" placeholder="Search">   
                 </div>
                 <div class="form-group col-sm-4">
                     <label class="p-0 m-0 sub-title">Filter by</label>
-                    <select name="" id="" class="form-control" style="background: #fbebd8; color: #A90011; border: none; font-weight: 600;">
-                        <option value="0">All</option>
-                        <option value="1">Enrolled</option>
-                        <option value="2">Not yet enrolled</option>
+                    <select name="filterBy" id="filterBy" class="form-control" style="background: #fbebd8; color: #A90011; border: none; font-weight: 600;">
+                        <option value="All">All</option>
+                        <option value="Enrolled">Enrolled</option>
+                        <option value="Not yet enrolled">Not yet enrolled</option>
                     </select>
                 </div>
-                <div class="form-group col-sm-auto">
+                {{-- <div class="form-group col-sm-auto">
                     <br>
                     <button type="submit" class="search-button" style="padding-top: 8.7px; padding-bottom: 8.7px;">Search</button>      
-                </div>
+                </div> --}}
             </div>
             <table class="table table-borderless">
                 <thead class="thead-bg">
@@ -54,7 +54,7 @@
                 <tbody class="tbody-data">
                 @foreach ($students as $student)
                     @if($student->grade3 == 'Enrolled')
-                         <tr>
+                         <tr class="Enrolled allRow  {{strtolower($student->username)}} {{strtolower($student->firstName)}} {{strtolower($student->middleName)}} {{strtolower($student->lastName)}}  {{strtolower($student->firstName)}}{{strtolower($student->middleName)}}{{strtolower($student->lastName)}}">
                              <td class="align-middle">{{$student->username}}</td>
                              <td class="align-middle">{{$student->firstName}} {{$student->middleName}} {{$student->lastName}}</td>
                      
@@ -69,7 +69,7 @@
                              </td>
                          </tr>
                      @elseif($student->grade3 == 'Not yet enrolled')
-                         <tr>
+                        <tr class="Notyetenrolled allRow {{strtolower($student->username)}} {{strtolower($student->firstName)}} {{strtolower($student->middleName)}} {{strtolower($student->lastName)}}  {{strtolower($student->firstName)}}{{strtolower($student->middleName)}}{{strtolower($student->lastName)}}">
                              <td class="align-middle">{{$student->username}}</td>
                              <td class="align-middle">{{$student->firstName}} {{$student->middleName}} {{$student->lastName}}</td>
                              <td class="align-middle"><span style="color: red">Not yet enrolled</span></td>
@@ -91,6 +91,58 @@
 </div>
 
 <script>
+
+     $(document).ready(function(){
+
+        $('#filterBy').change(function(){
+            if($('#search').val() != ""){
+                Search();
+            }else{
+                FilterBy();
+            }
+        });
+
+        $('#search').change(function(){
+            if($('#search').val() != ""){
+                Search();
+            }else{
+                FilterBy();
+            }
+        });
+
+    });
+
+    function Search(){
+
+        if($('#filterBy').val() == "Enrolled"){
+            var name = $('#search').val().split(" ").join("").toLowerCase();
+            $('.allRow').hide();
+            $('.'+name).show();
+            $('.Notyetenrolled').hide();
+        }else if($('#filterBy').val() == "Not yet enrolled"){
+            var name = $('#search').val().split(" ").join("").toLowerCase();
+            $('.allRow').hide();
+            $('.'+name).show();
+            $('.Enrolled').hide();
+        }else{
+            var name = $('#search').val().split(" ").join("").toLowerCase();
+            $('.allRow').hide();
+            $('.'+name).show();
+        }   
+    }
+
+    function FilterBy(){
+        if($('#filterBy').val() == "Enrolled"){
+            $('.allRow').hide();
+            $('.Enrolled').show();
+        }else if($('#filterBy').val() == "Not yet enrolled"){
+            $('.allRow').hide();
+            $('.Notyetenrolled').show();
+        }else{
+            $('.allRow').show();
+        }
+    }
+    
     var msg = "{{Session::get('success')}}";
     var exist = "{{Session::has('success')}}";
     if(exist){

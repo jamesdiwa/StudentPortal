@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Enrolled;
+use App\Events;
 use Session;
 use Auth;
 use Hash;
@@ -33,8 +36,54 @@ class HomeController extends Controller
         Session::put('loginaccountType', Auth::user()->accountType);
         Session::put('loginphotoPath', Auth::user()->photoPath);
 
+        //admin view
 
-        return view('home');
+        if(Auth::user()->accountType == 'Admin'){
+            $teachers = User::where('accountType','Teacher')->get();
+            $teacherCount = 0;
+    
+            foreach($teachers as $teacher){
+                $teacherCount++;
+            }
+    
+            $enrolled = Enrolled::all();
+            $enrolledCount = 0;
+    
+            foreach($enrolled as $enrolled){
+                $enrolledCount++;
+            }
+    
+            $elistedStudent = User::where('accountType','Student')->where('isActivated','1')->get();
+            $elistedStudentCount = 0;
+    
+            foreach($elistedStudent as $elistedStudent){
+                $elistedStudentCount++;
+            }
+    
+            return view('home',compact('teacherCount','enrolledCount','elistedStudentCount'));
+    
+        }else if(Auth::user()->accountType == 'Teacher'){
+
+            Session::put('vtab','events');
+
+            $tasks = Events::all();
+            return view('TeacherView.teacherCalendar', compact('tasks'));
+
+        }else if(Auth::user()->accountType == 'Student'){
+
+            Session::put('vtab','events');
+
+            $tasks = Events::all();
+            return view('StudentView.studentCalendar', compact('tasks'));
+        }
+
+       
+
+
+
+
+
+        
     }
 
     public function showChangePasswordForm(){

@@ -21,6 +21,7 @@ class CreateClassSchedulesSubjectsTable extends Migration
             $table->time('timeTo')->nullable();
             $table->string('subject')->nullable();
             $table->string('subjectTeacher')->nullable();
+            $table->integer('teacherId')->nullable();
             $table->string('day')->nullable();
         });
     }

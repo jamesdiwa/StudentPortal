@@ -44,7 +44,8 @@
                                             <td><input type="time" name="inputArr[{{$count}}][timeTo]" id="" value="{{$schedSubjects->timeTo}}" class="form-control" ></td>
                                             <td><input type="text" class="form-control subjectValue" name="inputArr[{{$count}}][subject]" value="{{$schedSubjects->subject}}" readOnly/></td>
                                             <td>
-                                                <select name="inputArr[{{$count}}][subjectTeacher]" class="form-control teachers">
+                                                <input type="hidden" value="" name="inputArr[{{$count}}][teacherId]" class="teacherId">
+                                                <select name="inputArr[{{$count}}][subjectTeacher]" class="form-control teachers teacherSelect">
                                                     <option value="">Select</option>
                                                     @foreach($teachers as $teacher)
                                                     <option value="{{$teacher->teacherInfo->firstName}} {{$teacher->teacherInfo->lastName}}" class="{{str_replace(' ', '', $teacher->subjects)}} adviseHide" >{{$teacher->teacherInfo->firstName}} {{$teacher->teacherInfo->lastName}}</option>
@@ -84,6 +85,13 @@ $(document).ready(function(){
     var teacherVal = $(this).closest("tr").find('.hiddenTeacherVal').val();
     $(this).val(teacherVal);
    });
+
+   $('.teacherSelect').each(function(){
+        $(this).change(function(){
+                $(this).closest("tr").find('.teacherId').val($(this).find("option:selected").attr('data-teacherId'));
+            
+        });
+    });
 
 });
 

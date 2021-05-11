@@ -2,13 +2,26 @@
 
 @section('content')
 
-@include('layouts.vtab')
+<style>
+    .fc-content{
+        /* background: #a90011; */
+        color: #ffffff;
+    }
+    /* .fc-event{
+        border: 1px solid #a90011;
+    } */
+    #grade_div, #section_div {
+        display: none;
+    }
+</style>
+
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
+@include('layouts.vtabTeacher')
 
 <div class="content content-margin pb-2" id="content">
     <div class="row header-bg" style="margin-top: 70px">
         <div class="col-sm-12">
-            <p class="header-title d-inline">Class Schedules</p>
-            <button class="float-right create-button" onclick="window.location='{{ route('classSchedule.create')}} '">Create</button>
+            <p class="header-title d-inline">Class Section</p>
         </div>
     </div>
     <div class="container">
@@ -41,9 +54,10 @@
             </div>
             
             
-            <div class="row mx-3 py-2">       
-                @foreach($classSchedules as $classSchedules)        
-                <a href='{{ route('classSchedule.show',$classSchedules->id)  }}' class="userSelection {{strtolower($classSchedules->section)}} {{str_replace(' ', '', $classSchedules->gradeLevel)}} {{str_replace(' ', '', $classSchedules->section)}}">
+            <div class="row mx-3 py-2">   
+                @foreach($classSchedules as $classSchedules)    
+
+                <a onclick="submitForm(this)" data-id="{{$classSchedules->id}}" class="userSelection {{strtolower($classSchedules->section)}} {{str_replace(' ', '', $classSchedules->gradeLevel)}} {{str_replace(' ', '', $classSchedules->section)}}">
                 <div class="col-md-auto zoom">
                         <p class="text-center p-0 m-0" style="font-size: 60px; font-weight: 800; color: #d11d27">{{$classSchedules->gradeLevelIcon}}</p>
                         <p class="mt-1 DivHeaderText text-center user-name">{{$classSchedules->gradeLevel}}</p>
@@ -52,6 +66,15 @@
                 </a>
                 @endforeach
             </div>
+
+
+<form class="form-horizontal" method="POST" action="{{route('classStudents')}}" id="formSubmit">
+        @csrf
+        <input type="hidden" name="classSchedId" id="classSchedId" >
+        <input type="hidden" name="subject" id="" value="{{$subject}}" >
+</form>
+
+
         </div>
     </div>
 </div>
@@ -75,6 +98,12 @@
             }
         });
     });
+
+
+    function submitForm(thisAnchor){
+        $('#classSchedId').val($(thisAnchor).attr('data-id'));
+        $('#formSubmit').submit();
+    }
 
 
     function Search(){

@@ -30,7 +30,7 @@
             <div class="form-row row mt-3">
                 <div class="form-group col-sm">
                     <label class="p-0 m-0 sub-title">Search</label>
-                    <input type="text" name="search" class="form-control searchbar" name="search" placeholder="Search">   
+                    <input type="text" id="search" class="form-control searchbar" name="search" placeholder="Search">   
                 </div>
                 <div class="form-group col-sm-4">
                     <label class="p-0 m-0 sub-title">Filter by</label>
@@ -58,7 +58,7 @@
                 </thead>
                 <tbody class="tbody-data">
                     @foreach($students as $student)
-                    <tr>
+                    <tr class="students {{strtolower($student->firstName)}}{{strtolower($student->middleName)}}{{strtolower($student->lastName)}} {{strtolower($student->firstName)}} {{strtolower($student->middleName)}} {{strtolower($student->lastName)}}">
                         <td class="align-middle">A117A0909</td>
                         <td class="align-middle">{{$student->firstName}} {{$student->middleName}} {{$student->lastName}}</td>
                         <td class="align-middle"><span style="color: #097b9e">{{$student->status}}</span></td>
@@ -123,6 +123,24 @@
 </div>
 
 <script>
+
+    
+$(document).ready(function(){
+
+    $('#search').change(function(){
+        if($('#search').val() != ""){
+                var name = $('#search').val().split(" ").join("").toLowerCase();
+                $('.students').hide();
+                $('.'+name).show();
+            }else{
+                $('.students').show();
+            }
+    
+    });
+
+});
+
+
     var msg = "{{Session::get('success')}}";
     var exist = "{{Session::has('success')}}";
     if(exist){
