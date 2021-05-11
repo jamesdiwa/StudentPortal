@@ -2,10 +2,10 @@
 <div id="uploadimageModal" class="modal">
 	<div class="modal-dialog">
 		<div class="modal-content">
-      		<div class="modal-header"  style="background: #0996c1">
-				<h4 class="modal-title text-center" style="color: white;">Crop Image</h4>
+      		<div class="modal-header"  style="background: #fbebd8">
+				<h4 class="modal-title text-center DivHeaderText" style="color: #A90011; font-size: 21px; letter-spacing: 1px">CROP IMAGE</h4>
 				<button type="button"  class="close" data-dismiss="modal">
-					<span aria-hidden="true"><i class="far fa-times-circle" style="font-size: 20px; color: white"></i></span>
+					<span aria-hidden="true"><i class="far fa-times-circle" style="font-size: 20px; color: #A90011;"></i></span>
 				</button>
 			</div>
       		<div class="modal-body p-0">
@@ -16,7 +16,7 @@
 				</div>
       		</div>
       		<div class="modal-footer">
-        		<button type="button p-2" class="btn btn-success crop_image">Crop & Upload Image</button>
+        		<button type="button p-2" class="save-button crop_image" style="width: 200px">Crop & Upload Image</button>
       		</div>
     	</div>
     </div>

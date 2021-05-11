@@ -7,7 +7,8 @@
 <div class="content content-margin pb-2" id="content">
     <div class="row header-bg" style="margin-top: 70px">
         <div class="col-sm-12">
-            <p class="header-title">Accounting</p>
+            <p class="header-title d-inline">Accounting</p>
+            <button class="float-right create-button" onclick="window.open('{{ url('account', $enrolled->id) }}')">Print</button>
         </div>
     </div>
     <div class="container">
@@ -65,7 +66,7 @@
                 </thead>
                 <thead class="thead-bg text-center">
                     <th class="text-right">Refund</th>
-                    <th>0</th>
+                    <th id="refund">0</th>
                 </thead>
              </table>
             <div class="row mt-3 mb-2">
@@ -92,7 +93,12 @@
 
     var Balance =  parseFloat($('#tuitionFeeAmount').text().replace(/[^\d.-]/g, '')) - cashReceived();
 
-    $('#balance').html(Balance);
+    if(Balance>0){
+        $('#balance').html(Balance);
+    }
+    else{
+        $('#refund').html(Balance* -1);
+    }
     $('#balanceAmount').val(Balance);
 });
 

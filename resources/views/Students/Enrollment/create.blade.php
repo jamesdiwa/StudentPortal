@@ -53,7 +53,7 @@
                 <div class="form-group col-sm-6">
                     <label class="input-label">Section</label>
                    <input type="hidden" name="sy" value="" id="sy">
-                    <select name="section" id="sectionSelect" class="form-control">
+                    <select name="section" id="sectionSelect" class="form-control" required>
                         <option value="">Select</option>
                         @foreach ($section as $section)
                           <option value="{{$section->id}}" data-sy="{{$section->schoolYearFrom}}-{{$section->schoolYearTo}}" data-classSchedId="{{$section->id}}">{{$section->section}}</option>
@@ -67,7 +67,7 @@
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Type of Payment</label>
-                    <select name="typeOfPayment" id="" class="form-control" onclick="showDiv(this)">
+                    <select name="typeOfPayment" id="" class="form-control" onclick="showDiv(this)" required>
                         <option value="" selected disabled>Select Mode of Payment</option>
                         <option value="Full Payment">Full Payment</option>
                         <option value="Installment">Installment</option>
@@ -192,7 +192,7 @@
 
            total1 = tuitionFee - downpayment;
 
-           total = total1 / 24;
+           total = total1 / 12;
 
             $('#monthlyPayment').val(total);
         });
@@ -212,7 +212,7 @@
 
            total1 = tuitionFee - downpayment;
 
-           total = total1 / 24;
+           total = total1 / 12;
 
             $('#monthlyPayment').val(total);
         });

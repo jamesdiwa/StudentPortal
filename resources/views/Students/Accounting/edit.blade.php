@@ -57,7 +57,7 @@
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Payment for the month of</label>
-                        <select name="paymentForTheMonth" id="" class="form-control">
+                        <select name="paymentForTheMonth" id="" class="form-control" required>
                             <option value="" disabled selected>Month</option>
                             <option value="January">January</option>
                             <option value="February">February</option>
@@ -78,11 +78,11 @@
             <div class="form-row">
                 <div class="form-group col-sm-6">
                     <label class="input-label">Amount</label>
-                    <input type="number" name="paymentAmount" class="form-control">
+                    <input type="number" name="paymentAmount" class="form-control" required>
                 </div>
                 <div class="form-group col-sm-6">
                     <label class="input-label">Date of Payment</label>
-                    <input type="date" name="paymentDate" class="form-control">
+                    <input type="date" name="paymentDate" class="form-control" required>
                 </div>
             </div>
             <div class="form-row">

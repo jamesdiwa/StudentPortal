@@ -45,7 +45,7 @@
             <div class="form-row">
                 <div class="form-group col-sm-4">
                     <label class="input-label">First Name</label>
-                    <input type="text" class="form-control" name="firstName">
+                    <input type="text" class="form-control" name="firstName" required>
                 </div>
                 <div class="form-group col-sm-4">
                     <label class="input-label">Middle Name</label>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="form-group col-sm-4">
                     <label class="input-label">Last Name</label>
-                    <input type="text" class="form-control" name="lastName">
+                    <input type="text" class="form-control" name="lastName" required>
                 </div>
             </div>
             <div class="form-row">
@@ -109,7 +109,7 @@
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Permanent Address</label>
-                    <textarea name="permanentAddress" id="" rows="3" class="form-control"></textarea>
+                    <textarea name="permanentAddress" id="" rows="3" class="form-control" required></textarea>
                 </div>
             </div>
             <div class="form-row">
@@ -121,7 +121,7 @@
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Email Address</label>
-                    <input type="email" class="form-control required {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email">
+                    <input type="email" class="form-control required {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" required>
                     @if ($errors->has('email'))
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('email') }}</strong>
@@ -132,7 +132,7 @@
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Contact Number</label>
-                    <input type="number" pattern="/^-?\d+\.?\d*$/" class="form-control" onKeyPress="if(this.value.length==11) return false;" name="contactNumber">
+                    <input type="number" pattern="/^-?\d+\.?\d*$/" class="form-control" onKeyPress="if(this.value.length==11) return false;" name="contactNumber" required>
                 </div>
             </div>
         </div>

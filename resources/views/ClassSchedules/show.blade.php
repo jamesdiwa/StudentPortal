@@ -8,7 +8,9 @@
     <div class="row header-bg" style="margin-top: 70px">
         <div class="col-sm-12">
             <p class="header-title d-inline"><a href="{{ route('classSchedule.index') }}" style="color: white"><i class="fas fa-arrow-left"></i></a> Class Schedule</p>
-            <button class="float-right create-button" onclick="window.location='{{ route('classSchedule.edit',$classSched->id)  }} '">Edit</button>
+            <button class="float-right create-button ml-2" onclick="window.open('{{ url('schedule',$classSched->id)  }}')">Print</button>
+            <button class="float-right create-button mr-2" onclick="window.location='{{ route('classSchedule.edit',$classSched->id)  }} '">Edit</button>
+            
         </div>
     </div>
     <div class="container">

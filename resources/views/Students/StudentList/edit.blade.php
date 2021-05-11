@@ -29,7 +29,7 @@
             <div class="form-row">
                 <div class="form-group col-sm-4">
                     <label class="input-label">First Name</label>
-                    <input type="text" class="form-control" name="firstName" value="{{$student->firstName}}">
+                    <input type="text" class="form-control" name="firstName" value="{{$student->firstName}}" required>
                 </div>
                 <div class="form-group col-sm-4">
                     <label class="input-label">Middle Name</label>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-group col-sm-4">
                     <label class="input-label">Last Name</label>
-                    <input type="text" class="form-control" name="lastName" value="{{$student->lastName}}">
+                    <input type="text" class="form-control" name="lastName" value="{{$student->lastName}}" required>
                 </div>
             </div>
             <div class="form-row">
@@ -92,7 +92,7 @@
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Permanent Address</label>
-                    <textarea name="permanentAddress" id="" rows="3" class="form-control">{{$student->permanentAddress}}</textarea>
+                    <textarea name="permanentAddress" id="" rows="3" class="form-control" required>{{$student->permanentAddress}}</textarea>
                 </div>
             </div>
             <div class="form-row">
@@ -104,13 +104,13 @@
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Email Address</label>
-                    <input type="email" class="form-control" value="{{$student->email}}" name="email">
+                    <input type="email" class="form-control" value="{{$student->email}}" name="email" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Contact Number</label>
-                    <input type="number" pattern="/^-?\d+\.?\d*$/" class="form-control" onKeyPress="if(this.value.length==11) return false;" value="{{$student->contactNumber}}" name="contactNumber">
+                    <input type="number" pattern="/^-?\d+\.?\d*$/" class="form-control" onKeyPress="if(this.value.length==11) return false;" value="{{$student->contactNumber}}" name="contactNumber" required>
                 </div>
             </div>
             <p class="DivHeaderText my-2 py-2">GUARDIAN INFORMATION</p>

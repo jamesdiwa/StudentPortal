@@ -4,7 +4,7 @@
 
 @include('layouts.vtab')
 
-<div class="content content-margin pb-2" id="content">s
+<div class="content content-margin pb-2" id="content">
     <div class="row header-bg" style="margin-top: 70px">
         <div class="col-sm-12">
             <p class="header-title d-inline">Student Records</p>
@@ -136,7 +136,12 @@
 
 
              <!-- Completion Status -->
-             <p class="DivHeaderText my-2 py-2">PAYMENT STATUS ({{$enrolled->typeOfPayment}})</p>
+             <div class="row py-3">
+                 <div class="col-sm-12">
+                    <p class="DivHeaderText d-inline">PAYMENT STATUS ({{$enrolled->typeOfPayment}})</p>
+                    <button class="float-right create-button" onclick="window.open('{{ url('account', $enrolled->id) }}')">Print</button>
+                 </div>
+             </div>
              <table class="table table-borderless">
                 <thead class="thead-bg text-center">
                     <th>School Year</th>
@@ -177,7 +182,7 @@
                 </thead>
                 <thead class="thead-bg text-center">
                     <th class="text-right">Refund</th>
-                    <th>0</th>
+                    <th id="refund">0</th>
                 </thead>
              </table>
 
@@ -219,8 +224,12 @@ $(document).ready(function(){
 
     var Balance =  parseFloat($('#tuitionFeeAmount').text().replace(/[^\d.-]/g, '')) - cashReceived();
 
-    $('#balance').html(Balance);
-
+    if(Balance>0){
+        $('#balance').html(Balance);
+    }
+    else{
+        $('#refund').html(Balance * -1);
+    }
     $('.firstQuarter').each(function(){
             var second = parseFloat($(this).closest('tr').find('.secondQuarter').text());  
             var third =  parseFloat($(this).closest('tr').find('.thirdQuarter').text());  

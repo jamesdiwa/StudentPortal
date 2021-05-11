@@ -7,7 +7,8 @@
 <div class="content content-margin pb-2" id="content">
     <div class="row header-bg" style="margin-top: 70px">
         <div class="col-sm-12">
-            <p class="header-title">My Class Schedule</p>
+            <p class="header-title d-inline">My Class Schedule</p>
+            <button class="float-right create-button">Print</button>
         </div>
     </div>
     <div class="container">

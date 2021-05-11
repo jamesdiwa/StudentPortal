@@ -60,7 +60,7 @@
                 <div class="form-row">
                     <div class="form-group col-sm-12">
                         <label class="input-label">Account Type</label>
-                        <select class="form-control" name="accountType" id="accountType" onchange="showDiv(this)" value="{{$user->accountType}}">
+                        <select class="form-control" name="accountType" id="accountType" onchange="showDiv(this)" value="{{$user->accountType}}" required>
                             <option value="Admin">Admin</option>
                             <option value="Teacher">Teacher</option>
                         </select>
@@ -72,7 +72,7 @@
                 <div class="form-row">
                     <div class="form-group col-sm-4">
                         <label class="input-label">First Name</label>
-                        <input type="text" class="form-control" name="firstName" value="{{$user->firstName}}">
+                        <input type="text" class="form-control" name="firstName" value="{{$user->firstName}}" required>
                     </div>
                     <div class="form-group col-sm-4">
                         <label class="input-label">Middle Name</label>
@@ -80,7 +80,7 @@
                     </div>
                     <div class="form-group col-sm-4">
                         <label class="input-label">Last Name</label>
-                        <input type="text" class="form-control" name="lastName" value="{{$user->lastName}}">
+                        <input type="text" class="form-control" name="lastName" value="{{$user->lastName}}" required>
                     </div>
                 </div>
                 <div class="form-row">
@@ -135,7 +135,7 @@
                 <div class="form-row">
                     <div class="form-group col-sm-12">
                         <label class="input-label">Permanent Address</label>
-                        <textarea name="permanentAddress" id="" rows="3" class="form-control">{{$user->permanentAddress}}</textarea>
+                        <textarea name="permanentAddress" id="" rows="3" class="form-control" required>{{$user->permanentAddress}}</textarea>
                     </div>
                 </div>
                 <div class="form-row">
@@ -147,13 +147,13 @@
                 <div class="form-row">
                     <div class="form-group col-sm-12">
                         <label class="input-label">Email Address</label>
-                        <input type="email" class="form-control" value="{{$user->email}}" name="email">
+                        <input type="email" class="form-control" value="{{$user->email}}" name="email" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-sm-12">
                         <label class="input-label">Contact Number</label>
-                        <input type="number" pattern="/^-?\d+\.?\d*$/" class="form-control" onKeyPress="if(this.value.length==11) return false;" value="{{$user->contactNumber}}" name="contactNumber">
+                        <input type="number" pattern="/^-?\d+\.?\d*$/" class="form-control" onKeyPress="if(this.value.length==11) return false;" value="{{$user->contactNumber}}" name="contactNumber" required>
                     </div>
                 </div>
                 <div id="teacher_div">

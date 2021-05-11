@@ -21,7 +21,7 @@
 <div class="content content-margin pb-2" id="content">
     <div class="row header-bg" style="margin-top: 70px">
         <div class="col-sm-12">
-            <p class="header-title d-inline">Class Section</p>
+            <p class="header-title d-inline"><a href="{{ url('gradingIndex') }}" style="color: white"><i class="fas fa-arrow-left"></i></a> My Class List</p>
         </div>
     </div>
     <div class="container">
@@ -57,7 +57,7 @@
             <div class="row mx-3 py-2">   
                 @foreach($classSchedules as $classSchedules)    
 
-                <a onclick="submitForm(this)" data-id="{{$classSchedules->id}}" class="userSelection {{strtolower($classSchedules->section)}} {{str_replace(' ', '', $classSchedules->gradeLevel)}} {{str_replace(' ', '', $classSchedules->section)}}">
+                <a style="cursor: pointer" onclick="submitForm(this)" data-id="{{$classSchedules->id}}" class="userSelection {{strtolower($classSchedules->section)}} {{str_replace(' ', '', $classSchedules->gradeLevel)}} {{str_replace(' ', '', $classSchedules->section)}}">
                 <div class="col-md-auto zoom">
                         <p class="text-center p-0 m-0" style="font-size: 60px; font-weight: 800; color: #d11d27">{{$classSchedules->gradeLevelIcon}}</p>
                         <p class="mt-1 DivHeaderText text-center user-name">{{$classSchedules->gradeLevel}}</p>

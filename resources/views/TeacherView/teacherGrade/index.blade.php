@@ -27,31 +27,10 @@
     <div class="container">
         <div class="DivTemplate mt-3">
             <div class="form-row row mt-3">
-                {{-- <div class="form-group col-sm">
-                    <label class="p-0 m-0 sub-title">Search</label>
-                    <input type="text" name="search" class="form-control searchbar" name="search">   
-                </div>
-                <div class="form-group col-sm-4">
-                    <label class="p-0 m-0 sub-title">Subject</label>
-                    <select name="" id="" class="form-control" style="background: #fbebd8; color: #A90011; border: none; font-weight: 600; ">
-                        <option value="">All</option>
-                        <option value=""></option>
-                    </select>
-                </div>
-                <div class="form-group col-sm-auto">
-                    <br>
-                    <button type="submit" class="search-button" style="padding-top: 8.7px; padding-bottom: 8.7px;">Search</button>      
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-sm-12">
-                    <button class="update-button float-right" style="width: 200px; padding-top: 8.7px; padding-bottom: 8.7px;" id="uploadBySection">Upload Grades by Section</button>
-                </div>
-            </div> --}}
             <table class="table table-borderless">
-                <thead class="thead-bg">
-                    <th width="100px">Subject</th>
-                    <th width="200px" class="text-center">Action</th>
+                <thead class="thead-bg text-center">
+                    <th width="300px">Subject</th>
+                    <th width="200px">Action</th>
                 </thead>
                 <tbody class="tbody-data">
 
@@ -62,7 +41,7 @@
                                 <form class="form-horizontal" method="POST" action="{{route('classIndex')}}">
                                     @csrf
                                     <input type="hidden" name="subject" value="{{$teacherSubject->subjects}}">
-                                   <button style="button" class="search-button" type="submit">Records</button>
+                                   <button style="button" class="search-button" type="submit">Class List</button>
                                 </form>
                             </td>
                         </tr>

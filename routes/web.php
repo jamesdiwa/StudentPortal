@@ -97,9 +97,10 @@ Route::get('studentClassSchedule', 'StudentViewController@studentClassSchedule')
 
 });
 
-
-
-
+//Pdf
+Route::get('/schedule/{id}', 'PdfController@schedulePdf')->name('schedulePdf');
+Route::get('/grade/{id}', 'PdfController@gradePdf')->name('gradePdf');
+Route::get('/account/{id}', 'PdfController@accountingPdf')->name('accountingPdf');
 
 Route::get('user-show', function(){
     return view('User.show');
@@ -179,4 +180,3 @@ Route::get('/events-edit', function(){
     return view('Events.edit');
 });
 
-Route::get('samplepdf', 'PdfController@samplePdf')->name('samplepdf');

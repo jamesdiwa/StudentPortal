@@ -41,18 +41,18 @@
             <div class="form-row mt-2">
                 <div class="form-group col-sm-6">
                     <label class="input-label">School Year</label>
-                    <input type="number" class="form-control" name="schoolYearFrom" >
+                    <input type="number" class="form-control" name="schoolYearFrom" required>
                 </div>
                 <div class="form-group col-sm-6">
                     <br>
-                    <input type="number" class="form-control" name="schoolYearTo" >
+                    <input type="number" class="form-control" name="schoolYearTo" required>
                 </div>
             </div>
                 
             <div class="form-row">
                 <div class="form-group col-sm-12">
                     <label class="input-label">Class Adviser</label>
-                    <select name="classAdviser" id="classAdviser" class="form-control">
+                    <select name="classAdviser" id="classAdviser" class="form-control" required>
                         <option value="">Select</option>
                         @foreach($teachers as $teacher)
                         <option value="{{$teacher->firstName}} {{$teacher->middleName}} {{$teacher->lastName}}" data-gender="{{$teacher->gender}}" class="{{str_replace(' ', '', $teacher->gradeLevel)}} adviseHide">{{$teacher->firstName}} {{$teacher->middleName}} {{$teacher->lastName}}</option>

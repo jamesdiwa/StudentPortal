@@ -71,10 +71,10 @@
                             <input type="hidden" name="grades[{{$count}}][gradeLevel]" value="{{$studentGrades->gradeLevel}}">
                             <input type="hidden" name="grades[{{$count}}][subject]" value="{{$studentGrades->subject}}">
                             <td class="text-left align-middle">{{$studentGrades->studentInfo->firstName}} {{$studentGrades->studentInfo->middleName}} {{$studentGrades->studentInfo->lastName}}</td>
-                            <td><input type="number" class="form-control firstQuarter" name="grades[{{$count}}][firstQuarter]" onchange="firstQuarter(this)" value="{{$studentGrades->firstQuarter}}"></td>
-                            <td><input type="number" class="form-control secondQuarter" name="grades[{{$count}}][secondQuarter]" onchange="secondQuarter(this)" value="{{$studentGrades->secondQuarter}}"></td>
-                            <td><input type="number" class="form-control thirdQuarter" name="grades[{{$count}}][thirdQuarter]" onchange="thirdQuarter(this)" value="{{$studentGrades->thirdQuarter}}"></td>
-                            <td><input type="number" class="form-control fourthQuarter" name="grades[{{$count}}][fourthQuarter]" onchange="getAverage(this)" value="{{$studentGrades->fourthQuarter}}"></td>
+                            <td><input type="number" class="form-control firstQuarter" name="grades[{{$count}}][firstQuarter]" onchange="firstQuarter(this)" value="{{$studentGrades->firstQuarter}}" min="0" max="100"></td>
+                            <td><input type="number" class="form-control secondQuarter" name="grades[{{$count}}][secondQuarter]" onchange="secondQuarter(this)" value="{{$studentGrades->secondQuarter}}" min="0" max="100"></td>
+                            <td><input type="number" class="form-control thirdQuarter" name="grades[{{$count}}][thirdQuarter]" onchange="thirdQuarter(this)" value="{{$studentGrades->thirdQuarter}}" min="0" max="100"></td>
+                            <td><input type="number" class="form-control fourthQuarter" name="grades[{{$count}}][fourthQuarter]" onchange="getAverage(this)" value="{{$studentGrades->fourthQuarter}}"min="0" max="100"></td>
                             <td class="align-middle average"></td>
                             <td class="align-middle"><span class="remarks" style="color: #8cbd01"></span></td>
                             {{-- <td class="align-middle"><span style="color: #8cbd01">Passed</span></td> --}}
@@ -215,6 +215,22 @@
             }
             
     }
+
+     //Min and Max
+     $(function () {
+       $( 'input[type="number"]' ).change(function() {
+          var max = parseInt($(this).attr('max'));
+          var min = parseInt($(this).attr('min'));
+          if ($(this).val() > max)
+          {
+              $(this).val(max);
+          }
+          else if ($(this).val() < min)
+          {
+              $(this).val(min);
+          }       
+        }); 
+    });
 
 </script>
 

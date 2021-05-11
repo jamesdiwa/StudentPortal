@@ -30,7 +30,6 @@
                                     <th width="150px">Time To</th>
                                     <th width="250px">Subject</th>
                                     <th width="250px">Subject Teacher</th>
-                                    <th width="150px">Action</th>
                                 </thead> 
                                 <tbody >
                                     @php
@@ -42,18 +41,18 @@
                                         $count++;
                                     @endphp
                                         <tr>
-                                            <td><input type="time" name="inputArr[{{$count}}][timeFrom]" id="" class="form-control" ></td>
-                                            <td><input type="time" name="inputArr[{{$count}}][timeTo]" id="" class="form-control" ></td>
+                                            <td><input type="time" name="inputArr[{{$count}}][timeFrom]" id="" class="form-control" required></td>
+                                            <td><input type="time" name="inputArr[{{$count}}][timeTo]" id="" class="form-control" required></td>
                                             <td><input type="text" class="form-control subjectValue" name="inputArr[{{$count}}][subject]" value="{{$subject->Subject}}" readOnly/></td>
                                             <td>
                                                 <input type="hidden" value="" name="inputArr[{{$count}}][teacherId]" class="teacherId">
-                                                <select name="inputArr[{{$count}}][subjectTeacher]"  class="form-control teachers teacherSelect">
+                                                <select name="inputArr[{{$count}}][subjectTeacher]"  class="form-control teachers teacherSelect" required>
                                                     <option value="">Select</option>
                                                     @foreach($teachers as $teacher)
                                                     <option value="{{$teacher->teacherInfo->firstName}} {{$teacher->teacherInfo->lastName}}" data-teacherId="{{$teacher->teacherInfo->id}}" class="{{str_replace(' ', '', $teacher->subjects)}} adviseHide" >{{$teacher->teacherInfo->firstName}} {{$teacher->teacherInfo->lastName}}</option>
                                                     @endforeach
                                                 </select>
-                                            </td><td class="text-center align-middle"><button href="javascript:void(0);" class="delete-button remove">Remove</button></td>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
