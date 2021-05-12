@@ -38,7 +38,6 @@ class PdfController extends Controller
         $enrolled = Enrolled::find($id);
 
         $studentGrades = StudentGrades::where('enrolledId',$id)->get();
-    
         
         $pdf = PDF::loadView('Pdf.grade', compact('enrolled','studentGrades'))
         ->setPaper('Letter', 'landscape')

@@ -28,25 +28,8 @@
     <div class="container">
         <div class="DivTemplate mt-3">
             <div class="form-row row mt-3">
-                <div class="form-group col-sm">
-                    <label class="p-0 m-0 sub-title">Search</label>
-                    <input type="text" id="search" class="form-control searchbar" name="search" placeholder="Search">   
-                </div>
-                <div class="form-group col-sm-4">
-                    <label class="p-0 m-0 sub-title">Filter by</label>
-                    <select name="" id="" class="form-control" style="background: #fbebd8; color: #A90011; border: none; font-weight: 600;">
-                        <option value="0">All</option>
-                        <option value="1">Registered</option>
-                        <option value="2">Enrolled</option>
-                        <option value="3">Completed</option>
-                        <option value="4">Dropped</option>
-                        <option value="2">Transferred</option>
-                        <option value="2">Graduated</option>
-                    </select>
-                </div>
-                <div class="form-group col-sm-auto">
-                    <br>
-                    <button type="submit" class="search-button" style="padding-top: 8.7px; padding-bottom: 8.7px;">Search</button>      
+                <div class="form-group col-sm-12">
+                    <input type="text" id="search" class="form-control searchbar" name="search" placeholder="Search...">   
                 </div>
             </div>
             <table class="table table-borderless">

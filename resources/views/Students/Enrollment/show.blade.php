@@ -106,8 +106,13 @@
                 </div>
             </div>
 
-
-            <p class="DivHeaderText my-2 py-2">GRADES</p>
+            
+            <div class="row py-3">
+                <div class="col-sm-12">
+                   <p class="DivHeaderText d-inline">GRADES</p>
+                   <button class="float-right create-button" onclick="window.open('{{ url('grade', $enrolled->id) }}')">Print</button>
+                </div>
+            </div>
             <table class="table table-borderless">
                 <thead class="thead-bg text-center">
                     <th width="100px">Subject</th>

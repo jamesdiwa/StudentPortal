@@ -55,20 +55,38 @@
             <th width="100px">Remarks</th>
         </thead>
         <tbody class="tbody-data">
+            @php
+                $sumAverage = 0;
+                $count = 0;
+                $hideCount = 0;
+            @endphp
             @foreach ($studentGrades as $studentGrades)
+            @php
+              $average = ($studentGrades->firstQuarter + $studentGrades->secondQuarter + $studentGrades->thirdQuarter + $studentGrades->fourthQuarter) / 4;
+              
+              $sumAverage += $average;
+              $count++;
+              
+              if($average == 0){
+                  $hideCount++;
+              }
+            @endphp
                 <tr class="text-center">
                     <td class="text-left align-middle">{{$studentGrades->subject}}</td>
-                    <td class="firstQuarter align-middle">{{$studentGrades->firstQuarter}}</td>
-                    <td class="secondQuarter align-middle">{{$studentGrades->secondQuarter}}</td>
-                    <td class="thirdQuarter align-middle">{{$studentGrades->thirdQuarter}}</td>
-                    <td class="fourthQuarter align-middle"> {{$studentGrades->fourthQuarter}}</td>
-                    <td class="average align-middle"></td>
-                    <td class=" align-middle"><span class="remarks"></span></td>
+                    <td class="firstQuarter align-middle">{{$studentGrades->firstQuarter ?? '0'}}</td>
+                    <td class="secondQuarter align-middle">{{$studentGrades->secondQuarter ?? '0'}}</td>
+                    <td class="thirdQuarter align-middle">{{$studentGrades->thirdQuarter ?? '0'}}</td>
+                    <td class="fourthQuarter align-middle"> {{$studentGrades->fourthQuarter ?? '0'}}</td>
+                    <td class="average align-middle">{{$average}}</td>
+                    <td class=" align-middle">@if($average >= 74.5) <span style="color: #8cbd01">Passed</span> @elseif($average == 0) @else <span style="color: red">Failed</span> @endif</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-    <p class="text-right" style="font-weight: 700; font-size: 20px; color: #676767">General Average: 100 <span style="color: red">(Failed)</span></p>
+    @php
+        $genAverage = $sumAverage/$count;
+    @endphp
+    <p class="text-right" style="font-weight: 700; font-size: 20px; color: #676767">@if($hideCount<=0)General Average: {{number_format($genAverage, 2)}}@if($genAverage >= 74.5) <span style="color: #8cbd01">(Passed)</span> @elseif($genAverage == 0) @else <span style="color: red">(Failed)</span> @endif @else @endif</p>
     
     
 </body>

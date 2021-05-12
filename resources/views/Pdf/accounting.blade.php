@@ -52,8 +52,15 @@
             <th>Remarks</th>
         </thead>
         <tbody class="tbody-data">
-
+            @php
+                $totalPayment = 0;
+                $myBalance = 0;
+                $refund = 0;
+            @endphp
             @foreach ($payments as $payments)
+            @php
+                $totalPayment += $payments->paymentAmount;
+            @endphp
                 <tr class="text-center">
                     <td>@if($payments->sy != null)SY {{$payments->sy}} @else @endif</td>
                     <td>{{$payments->paymentForTheMonth}}</td>
@@ -64,6 +71,15 @@
             @endforeach
         </tbody>
      </table>
+     @php
+        $balance = $enrolled->tuitionFee - $totalPayment;
+        if($balance>0){
+            $myBalance = $balance;
+        }
+        else{
+            $refund = $balance*-1;
+        }
+     @endphp
      <table class="table table-borderless">
         <thead class="thead-bg text-center">
             <th width="700px" class="text-right">Montly Payment</th>
@@ -75,15 +91,15 @@
         </thead>
         <thead class="thead-bg text-center">
             <th width="700px" class="text-right">Total Payment</th>
-            <th id="totalPayment">0</th>
+            <th id="totalPayment">{{ $totalPayment }}</th>
         </thead>
         <thead class="thead-bg text-center">
             <th class="text-right">Balance</th>
-            <th id="balance">0</th>
+            <th id="balance">{{ $myBalance }}</th>
         </thead>
         <thead class="thead-bg text-center">
             <th class="text-right">Refund</th>
-            <th>0</th>
+            <th>{{$refund}}</th>
         </thead>
      </table>
 </body>

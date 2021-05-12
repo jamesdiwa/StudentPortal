@@ -107,16 +107,20 @@
                     <th width="300px">School</th>
                     <th width="100px">School Year</th>
                     <th width="100px">Status</th>
+                    <th width="100px">Action</th>
                 </thead>
                 <tbody class="tbody-data">
 
 
                     @foreach ($enrolled as $enrolled)
                         <tr class="text-center">
-                            <td class="text-left">{{$enrolled->enrolled->gradeLevel}}</td>
-                            <td>Sacred Heart of Jesus Catholic School</td>
-                            <td>SY {{$enrolled->enrolled->schoolYearFrom}}-{{$enrolled->enrolled->schoolYearTo}}</td>
-                            <td><span style="color: #8cbd01">Completed</span></td>
+                            <td class="text-left align-middle">{{$enrolled->enrolled->gradeLevel}}</td>
+                            <td class="align-middle">Sacred Heart of Jesus Catholic School</td>
+                            <td class="align-middle">SY {{$enrolled->enrolled->schoolYearFrom}}-{{$enrolled->enrolled->schoolYearTo}}</td>
+                            <td class="align-middle"><span style="color: #8cbd01">Completed</span></td>
+                            <td class="text-center">
+                                <button style="button" class="search-button">Records</button>
+                            </td>
                         </tr>
                     @endforeach
 
