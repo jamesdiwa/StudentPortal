@@ -117,7 +117,7 @@
                             <td class="text-left align-middle">{{$enrolled->enrolled->gradeLevel}}</td>
                             <td class="align-middle">Sacred Heart of Jesus Catholic School</td>
                             <td class="align-middle">SY {{$enrolled->enrolled->schoolYearFrom}}-{{$enrolled->enrolled->schoolYearTo}}</td>
-                            <td class="align-middle"><span style="color: #8cbd01">Completed</span></td>
+                            <td><span style="color: #8cbd01">{{$enrolled->status}}</span></td>
                             <td class="text-center">
                                 <button style="button" class="search-button">Records</button>
                             </td>

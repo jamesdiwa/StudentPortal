@@ -42,7 +42,7 @@
                 <tbody class="tbody-data">
                     @foreach($students as $student)
                     <tr class="students {{strtolower($student->firstName)}}{{strtolower($student->middleName)}}{{strtolower($student->lastName)}} {{strtolower($student->firstName)}} {{strtolower($student->middleName)}} {{strtolower($student->lastName)}}">
-                        <td class="align-middle">A117A0909</td>
+                        <td class="align-middle">{{$student->username}}</td>
                         <td class="align-middle">{{$student->firstName}} {{$student->middleName}} {{$student->lastName}}</td>
                         <td class="align-middle"><span style="color: #097b9e">{{$student->status}}</span></td>
                         <td class="text-center">

@@ -28,7 +28,7 @@ class TeacherViewController extends Controller
     {
         Session::put('vtab','announcement');
 
-        $announcement = Announcements::all();
+        $announcement = Announcements::whereDate('date_to','>=',Carbon::today('Asia/Manila'))->get();
         return view('TeacherView.teacherAnnouncement', compact('announcement'));
     }
 

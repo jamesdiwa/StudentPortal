@@ -102,10 +102,13 @@
                             <div style="width: 100%; height: 146px; overflow-y: auto">
                                 <table class="table table-borderless mt-1">
                                     <tbody class="tbody-data">
-                                        <tr>
-                                            <td class="px-0 font-weight-normal" width="90px">05/20/2021</td>
-                                            <td class="px-0">List of active announcements</td>
-                                        </tr>
+                                        @foreach ($announcement as $announcement)
+                                            <tr>
+                                                <td class="px-0 font-weight-normal" width="90px">{{$announcement->date_from}}</td>
+                                                <td class="px-0">{{$announcement->announcement}}</td>
+                                            </tr>
+                                        @endforeach
+                                       
                                     </tbody>
                                 </table>
                             </div>
@@ -119,10 +122,13 @@
                     <div style="width: 100%; height: 236px; overflow-y: auto">
                         <table class="table table-borderless mt-1">
                             <tbody class="tbody-data">
-                                <tr>
-                                    <td class="px-0 font-weight-normal" width="90px">05/20/2021</td>
-                                    <td class="px-0">Filtered on most recent upcoming events prior to date today</td>
-                                </tr>
+                                @foreach ($events as $events)
+                                    <tr>
+                                        <td class="px-0 font-weight-normal" width="90px">{{$events->task_date}}</td>
+                                        <td class="px-0">{{$events->name}}</td>
+                                    </tr>
+                                @endforeach
+                                    
                             </tbody>
                         </table>
                     </div>

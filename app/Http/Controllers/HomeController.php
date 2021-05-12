@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Enrolled;
 use App\Events;
+use App\Announcements;
 use Session;
 use Auth;
 use Hash;
+use Carbon\Carbon;
 class HomeController extends Controller
 {
     /**
@@ -59,8 +61,12 @@ class HomeController extends Controller
             foreach($elistedStudent as $elistedStudent){
                 $elistedStudentCount++;
             }
+
+           $announcement = Announcements::whereDate('date_to','>=',Carbon::today('Asia/Manila'))->get();
+
+           $events =  Events::whereDate('task_date','>=',Carbon::today('Asia/Manila'))->get();
     
-            return view('home',compact('teacherCount','enrolledCount','elistedStudentCount'));
+            return view('home',compact('teacherCount','enrolledCount','elistedStudentCount','announcement','events'));
     
         }else if(Auth::user()->accountType == 'Teacher'){
 

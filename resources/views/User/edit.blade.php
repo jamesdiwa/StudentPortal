@@ -66,6 +66,9 @@
                         </select>
                     </div>
                 </div>
+                @else
+                    <input type="hidden" value="Student" name="accountType">
+                
                 @endif
 
                 <p class="DivHeaderText my-2 py-2">BASIC INFORMATION</p>

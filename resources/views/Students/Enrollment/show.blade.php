@@ -194,6 +194,14 @@
             <div class="row mt-4 mb-2">
                 <div class="col-sm-12">
                     <!-- if not enroll -->
+
+                <form class="form-horizontal" method="POST" action="{{route('markAsComplete')}}" id="markasCompleteForm">
+                    @csrf
+                    <input type="hidden" value="{{$enrolled->id}}" name="enrolledId">
+                    <button type="submim" class="back-button" style="width:20%;">Mark as Complete</button>
+                </form>
+
+                    
                         @if($gradeLevel == 'Grade 1')
                                 <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade1Index') }}'">Back</button>
                         @elseif($gradeLevel == 'Grade 2')
@@ -229,11 +237,14 @@ $(document).ready(function(){
 
     var Balance =  parseFloat($('#tuitionFeeAmount').text().replace(/[^\d.-]/g, '')) - cashReceived();
 
+    $('#markasCompleteForm').hide();
+
     if(Balance>0){
         $('#balance').html(Balance);
     }
     else{
         $('#refund').html(Balance * -1);
+        $('#markasCompleteForm').show();
     }
     $('.firstQuarter').each(function(){
             var second = parseFloat($(this).closest('tr').find('.secondQuarter').text());  

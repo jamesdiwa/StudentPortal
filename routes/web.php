@@ -44,6 +44,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('enroll/create/','EnrollmentController@enrollCreate')->name('enrollCreate');
 
     Route::post('enroll/show/','EnrollmentController@enrollShow')->name('enrollShow');
+    Route::post('enroll/markAsComplete/','EnrollmentController@markAsComplete')->name('markAsComplete');
     
     Route::post('accounting/create/','AccountingController@paymentCreate')->name('paymentCreate');
 
@@ -91,6 +92,10 @@ Route::get('studentAnnouncement', 'StudentViewController@studentAnnouncement');
 Route::get('studentGrade', 'StudentViewController@studentGrade');
 Route::get('studentAccount', 'StudentViewController@studentAccount');
 Route::get('studentClassSchedule', 'StudentViewController@studentClassSchedule');
+
+Route::post('studentGradeShow', 'StudentViewController@studentGradeShow')->name('studentGradeShow');
+
+Route::post('studentAccountShow', 'StudentViewController@studentAccountShow')->name('studentAccountShow');
 
 
 

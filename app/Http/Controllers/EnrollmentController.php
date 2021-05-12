@@ -232,73 +232,91 @@ class EnrollmentController extends Controller
         return view('Students.Enrollment.show',compact('enrolled','payments','gradeLevel','studentGrades'));
     }
 
+    public function markAsComplete(Request $request)
+    {
+
+        Enrolled::find($request->enrolledId)->update([
+            'status' =>'Completed'
+        ]);
+
+        $enrolled = Enrolled::find($request->enrolledId);
+
+        User::where('id',$enrolled->userId)->update([
+            str_replace(' ', '', $enrolled->gradeLevel) => 'Completed',
+        ]);
+        
+
+        return redirect()->route('studentList.show',$enrolled->userId)->with('success','Completed Successfuly');
+
+    }
+
 
     public function Grade1Index()
     {
-        $students = User::where('accountType','Student')->where('isActivated',1)->get();
+        $students = User::where('accountType','Student')->where('isActivated',1)->where('grade1','!=','Completed')->get();
 
         return view('Students.Enrollment.grade1Index',compact('students'));
     }
 
     public function Grade2Index()
     {
-        $students = User::where('accountType','Student')->where('isActivated',1)->get();
+        $students = User::where('accountType','Student')->where('isActivated',1)->where('grade1','Completed')->where('grade2','!=','Completed')->get();
 
         return view('Students.Enrollment.grade2Index',compact('students'));
     }
 
     public function Grade3Index()
     {
-        $students = User::where('accountType','Student')->where('isActivated',1)->get();
+        $students = User::where('accountType','Student')->where('isActivated',1)->where('grade2','Completed')->where('grade3','!=','Completed')->get();
 
         return view('Students.Enrollment.grade3Index',compact('students'));
     }
 
     public function Grade4Index()
     {
-        $students = User::where('accountType','Student')->where('isActivated',1)->get();
+        $students = User::where('accountType','Student')->where('isActivated',1)->where('grade3','Completed')->where('grade4','!=','Completed')->get();
 
         return view('Students.Enrollment.grade4Index',compact('students'));
     }
 
     public function Grade5Index()
     {
-        $students = User::where('accountType','Student')->where('isActivated',1)->get();
+        $students = User::where('accountType','Student')->where('isActivated',1)->where('grade4','Completed')->where('grade5','!=','Completed')->get();
 
         return view('Students.Enrollment.grade5Index',compact('students'));
     }
 
     public function Grade6Index()
     {
-        $students = User::where('accountType','Student')->where('isActivated',1)->get();
+        $students = User::where('accountType','Student')->where('isActivated',1)->where('grade5','Completed')->where('grade6','!=','Completed')->get();
 
         return view('Students.Enrollment.grade6Index',compact('students'));
     }
 
     public function Grade7Index()
     {
-        $students = User::where('accountType','Student')->where('isActivated',1)->get();
+        $students = User::where('accountType','Student')->where('isActivated',1)->where('grade6','Completed')->where('grade7','!=','Completed')->get();
 
         return view('Students.Enrollment.grade7Index',compact('students'));
     }
 
     public function Grade8Index()
     {
-        $students = User::where('accountType','Student')->where('isActivated',1)->get();
+        $students = User::where('accountType','Student')->where('isActivated',1)->where('grade7','Completed')->where('grade8','!=','Completed')->get();
 
         return view('Students.Enrollment.grade8Index',compact('students'));
     }
 
     public function Grade9Index()
     {
-        $students = User::where('accountType','Student')->where('isActivated',1)->get();
+        $students = User::where('accountType','Student')->where('isActivated',1)->where('grade8','Completed')->where('grade9','!=','Completed')->get();
 
         return view('Students.Enrollment.grade9Index',compact('students'));
     }
 
     public function Grade10Index()
     {
-        $students = User::where('accountType','Student')->where('isActivated',1)->get();
+        $students = User::where('accountType','Student')->where('isActivated',1)->where('grade9','Completed')->where('grade10','!=','Completed')->get();
 
         return view('Students.Enrollment.grade10Index',compact('students'));
     }
