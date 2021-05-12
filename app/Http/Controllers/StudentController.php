@@ -99,6 +99,96 @@ class StudentController extends Controller
                 $user->save();
             }
 
+
+            if($request->gradeLevelCompleted == 'Grade 1'){
+                User::find($user->id)->update([
+                    'grade1' => 'Completed',
+                ]);
+            }else if($request->gradeLevelCompleted == 'Grade 2'){
+                User::find($user->id)->update([
+                    'grade1' => 'Completed',
+                    'grade2' => 'Completed',
+                ]);
+            }else if($request->gradeLevelCompleted == 'Grade 3'){
+                User::find($user->id)->update([
+                    'grade1' => 'Completed',
+                    'grade2' => 'Completed',
+                    'grade3' => 'Completed',
+                ]);
+            }else if($request->gradeLevelCompleted == 'Grade 4'){
+                User::find($user->id)->update([
+                    'grade1' => 'Completed',
+                    'grade2' => 'Completed',
+                    'grade3' => 'Completed',
+                    'grade4' => 'Completed',
+                ]);
+            }else if($request->gradeLevelCompleted == 'Grade 5'){
+                User::find($user->id)->update([
+                    'grade1' => 'Completed',
+                    'grade2' => 'Completed',
+                    'grade3' => 'Completed',
+                    'grade4' => 'Completed',
+                    'grade5' => 'Completed',
+                ]);
+            }else if($request->gradeLevelCompleted == 'Grade 6'){
+                User::find($user->id)->update([
+                    'grade1' => 'Completed',
+                    'grade2' => 'Completed',
+                    'grade3' => 'Completed',
+                    'grade4' => 'Completed',
+                    'grade5' => 'Completed',
+                    'grade6' => 'Completed',
+                ]);
+            }else if($request->gradeLevelCompleted == 'Grade 7'){
+                User::find($user->id)->update([
+                    'grade1' => 'Completed',
+                    'grade2' => 'Completed',
+                    'grade3' => 'Completed',
+                    'grade4' => 'Completed',
+                    'grade5' => 'Completed',
+                    'grade6' => 'Completed',
+                    'grade7' => 'Completed',
+                ]);
+            }else if($request->gradeLevelCompleted == 'Grade 8'){
+                User::find($user->id)->update([
+                    'grade1' => 'Completed',
+                    'grade2' => 'Completed',
+                    'grade3' => 'Completed',
+                    'grade4' => 'Completed',
+                    'grade5' => 'Completed',
+                    'grade6' => 'Completed',
+                    'grade7' => 'Completed',
+                    'grade8' => 'Completed',
+                ]);
+            }else if($request->gradeLevelCompleted == 'Grade 9'){
+                User::find($user->id)->update([
+                    'grade1' => 'Completed',
+                    'grade2' => 'Completed',
+                    'grade3' => 'Completed',
+                    'grade4' => 'Completed',
+                    'grade5' => 'Completed',
+                    'grade6' => 'Completed',
+                    'grade7' => 'Completed',
+                    'grade8' => 'Completed',
+                    'grade9' => 'Completed',
+                ]);
+            }else if($request->gradeLevelCompleted == 'Grade 10'){
+                User::find($user->id)->update([
+                    'grade1' => 'Completed',
+                    'grade2' => 'Completed',
+                    'grade3' => 'Completed',
+                    'grade4' => 'Completed',
+                    'grade5' => 'Completed',
+                    'grade6' => 'Completed',
+                    'grade7' => 'Completed',
+                    'grade8' => 'Completed',
+                    'grade9' => 'Completed',
+                    'grade10' => 'Completed',
+                ]);
+            }
+
+
+
             return redirect()->route('studentList.index')->with('success', 'User Created Successfully');
 
     }

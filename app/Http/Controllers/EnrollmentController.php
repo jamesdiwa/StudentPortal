@@ -222,6 +222,7 @@ class EnrollmentController extends Controller
     public function enrollShow(Request $request)
     {
 
+        $studentShow = $request->studentShow;
         $gradeLevel = $request->gradeLevel;
         $enrolled = Enrolled::where('userId',$request->studentId)->where('gradeLevel',$gradeLevel)->first();
         $studentGrades = StudentGrades::where('enrolledId',$enrolled->id)->get();
@@ -229,7 +230,7 @@ class EnrollmentController extends Controller
         $payments = Payments::where('enrolledId',$enrolled->id)->get();
 
 
-        return view('Students.Enrollment.show',compact('enrolled','payments','gradeLevel','studentGrades'));
+        return view('Students.Enrollment.show',compact('enrolled','payments','gradeLevel','studentGrades','studentShow'));
     }
 
     public function markAsComplete(Request $request)

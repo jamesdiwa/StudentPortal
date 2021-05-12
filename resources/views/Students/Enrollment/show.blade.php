@@ -195,34 +195,37 @@
                 <div class="col-sm-12">
                     <!-- if not enroll -->
 
+             @if($studentShow != "studentShow")       
                 <form class="form-horizontal" method="POST" action="{{route('markAsComplete')}}" id="markasCompleteForm">
                     @csrf
                     <input type="hidden" value="{{$enrolled->id}}" name="enrolledId">
                     <button type="submim" class="back-button" style="width:20%;">Mark as Complete</button>
                 </form>
-
+                    @if($gradeLevel == 'Grade 1')
+                            <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade1Index') }}'">Back</button>
+                    @elseif($gradeLevel == 'Grade 2')
+                            <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade2Index') }}'">Back</button>
+                    @elseif($gradeLevel == 'Grade 3')
+                            <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade3Index') }}'">Back</button>
+                    @elseif($gradeLevel == 'Grade 4')
+                            <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade4Index') }}'">Back</button>
+                    @elseif($gradeLevel == 'Grade 5')
+                            <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade5Index') }}'">Back</button>
+                    @elseif($gradeLevel == 'Grade 6')
+                            <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade6Index') }}'">Back</button>
+                    @elseif($gradeLevel == 'Grade 7')
+                            <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade7Index') }}'">Back</button>
+                    @elseif($gradeLevel == 'Grade 8')
+                            <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade8Index') }}'">Back</button>
+                    @elseif($gradeLevel == 'Grade 9')
+                            <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade9Index') }}'">Back</button>
+                    @elseif($gradeLevel == 'Grade 10')
+                            <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade10Index') }}'">Back</button>
+                    @endif
+                @else
+                     <button type="button" class="back-button float-right" onclick="window.location='{{ route('studentList.show',$enrolled->studentInfo->id) }}'">Back</button>
+             @endif
                     
-                        @if($gradeLevel == 'Grade 1')
-                                <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade1Index') }}'">Back</button>
-                        @elseif($gradeLevel == 'Grade 2')
-                                <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade2Index') }}'">Back</button>
-                        @elseif($gradeLevel == 'Grade 3')
-                                <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade3Index') }}'">Back</button>
-                        @elseif($gradeLevel == 'Grade 4')
-                                <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade4Index') }}'">Back</button>
-                        @elseif($gradeLevel == 'Grade 5')
-                                <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade5Index') }}'">Back</button>
-                        @elseif($gradeLevel == 'Grade 6')
-                                <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade6Index') }}'">Back</button>
-                        @elseif($gradeLevel == 'Grade 7')
-                                <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade7Index') }}'">Back</button>
-                        @elseif($gradeLevel == 'Grade 8')
-                                <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade8Index') }}'">Back</button>
-                        @elseif($gradeLevel == 'Grade 9')
-                                <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade9Index') }}'">Back</button>
-                        @elseif($gradeLevel == 'Grade 10')
-                                <button type="button" class="back-button float-right" onclick="window.location='{{ route('Grade10Index') }}'">Back</button>
-                        @endif
                 </div>
             </div>
         </div>

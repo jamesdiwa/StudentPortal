@@ -151,7 +151,7 @@ function generateKey(){
                     <label class="input-label">Grade Level Completed</label>
                     <div class="form-row">
                         <div class="form-group col-sm-12">
-                            <select name="gradeLevel" id="gradeLevel" class="form-control" required>
+                            <select name="gradeLevelCompleted" id="gradeLevel" class="form-control">
                                 <option value="">Select</option>
                                 <option value="Grade 1">Grade 1</option>
                                 <option value="Grade 2">Grade 2</option>

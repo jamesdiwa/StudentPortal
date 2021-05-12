@@ -82,13 +82,6 @@ class HomeController extends Controller
             $tasks = Events::all();
             return view('StudentView.studentCalendar', compact('tasks'));
         }
-
-       
-
-
-
-
-
         
     }
 

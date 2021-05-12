@@ -15,8 +15,13 @@
 <script type="text/javascript" src="{{ asset('js/croppie.js') }}" defer></script>
 
 @include('layouts.cropImageModal')
+@if(Session::get("loginaccountType") == "Admin")
 @include('layouts.vtab')
-
+@elseif(Session::get("loginaccountType") == "Student")
+@include('layouts.vtabStudent')
+@elseif(Session::get("loginaccountType") == "Teacher")
+@include('layouts.vtabTeacher')
+@endif
 
 <form class="form-horizontal" method="POST" action="{{route('user.update',$user->id)}}">
     @csrf
@@ -56,7 +61,7 @@
                         <input type="password" class="form-control required" id='confirm-password' name="confirm-password">
                     </div>
                 </div> --}}
-                @if($user->accountType != 'Student')
+                @if(Session::get("loginaccountType") == "Admin")
                 <div class="form-row">
                     <div class="form-group col-sm-12">
                         <label class="input-label">Account Type</label>
@@ -66,6 +71,8 @@
                         </select>
                     </div>
                 </div>
+                @elseif(Session::get("loginaccountType") == "Teacher")
+                    <input type="hidden" value="Teacher" name="accountType">
                 @else
                     <input type="hidden" value="Student" name="accountType">
                 
@@ -159,6 +166,7 @@
                         <input type="number" pattern="/^-?\d+\.?\d*$/" class="form-control" onKeyPress="if(this.value.length==11) return false;" value="{{$user->contactNumber}}" name="contactNumber" required>
                     </div>
                 </div>
+
                 <div id="teacher_div">
                     <p class="DivHeaderText my-2 py-2">SCHOOL RELATED INFORMATION</p>
                     <div class="form-row">

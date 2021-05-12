@@ -16,7 +16,14 @@
 </style>
 
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
+
+@if(Session::get("loginaccountType") == "Admin")
 @include('layouts.vtab')
+@elseif(Session::get("loginaccountType") == "Student")
+@include('layouts.vtabStudent')
+@elseif(Session::get("loginaccountType") == "Teacher")
+@include('layouts.vtabTeacher')
+@endif
 
 <div class="content content-margin pb-2" id="content">
     <div class="row header-bg" style="margin-top: 70px">

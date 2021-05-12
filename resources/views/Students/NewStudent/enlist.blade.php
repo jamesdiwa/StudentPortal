@@ -141,6 +141,28 @@
                     <input type="number" pattern="/^-?\d+\.?\d*$/" class="form-control" onKeyPress="if(this.value.length==11) return false;" value="{{$student->contactNumber}}" name="contactNumber">
                 </div>
             </div>
+            <div class="form-row">
+                <div class="form-group col-sm-12">
+                    <label class="input-label">Grade Level Completed</label>
+                    <div class="form-row">
+                        <div class="form-group col-sm-12">
+                            <select name="gradeLevelCompleted" id="gradeLevel" class="form-control">
+                                <option value="">Select</option>
+                                <option value="Grade 1">Grade 1</option>
+                                <option value="Grade 2">Grade 2</option>
+                                <option value="Grade 3">Grade 3</option>
+                                <option value="Grade 4">Grade 4</option>
+                                <option value="Grade 5">Grade 5</option>
+                                <option value="Grade 6">Grade 6</option>
+                                <option value="Grade 7">Grade 7</option>
+                                <option value="Grade 8">Grade 8</option>
+                                <option value="Grade 9">Grade 9</option>
+                                <option value="Grade 10">Grade 10</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <p class="DivHeaderText my-2 py-2">GUARDIAN INFORMATION</p>
             <div class="form-row">
                 <div class="form-group col-sm-4">

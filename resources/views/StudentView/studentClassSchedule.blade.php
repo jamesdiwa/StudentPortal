@@ -12,6 +12,7 @@
         </div>
     </div>
     <div class="container">
+        @if(isset($classSched))
         <div class="DivTemplate mt-3 pt-3">
             <div class="row">
                 <div class="col-sm-8">
@@ -123,7 +124,8 @@
                     </div>
                 </div>
             </div>
-          
+          @else
+          @endif
         </div>
 
     </div>

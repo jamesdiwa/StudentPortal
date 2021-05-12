@@ -80,15 +80,21 @@ class StudentViewController extends Controller
 
         $latestEnrolled = Enrolled::where('userId',Auth::id())->latest()->first();
 
-        $classSched = ClassSchedules::find($latestEnrolled->classSchedId);
+        if($latestEnrolled != null){
+            $classSched = ClassSchedules::find($latestEnrolled->classSchedId);
 
-        $mondaySched = ClassSchedulesSubjects::where('classScheduleId',$latestEnrolled->classSchedId)->where('day','Monday')->orderBy('timeFrom')->get();
-        $teusdaySched = ClassSchedulesSubjects::where('classScheduleId',$latestEnrolled->classSchedId)->where('day','Teusday')->orderBy('timeFrom')->get();
-        $wednesdaySched = ClassSchedulesSubjects::where('classScheduleId',$latestEnrolled->classSchedId)->where('day','Wednesday')->orderBy('timeFrom')->get();
-        $thursdaySched = ClassSchedulesSubjects::where('classScheduleId',$latestEnrolled->classSchedId)->where('day','Thursday')->orderBy('timeFrom')->get();
-        $fridaySched = ClassSchedulesSubjects::where('classScheduleId',$latestEnrolled->classSchedId)->where('day','Friday')->orderBy('timeFrom')->get();
+            $mondaySched = ClassSchedulesSubjects::where('classScheduleId',$latestEnrolled->classSchedId)->where('day','Monday')->orderBy('timeFrom')->get();
+            $teusdaySched = ClassSchedulesSubjects::where('classScheduleId',$latestEnrolled->classSchedId)->where('day','Teusday')->orderBy('timeFrom')->get();
+            $wednesdaySched = ClassSchedulesSubjects::where('classScheduleId',$latestEnrolled->classSchedId)->where('day','Wednesday')->orderBy('timeFrom')->get();
+            $thursdaySched = ClassSchedulesSubjects::where('classScheduleId',$latestEnrolled->classSchedId)->where('day','Thursday')->orderBy('timeFrom')->get();
+            $fridaySched = ClassSchedulesSubjects::where('classScheduleId',$latestEnrolled->classSchedId)->where('day','Friday')->orderBy('timeFrom')->get();
+    
+            return view('StudentView.studentClassSchedule',compact('classSched','mondaySched','teusdaySched','wednesdaySched','thursdaySched','fridaySched'));
+        }else{
+            return view('StudentView.studentClassSchedule');
+        }
 
-        return view('StudentView.studentClassSchedule',compact('classSched','mondaySched','teusdaySched','wednesdaySched','thursdaySched','fridaySched'));
+     
 
     }
 }
